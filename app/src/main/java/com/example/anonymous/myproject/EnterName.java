@@ -10,13 +10,13 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class EnterName extends AppCompatActivity implements View.OnClickListener{
-    int dificult;
+public class EnterName extends AppCompatActivity implements View.OnClickListener {
+    int difficult;
     String name;
-    TextView tv2,tvname;
+    TextView tv2, tvname;
     EditText et;
-    Button enter,easy,normal,hard;
-    static GameClasses.Hero king=new GameClasses.Hero();
+    Button enter, easy, normal, hard;
+    static GameClasses.Hero king = new GameClasses.Hero();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,64 +31,77 @@ public class EnterName extends AppCompatActivity implements View.OnClickListener
         setContentView(R.layout.activity_enter_name);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        enter=(Button)findViewById(R.id.enter);
-        et=(EditText)findViewById(R.id.name);
-        tv2=(TextView)findViewById(R.id.tv2);
+
+        enter = (Button) findViewById(R.id.enter);
+        et = (EditText) findViewById(R.id.name);
+        tv2 = (TextView) findViewById(R.id.tv2);
+        tvname = (TextView) findViewById(R.id.tvname);
+
         enter.setOnClickListener(this);
-        tvname=(TextView)findViewById(R.id.tvname);
-
-
     }
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.enter: {
                 if (et.getText().toString().equals("")) {
                     tv2.setText("Введите имя");
                 } else {
                     name = et.getText().toString();
+
                     enter.setVisibility(View.GONE);
                     et.setVisibility(View.GONE);
+
                     tvname.setText("Выберите уровень сложности");
                     tv2.setText("");
-                   final Button easy = new Button(this);
-                    easy.setText("Easy");
+
+                    final Button easy = new Button(this);
+                    easy.setText(getString(R.string.word_easy));
+
                     final Button normal = new Button(this);
-                    normal.setText("Normal");
+                    normal.setText(getString(R.string.word_normal));
+
                     final Button hard = new Button(this);
-                    hard.setText("Hard");
+                    hard.setText(getString(R.string.word_hard));
+
                     ((LinearLayout) findViewById(R.id.LL)).addView(easy);
                     ((LinearLayout) findViewById(R.id.LL)).addView(normal);
                     ((LinearLayout) findViewById(R.id.LL)).addView(hard);
+
                     easy.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            dificult=1;
+                            tvname.setText("Выберите класс");
+
+                            difficult = 1;
+
                             easy.setVisibility(View.GONE);
                             hard.setVisibility(View.GONE);
                             normal.setVisibility(View.GONE);
+
                             final Button class1 = new Button(EnterName.this);
-                            class1.setText("Class1");
+                            class1.setText(getString(R.string.word_class1));
+
                             final Button class2 = new Button(EnterName.this);
-                            class2.setText("Class2");
+                            class2.setText(getString(R.string.word_class2));
+
                             ((LinearLayout) findViewById(R.id.LL)).addView(class1);
                             ((LinearLayout) findViewById(R.id.LL)).addView(class2);
+
                             class1.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
-                                    GameClasses.Hero king=new GameClasses.Class1();
-                                    king.name=name;
+                                    GameClasses.Hero.name = name;
                                     Intent path = new Intent(EnterName.this, Path.class);
                                     startActivity(path);
                                     finish();
                                 }
                             });
+
                             class2.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
-                                    king.name=name;
-                                    GameClasses.Hero king=new GameClasses.Class2();
+                                    GameClasses.Hero.name = name;
                                     Intent path = new Intent(EnterName.this, Path.class);
                                     startActivity(path);
                                     finish();
@@ -96,35 +109,41 @@ public class EnterName extends AppCompatActivity implements View.OnClickListener
                             });
                         }
                     });
+
                     normal.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
                             tvname.setText("Выберите класс");
-                            dificult=2;
+
+                            difficult = 2;
+
                             easy.setVisibility(View.GONE);
                             hard.setVisibility(View.GONE);
                             normal.setVisibility(View.GONE);
+
                             final Button class1 = new Button(EnterName.this);
-                            class1.setText("Class1");
+                            class1.setText(getString(R.string.word_class1));
+
                             final Button class2 = new Button(EnterName.this);
-                            class2.setText("Class2");
+                            class2.setText(getString(R.string.word_class2));
+
                             ((LinearLayout) findViewById(R.id.LL)).addView(class1);
                             ((LinearLayout) findViewById(R.id.LL)).addView(class2);
+
                             class1.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
-                                    GameClasses.Hero king=new GameClasses.Class1();
-                                    king.name=name;
+                                    GameClasses.Hero.name = name;
                                     Intent path = new Intent(EnterName.this, Path.class);
                                     startActivity(path);
                                     finish();
                                 }
                             });
+
                             class2.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
-                                    king.name=name;
-                                    GameClasses.Hero king=new GameClasses.Class2();
+                                    GameClasses.Hero.name = name;
                                     Intent path = new Intent(EnterName.this, Path.class);
                                     startActivity(path);
                                     finish();
@@ -132,34 +151,41 @@ public class EnterName extends AppCompatActivity implements View.OnClickListener
                             });
                         }
                     });
+
                     hard.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            dificult=3;
+                            tvname.setText("Выберите класс");
+
+                            difficult = 3;
+
                             easy.setVisibility(View.GONE);
                             hard.setVisibility(View.GONE);
                             normal.setVisibility(View.GONE);
+
                             final Button class1 = new Button(EnterName.this);
-                            class1.setText("Class1");
+                            class1.setText(getString(R.string.word_class1));
+
                             final Button class2 = new Button(EnterName.this);
-                            class2.setText("Class2");
+                            class2.setText(getString(R.string.word_class2));
+
                             ((LinearLayout) findViewById(R.id.LL)).addView(class1);
                             ((LinearLayout) findViewById(R.id.LL)).addView(class2);
+
                             class1.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
-                                    GameClasses.Hero king=new GameClasses.Class1();
-                                    king.name=name;
+                                    GameClasses.Hero.name = name;
                                     Intent path = new Intent(EnterName.this, Path.class);
                                     startActivity(path);
                                     finish();
                                 }
                             });
+
                             class2.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
-                                    king.name=name;
-                                    GameClasses.Hero king=new GameClasses.Class2();
+                                    GameClasses.Hero.name = name;
                                     Intent path = new Intent(EnterName.this, Path.class);
                                     startActivity(path);
                                     finish();

@@ -21,4 +21,9 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_main_game">MainGame</string>
     <string name="title_activity_enter_name">EnterName</string>
+    <string name="word_easy">Easy</string>
+    <string name="word_normal">Normal</string>
+    <string name="word_hard">Hard</string>
+    <string name="word_class1">Class1</string>
+    <string name="word_class2">Class2</string>
 </resources>

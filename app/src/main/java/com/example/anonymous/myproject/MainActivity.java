@@ -11,6 +11,7 @@ import android.widget.TextView;
 import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
     TextView tv;
     Button start, settings, dev, exit, contin;
 
@@ -52,6 +53,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Intent cont = new Intent(this, Path.class);
                 startActivity(cont);
                 finish();
+            }
+            case R.id.settings: {
+                break;
+            }
+            case R.id.dev: {
+                break;
             }
             case R.id.exit: {
                 finish();

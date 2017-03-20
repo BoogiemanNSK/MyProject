@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Overthrown</string>
+    <string name="word_normal">Нормально</string>
+    <string name="word_hard">Сложно</string>
+    <string name="word_easy">Легко</string>
+    <string name="word_class2">Маг</string>
+    <string name="word_class1">Воин</string>
+    <string name="title_activity_scrolling">Пролог</string>
+    <string name="action_settings">Настройки</string>
+    <string name="Settings">Настройки</string>
+    <string name="New_game">Новая Игра</string>
+    <string name="Exit">Выход</string>
+    <string name="Contin">Продолжить</string>
+    <string name="About_developers">О Разработчиках</string>
+</resources>

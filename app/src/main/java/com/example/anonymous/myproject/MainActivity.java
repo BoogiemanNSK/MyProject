@@ -1,6 +1,5 @@
 package com.example.anonymous.myproject;
 
-import android.app.Application;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,7 +11,6 @@ import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    TextView tv;
     Button start, settings, dev, exit, contin;
 
     @Override
@@ -49,7 +47,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             }
             case R.id.contin: {
-
                 Intent cont = new Intent(this, Path.class);
                 startActivity(cont);
                 finish();

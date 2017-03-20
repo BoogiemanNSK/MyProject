@@ -11,11 +11,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class EnterName extends AppCompatActivity implements View.OnClickListener {
+
     int difficult;
     String name;
     TextView tv2, tvname;
     EditText et;
-    Button enter, easy, normal, hard;
+    Button enter;
     static GameClasses.Hero king = new GameClasses.Hero();
 
     @Override
@@ -91,7 +92,7 @@ public class EnterName extends AppCompatActivity implements View.OnClickListener
                             class1.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
-                                    GameClasses.Hero.name = name;
+                                    king.name = name;
                                     Intent path = new Intent(EnterName.this, Path.class);
                                     startActivity(path);
                                     finish();
@@ -101,7 +102,7 @@ public class EnterName extends AppCompatActivity implements View.OnClickListener
                             class2.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
-                                    GameClasses.Hero.name = name;
+                                    king.name = name;
                                     Intent path = new Intent(EnterName.this, Path.class);
                                     startActivity(path);
                                     finish();
@@ -133,7 +134,7 @@ public class EnterName extends AppCompatActivity implements View.OnClickListener
                             class1.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
-                                    GameClasses.Hero.name = name;
+                                    king.name = name;
                                     Intent path = new Intent(EnterName.this, Path.class);
                                     startActivity(path);
                                     finish();
@@ -143,7 +144,7 @@ public class EnterName extends AppCompatActivity implements View.OnClickListener
                             class2.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
-                                    GameClasses.Hero.name = name;
+                                    king.name = name;
                                     Intent path = new Intent(EnterName.this, Path.class);
                                     startActivity(path);
                                     finish();
@@ -175,7 +176,7 @@ public class EnterName extends AppCompatActivity implements View.OnClickListener
                             class1.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
-                                    GameClasses.Hero.name = name;
+                                    king.name = name;
                                     Intent path = new Intent(EnterName.this, Path.class);
                                     startActivity(path);
                                     finish();
@@ -185,7 +186,7 @@ public class EnterName extends AppCompatActivity implements View.OnClickListener
                             class2.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
-                                    GameClasses.Hero.name = name;
+                                    king.name = name;
                                     Intent path = new Intent(EnterName.this, Path.class);
                                     startActivity(path);
                                     finish();

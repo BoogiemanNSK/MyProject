@@ -1,11 +1,11 @@
 <resources>
     <string name="app_name">Overthrown</string>
-    <string name="New_game">New game</string>
+    <string name="New_game">New Game</string>
     <string name="Contin">Continue</string>
     <string name="Settings">Settings</string>
-    <string name="About_developers">About developers</string>
+    <string name="About_developers">About Developers</string>
     <string name="Exit">Exit</string>
-    <string name="title_activity_scrolling">Пролог</string>
+    <string name="title_activity_scrolling">Prologue</string>
     <string name="story">
         Вы законный наследник престола королевства Четырёх земель. 
         Народ обожал Вас за мудрые решения, справедливость и человеческие качества. 
@@ -19,11 +19,11 @@
         \n\n\n
     </string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_main_game">MainGame</string>
-    <string name="title_activity_enter_name">EnterName</string>
+    <string name="title_activity_main_game" translatable="false">MainGame</string>
+    <string name="title_activity_enter_name" translatable="false">EnterName</string>
     <string name="word_easy">Easy</string>
     <string name="word_normal">Normal</string>
     <string name="word_hard">Hard</string>
-    <string name="word_class1">Class1</string>
-    <string name="word_class2">Class2</string>
+    <string name="word_class1">Warrior</string>
+    <string name="word_class2">Mage</string>
 </resources>

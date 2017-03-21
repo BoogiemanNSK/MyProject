@@ -90,7 +90,7 @@ public class Mapped extends View {
         paint.setStyle(Paint.Style.STROKE);
         paint.setColor(Color.RED);
         paint.setStrokeWidth(5);
-        canvas.drawCircle((float) ((EnterName.king.y - 1) * getWidth() / 30 + 0.5 * getWidth() / 30), (float) ((EnterName.king.x - 1) * getHeight() / 30 + 0.5 * getHeight() / 30), getHeight() / 45, paint);
+        canvas.drawCircle((float) ((Path.king.y - 1) * getWidth() / 30 + 0.5 * getWidth() / 30), (float) ((Path.king.x - 1) * getHeight() / 30 + 0.5 * getHeight() / 30), getHeight() / 45, paint);
             }
 }
 

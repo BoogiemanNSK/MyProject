@@ -17,7 +17,6 @@ public class EnterName extends AppCompatActivity implements View.OnClickListener
     TextView tv2, tvname;
     EditText et;
     Button enter;
-    static GameClasses.Hero king = new GameClasses.Hero();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,8 +91,9 @@ public class EnterName extends AppCompatActivity implements View.OnClickListener
                             class1.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
-                                    king.name = name;
                                     Intent path = new Intent(EnterName.this, Path.class);
+                                    path.putExtra("name", name);
+                                    path.putExtra("class", 1);
                                     startActivity(path);
                                     finish();
                                 }
@@ -102,8 +102,9 @@ public class EnterName extends AppCompatActivity implements View.OnClickListener
                             class2.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
-                                    king.name = name;
                                     Intent path = new Intent(EnterName.this, Path.class);
+                                    path.putExtra("name", name);
+                                    path.putExtra("class", 2);
                                     startActivity(path);
                                     finish();
                                 }
@@ -134,8 +135,9 @@ public class EnterName extends AppCompatActivity implements View.OnClickListener
                             class1.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
-                                    king.name = name;
                                     Intent path = new Intent(EnterName.this, Path.class);
+                                    path.putExtra("name", name);
+                                    path.putExtra("class", 1);
                                     startActivity(path);
                                     finish();
                                 }
@@ -144,8 +146,9 @@ public class EnterName extends AppCompatActivity implements View.OnClickListener
                             class2.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
-                                    king.name = name;
                                     Intent path = new Intent(EnterName.this, Path.class);
+                                    path.putExtra("name", name);
+                                    path.putExtra("class", 2);
                                     startActivity(path);
                                     finish();
                                 }
@@ -176,8 +179,9 @@ public class EnterName extends AppCompatActivity implements View.OnClickListener
                             class1.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
-                                    king.name = name;
                                     Intent path = new Intent(EnterName.this, Path.class);
+                                    path.putExtra("name", name);
+                                    path.putExtra("class", 1);
                                     startActivity(path);
                                     finish();
                                 }
@@ -186,8 +190,9 @@ public class EnterName extends AppCompatActivity implements View.OnClickListener
                             class2.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
-                                    king.name = name;
                                     Intent path = new Intent(EnterName.this, Path.class);
+                                    path.putExtra("name", name);
+                                    path.putExtra("class", 2);
                                     startActivity(path);
                                     finish();
                                 }

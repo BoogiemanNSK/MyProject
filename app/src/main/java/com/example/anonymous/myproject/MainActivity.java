@@ -24,11 +24,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         | View.SYSTEM_UI_FLAG_FULLSCREEN
                         | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
         setContentView(R.layout.activity_main);
+
         start = (Button) findViewById(R.id.start);
         exit = (Button) findViewById(R.id.exit);
         settings = (Button) findViewById(R.id.settings);
         dev = (Button) findViewById(R.id.dev);
         contin = (Button) findViewById(R.id.contin);
+
         start.setOnClickListener(this);
         exit.setOnClickListener(this);
         settings.setOnClickListener(this);
@@ -38,10 +40,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        Intent start, settings, dev, exit, contin;
         switch (view.getId()) {
             case R.id.start: {
-                start = new Intent(this, ScrollingActivity.class);
+                Intent start = new Intent(this, ScrollingActivity.class);
                 startActivity(start);
                 super.onStop();
                 break;
@@ -63,6 +64,4 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
     }
-
-
 }

@@ -20,7 +20,7 @@ class GameClasses {
         int dmg;
         double critical, critical_multiplier;
 
-        public Weapon(String title, int dmg, double critical, double critical_multiplier) {
+        Weapon(String title, int dmg, double critical, double critical_multiplier) {
             this.title = title;
             this.dmg = dmg;
             this.critical = critical;
@@ -32,13 +32,13 @@ class GameClasses {
         String title;
         int armor;
 
-        public Armor(String title, int armor) {
+        Armor(String title, int armor) {
             this.title = title;
             this.armor = armor;
         }
     }
 
-    static class Hero {
+    abstract static class Hero {
         String name;
         Weapon weapon;
         Armor armor;

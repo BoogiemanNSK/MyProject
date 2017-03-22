@@ -1,94 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mainLL"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:id="@+id/mainLL"
-    android:background="@mipmap/chivlary">
+    android:background="@mipmap/chivlary"
+    android:orientation="vertical">
 
     <LinearLayout
+        android:id="@+id/LL"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:id="@+id/LL"
         android:background="#B0000000"
-        >
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            />
+            android:layout_height="50dp" />
+
         <ImageButton
-    android:layout_width="75dp"
-    android:layout_height="75dp"
             android:id="@+id/map"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
             android:layout_gravity="end"
+            android:alpha="0.3"
             android:background="@mipmap/map"
-            android:alpha="0.3"/>
+            android:contentDescription="@string/map_word" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="70dp"
-            />
+            android:text="@string/map_word"
+            android:textAlignment="textEnd"
+            android:layout_marginEnd="15sp"/>
 
         <TextView
+            android:id="@+id/tv"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:id="@+id/tv"
-            android:textSize="20dp"
-            />
+            android:textSize="20sp" />
 
         <Button
+            android:id="@+id/forward"
             android:layout_width="150dp"
             android:layout_height="60dp"
-            android:text="↑\nВперёд"
-            android:id="@+id/forward"
             android:layout_gravity="center"
             android:background="#A0000000"
-            />
+            android:text="@string/up_string" />
+
         <LinearLayout
+            android:id="@+id/LL1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:id="@+id/LL1"
             android:background="#00000000"
-            >
+            android:orientation="horizontal">
+
             <Button
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:text="← Влево"
-                android:layout_weight="1"
-                android:layout_gravity="start"
-                android:layout_marginRight="30dp"
-                android:layout_marginLeft="30dp"
                 android:id="@+id/left"
-                android:background="#A0000000"
-                />
-
-            <Button
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:layout_weight="1"
-                android:layout_marginRight="30dp"
+                android:layout_gravity="start"
                 android:layout_marginLeft="30dp"
-                android:text="Вправо →"
-                android:layout_gravity="end"
-                android:id="@+id/right"
+                android:layout_marginRight="30dp"
+                android:layout_weight="1"
                 android:background="#A0000000"
-                />
+                android:text="@string/left_string" />
 
+            <Button
+                android:id="@+id/right"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_gravity="end"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_weight="1"
+                android:background="#A0000000"
+                android:text="@string/right_string" />
 
         </LinearLayout>
 
         <Button
-        android:layout_width="150dp"
-        android:layout_height="60dp"
-        android:text="Назад\n ↓"
-        android:layout_gravity="center"
-        android:id="@+id/back"
-        android:background="#A0000000"
-        />
+            android:id="@+id/back"
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:background="#A0000000"
+            android:text="@string/down_string" />
 
+    </LinearLayout>
 
-</LinearLayout>
 </LinearLayout>

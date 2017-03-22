@@ -63,7 +63,7 @@ public class Path extends AppCompatActivity implements View.OnClickListener {
             case R.id.forward: {
                 if (king.x != 1) {
                     king.x--;
-                    GameClasses.event(tv, myWorld.map, king);
+                    GameClasses.event(tv, GameClasses.World.map, king);
                 } else {
                     tv.setText(king.name + ", " + "Вы явно заблудились. Попробуйте другой маршрут.");
                 }
@@ -72,7 +72,7 @@ public class Path extends AppCompatActivity implements View.OnClickListener {
             case R.id.back: {
                 if (king.x != 30) {
                     king.x++;
-                    GameClasses.event(tv, myWorld.map, king);
+                    GameClasses.event(tv, GameClasses.World.map, king);
                 } else {
                     tv.setText(king.name + ", " + "Вы явно заблудились. Попробуйте другой маршрут.");
                 }
@@ -82,7 +82,7 @@ public class Path extends AppCompatActivity implements View.OnClickListener {
             case R.id.left: {
                 if (king.y != 1) {
                     king.y--;
-                    GameClasses.event(tv, myWorld.map, king);
+                    GameClasses.event(tv, GameClasses.World.map, king);
                 } else {
                     tv.setText(king.name + ", " + "Вы явно заблудились. Попробуйте другой маршрут.");
                 }
@@ -92,7 +92,7 @@ public class Path extends AppCompatActivity implements View.OnClickListener {
             case R.id.right: {
                 if (king.y != 30) {
                     king.y++;
-                    GameClasses.event(tv, myWorld.map, king);
+                    GameClasses.event(tv, GameClasses.World.map, king);
                 } else {
                     tv.setText(king.name + ", " + "Вы явно заблудились. Попробуйте другой маршрут.");
                 }

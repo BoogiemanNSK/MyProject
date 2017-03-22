@@ -1,50 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mainLL"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:id="@+id/mainLL"
     android:background="@mipmap/chivlary"
+    android:orientation="vertical"
     android:weightSum="1">
+
     <LinearLayout
+        android:id="@+id/LL"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:id="@+id/LL"
         android:background="#B0000000"
+        android:orientation="vertical"
         android:weightSum="1">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/tvname"
-        android:textSize="20dp"
-        android:text="Необходимо сменить имя, чтобы Вас не узнали. Как хотите, чтобы Вас называли?"
-        />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/tv2"
-        android:textSize="15dp"
-        />
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:id="@+id/name"
-        android:hint="Введите имя"
-        android:inputType="textPersonName"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="150sp" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/enter"
-        android:text="Ввести"
-        android:textSize="20dp"
-        android:background="#80000000"
-        />
-</LinearLayout>
+        <TextView
+            android:id="@+id/tvname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/change_name_text"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tv2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15sp" />
+
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="50sp"
+            android:hint="@string/entet_name_string"
+            android:inputType="textPersonName" />
+
+        <Button
+            android:id="@+id/enter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#80000000"
+            android:text="@string/enter_string"
+            android:textSize="20sp" />
+    </LinearLayout>
 </LinearLayout>

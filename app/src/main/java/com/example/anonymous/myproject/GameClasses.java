@@ -15,7 +15,7 @@ class GameClasses {
 
     }
 
-    static class Weapon {
+    private static class Weapon {
         String title;
         int dmg;
         double critical, critical_multiplier;
@@ -28,7 +28,7 @@ class GameClasses {
         }
     }
 
-    static class Armor {
+    private static class Armor {
         String title;
         int armor;
 
@@ -87,39 +87,39 @@ class GameClasses {
     static void event(TextView tv, short[][] world, Hero hero) {
         switch (world[hero.y][hero.x]) {
             case 1: {
-                tv.setText(hero.name + ", " + "Вы бредёте по горам, ни на что не натыкаясь.");
+                tv.setText(hero.name + ", Вы бредёте по горам, ни на что не натыкаясь.");
                 break;
             }
             case 2: {
-                tv.setText(hero.name + ", " + "Вы бредёте по пустыне, ни на что не натыкаясь.");
+                tv.setText(hero.name + ", Вы бредёте по пустыне, ни на что не натыкаясь.");
                 break;
             }
             case 3: {
-                tv.setText(hero.name + ", " + "Вы бредёте по лесу, ни на что не натыкаясь.");
+                tv.setText(hero.name + ", Вы бредёте по лесу, ни на что не натыкаясь.");
                 break;
             }
             case 4: {
-                tv.setText(hero.name + ", " + "Вы бредёте по снежной долине, ни на что не натыкаясь.");
+                tv.setText(hero.name + ", Вы бредёте по снежной долине, ни на что не натыкаясь.");
                 break;
             }
             case 5: {
-                tv.setText(hero.name + ", " + "Вы натыкаетесь на великую башню Магнуса. Потрясающее явление и очень редкое.");
+                tv.setText(hero.name + ", Вы натыкаетесь на великую башню Магнуса. Потрясающее явление и очень редкое.");
                 break;
             }
             case 6: {
-                tv.setText(hero.name + ", " + "Вы замечаете бандитов, насилующих девушку, но проходите мимо.");
+                tv.setText(hero.name + ", Вы замечаете бандитов, насилующих девушку, но проходите мимо.");
                 break;
             }
             case 7: {
-                tv.setText(hero.name + ", " + "Вы замечаете таверну, однако не решаетесь зайти.");
+                tv.setText(hero.name + ", Вы замечаете таверну, однако не решаетесь зайти.");
                 break;
             }
             case 8: {
-                tv.setText(hero.name + ", " + "Вы видите пещеру, но обходите её стороной.");
+                tv.setText(hero.name + ", Вы видите пещеру, но обходите её стороной.");
                 break;
             }
             case 9: {
-                tv.setText(hero.name + ", " + "Вы видите радугу. Мило.");
+                tv.setText(hero.name + ", Вы видите радугу. Мило.");
                 break;
             }
             default: {
@@ -128,7 +128,7 @@ class GameClasses {
         }
     }
 
-    private static void fillArr() {
+    static void fillArr() {
         int count = 0, count1 = 1;
         short p = 0, k = 0;
         int[] events = new int[5];

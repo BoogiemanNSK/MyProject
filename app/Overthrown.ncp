@@ -57,7 +57,7 @@
       </Entity>
       <Entity type="Class">
         <Name>Weapon</Name>
-        <Access>Public</Access>
+        <Access>Default</Access>
         <Location left="364" top="80" />
         <Size width="389" height="162" />
         <Collapsed>False</Collapsed>
@@ -70,7 +70,7 @@
       </Entity>
       <Entity type="Class">
         <Name>Armor</Name>
-        <Access>Public</Access>
+        <Access>Default</Access>
         <Location left="364" top="271" />
         <Size width="389" height="128" />
         <Collapsed>False</Collapsed>
@@ -88,14 +88,10 @@
     </Entities>
     <Relationships>
       <Relationship type="Dependency" first="2" second="1">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
       </Relationship>
       <Relationship type="Dependency" first="3" second="1">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
       </Relationship>

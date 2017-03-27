@@ -1,11 +1,13 @@
 package com.example.anonymous.myproject;
 
+import android.content.Context;
 import android.widget.TextView;
 
 class GameClasses {
 
     static class World {
 
+        int difficult;
         static short[][] map;
 
         World() {
@@ -42,7 +44,7 @@ class GameClasses {
         String name;
         Weapon weapon;
         Armor armor;
-        int money, hp, karma, strength, perception, endurance, charisma, intelligence, agility, luck;
+        int money, hp, mana, karma, strength, perception, endurance, charisma, intelligence, agility, luck;
         int x, y;
     }
 
@@ -51,15 +53,9 @@ class GameClasses {
             this.weapon = new Weapon("Деревянная палка", 2, 0.05, 1.1);
             this.armor = new Armor("Рваный балахон", 1);
             this.money = 5;
-            this.hp = 100;
+            this.hp = 150;
+            this.mana = 0;
             this.karma = 50;
-            this.strength = 5;
-            this.perception = 5;
-            this.endurance = 5;
-            this.charisma = 5;
-            this.intelligence = 5;
-            this.agility = 5;
-            this.luck = 5;
             this.x = (int) (Math.random() * 15 + 5);
             this.y = (int) (Math.random() * 15 + 5);
         }
@@ -70,56 +66,50 @@ class GameClasses {
             this.weapon = new Weapon("Деревянная палка", 2, 0.05, 1.1);
             this.armor = new Armor("Рваный балахон", 1);
             this.money = 5;
-            this.hp = 150;
+            this.hp = 100;
+            this.mana = 10;
             this.karma = 50;
-            this.strength = 5;
-            this.perception = 5;
-            this.endurance = 5;
-            this.charisma = 5;
-            this.intelligence = 5;
-            this.agility = 5;
-            this.luck = 10;
             this.x = (int) (Math.random() * 15 + 5);
             this.y = (int) (Math.random() * 15 + 5);
         }
     }
 
-    static void event(TextView tv, short[][] world, Hero hero) {
+    static void event(TextView tv, short[][] world, Hero hero, Context context) {
         switch (world[hero.y][hero.x]) {
             case 1: {
-                tv.setText(hero.name + ", Вы бредёте по горам, ни на что не натыкаясь.");
+                tv.setText(String.format(context.getString(R.string.mountains_walk_string), hero.name));
                 break;
             }
             case 2: {
-                tv.setText(hero.name + ", Вы бредёте по пустыне, ни на что не натыкаясь.");
+                tv.setText(String.format(context.getString(R.string.desert_walk_string), hero.name));
                 break;
             }
             case 3: {
-                tv.setText(hero.name + ", Вы бредёте по лесу, ни на что не натыкаясь.");
+                tv.setText(String.format(context.getString(R.string.forest_walk_string), hero.name));
                 break;
             }
             case 4: {
-                tv.setText(hero.name + ", Вы бредёте по снежной долине, ни на что не натыкаясь.");
+                tv.setText(String.format(context.getString(R.string.winter_walk_string), hero.name));
                 break;
             }
             case 5: {
-                tv.setText(hero.name + ", Вы натыкаетесь на великую башню Магнуса. Потрясающее явление и очень редкое.");
+                tv.setText(String.format(context.getString(R.string.magnus_event_string), hero.name));
                 break;
             }
             case 6: {
-                tv.setText(hero.name + ", Вы замечаете бандитов, насилующих девушку, но проходите мимо.");
+                tv.setText(String.format(context.getString(R.string.bandits_event_string), hero.name));
                 break;
             }
             case 7: {
-                tv.setText(hero.name + ", Вы замечаете таверну, однако не решаетесь зайти.");
+                tv.setText(String.format(context.getString(R.string.tavern_event_string), hero.name));
                 break;
             }
             case 8: {
-                tv.setText(hero.name + ", Вы видите пещеру, но обходите её стороной.");
+                tv.setText(String.format(context.getString(R.string.cave_event_string), hero.name));
                 break;
             }
             case 9: {
-                tv.setText(hero.name + ", Вы видите радугу. Мило.");
+                tv.setText(String.format(context.getString(R.string.rainbow_event_string), hero.name));
                 break;
             }
             default: {
@@ -128,7 +118,7 @@ class GameClasses {
         }
     }
 
-    static void fillArr() {
+    private static void fillArr() {
         int count = 0, count1 = 1;
         short p = 0, k = 0;
         int[] events = new int[5];
@@ -191,10 +181,11 @@ class GameClasses {
                             } else {
                                 k = 0;
                                 count++;
-                                if (k == 4)
+                                p = k++;
+                                /*if (k == 4)
                                     p = 0;
                                 else
-                                    p = k++;
+                                    p = k++;*/
                             }
                         }
                         k = 0;

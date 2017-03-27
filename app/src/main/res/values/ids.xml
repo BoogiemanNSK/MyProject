@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="strength_plus" type="id" />
+    <item name="strength_minus" type="id" />
+    <item name="perception_plus" type="id" />
+    <item name="perception_minus" type="id" />
+    <item name="endurance_plus" type="id" />
+    <item name="endurance_minus" type="id" />
+    <item name="charisma_plus" type="id" />
+    <item name="charisma_minus" type="id" />
+    <item name="intelligence_plus" type="id" />
+    <item name="intelligence_minus" type="id" />
+    <item name="agility_plus" type="id" />
+    <item name="agility_minus" type="id" />
+    <item name="luck_plus" type="id" />
+    <item name="luck_minus" type="id" />
+</resources>

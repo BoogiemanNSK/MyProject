@@ -36,4 +36,22 @@
     <string name="down_string">Назад\n↓</string>
     <string name="no_word">Нет</string>
     <string name="yes_word">Да</string>
+    <string name="get_lost_string">%1$s, You definitely got lost. Try another way.</string>
+    <string name="winter_walk_string">%1$s , Вы бредёте по снежной долине, ни на что не натыкаясь.</string>
+    <string name="desert_walk_string">%1$s , Вы бредёте по пустыне, ни на что не натыкаясь.</string>
+    <string name="forest_walk_string">%1$s , Вы бредёте по лесу, ни на что не натыкаясь.</string>
+    <string name="mountains_walk_string">%1$s, Вы бредёте по горам, ни на что не натыкаясь.</string>
+    <string name="magnus_event_string">%1$s, Вы натыкаетесь на великую башню Магнуса. Потрясающее явление и очень редкое.</string>
+    <string name="bandits_event_string">%1$s, Вы замечаете бандитов, насилующих девушку, но проходите мимо.</string>
+    <string name="tavern_event_string">%1$s, Вы замечаете таверну, однако не решаетесь зайти.</string>
+    <string name="cave_event_string">%1$s, Вы видите пещеру, но обходите её стороной.</string>
+    <string name="rainbow_event_string">%1$s, Вы видите радугу. Мило.</string>
+    <string name="enter_word">Enter</string>
+    <string name="strength_abilities">Strength [0]</string>
+    <string name="perception_abilities">Perception [0]</string>
+    <string name="endurance_abilities">Endurance [0]</string>
+    <string name="charisma_abilities">Charisma [0]</string>
+    <string name="intelligence_abilities">Intelligence [0]</string>
+    <string name="agility_abilities">Agility [0]</string>
+    <string name="luck_abilities">Luck [0]</string>
 </resources>

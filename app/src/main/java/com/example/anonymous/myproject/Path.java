@@ -56,6 +56,15 @@ public class Path extends AppCompatActivity implements View.OnClickListener {
                 break;
         }
         king.name = getIntent().getStringExtra("name");
+        king.strength = getIntent().getIntExtra("strength", 0);
+        king.perception = getIntent().getIntExtra("perception", 0);
+        king.endurance = getIntent().getIntExtra("endurance", 0);
+        king.charisma = getIntent().getIntExtra("charisma", 0);
+        king.intelligence = getIntent().getIntExtra("intelligence", 0);
+        king.agility = getIntent().getIntExtra("agility", 0);
+        king.luck = getIntent().getIntExtra("luck", 0);
+
+        myWorld.difficult = getIntent().getIntExtra("difficult", 0);
     }
 
     public void onClick(View v) {
@@ -63,18 +72,18 @@ public class Path extends AppCompatActivity implements View.OnClickListener {
             case R.id.forward: {
                 if (king.x != 1) {
                     king.x--;
-                    GameClasses.event(tv, GameClasses.World.map, king);
+                    GameClasses.event(tv, GameClasses.World.map, king, getApplicationContext());
                 } else {
-                    tv.setText(king.name + ", " + "Вы явно заблудились. Попробуйте другой маршрут.");
+                    tv.setText(getString(R.string.get_lost_string, king.name));
                 }
                 break;
             }
             case R.id.back: {
                 if (king.x != 30) {
                     king.x++;
-                    GameClasses.event(tv, GameClasses.World.map, king);
+                    GameClasses.event(tv, GameClasses.World.map, king, getApplicationContext());
                 } else {
-                    tv.setText(king.name + ", " + "Вы явно заблудились. Попробуйте другой маршрут.");
+                    tv.setText(getString(R.string.get_lost_string, king.name));
                 }
                 break;
             }
@@ -82,9 +91,9 @@ public class Path extends AppCompatActivity implements View.OnClickListener {
             case R.id.left: {
                 if (king.y != 1) {
                     king.y--;
-                    GameClasses.event(tv, GameClasses.World.map, king);
+                    GameClasses.event(tv, GameClasses.World.map, king, getApplicationContext());
                 } else {
-                    tv.setText(king.name + ", " + "Вы явно заблудились. Попробуйте другой маршрут.");
+                    tv.setText(getString(R.string.get_lost_string, king.name));
                 }
                 break;
             }
@@ -92,9 +101,9 @@ public class Path extends AppCompatActivity implements View.OnClickListener {
             case R.id.right: {
                 if (king.y != 30) {
                     king.y++;
-                    GameClasses.event(tv, GameClasses.World.map, king);
+                    GameClasses.event(tv, GameClasses.World.map, king, getApplicationContext());
                 } else {
-                    tv.setText(king.name + ", " + "Вы явно заблудились. Попробуйте другой маршрут.");
+                    tv.setText(getString(R.string.get_lost_string, king.name));
                 }
                 break;
             }
@@ -103,6 +112,7 @@ public class Path extends AppCompatActivity implements View.OnClickListener {
                 startActivity(maps);
                 break;
             }
+            // TODO Сделать инвентарь персонажа
             default:
                 break;
         }

@@ -13,7 +13,7 @@ public class Path extends AppCompatActivity implements View.OnClickListener {
 
     TextView tv;
     Button forward, back, left, right;
-    ImageButton map;
+    ImageButton map, inventory;
 
     final String LOG_TAG = "logcat_tag";
 
@@ -37,12 +37,14 @@ public class Path extends AppCompatActivity implements View.OnClickListener {
         back = (Button) findViewById(R.id.back);
         left = (Button) findViewById(R.id.left);
         map = (ImageButton) findViewById(R.id.map);
+        inventory = (ImageButton) findViewById(R.id.inv);
 
         left.setOnClickListener(this);
         right.setOnClickListener(this);
         forward.setOnClickListener(this);
         back.setOnClickListener(this);
         map.setOnClickListener(this);
+        inventory.setOnClickListener(this);
 
         switch (getIntent().getIntExtra("class", 0)) {
             case 1:
@@ -112,7 +114,11 @@ public class Path extends AppCompatActivity implements View.OnClickListener {
                 startActivity(maps);
                 break;
             }
-            // TODO Сделать инвентарь персонажа
+            case R.id.inv: { // TODO Доделать инвентарь персонажа
+                Intent invs = new Intent(this, Inventory.class);
+                startActivity(invs);
+                break;
+            }
             default:
                 break;
         }

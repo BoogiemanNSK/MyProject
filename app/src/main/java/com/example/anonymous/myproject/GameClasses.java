@@ -17,12 +17,16 @@ class GameClasses {
 
     }
 
-    private static class Weapon {
-        String title;
+    abstract static class Item {
+        String title, itemType;
+    }
+
+    private static class Weapon extends Item {
         int dmg;
         double critical, critical_multiplier;
 
         Weapon(String title, int dmg, double critical, double critical_multiplier) {
+            this.itemType = "weapon";
             this.title = title;
             this.dmg = dmg;
             this.critical = critical;
@@ -30,13 +34,23 @@ class GameClasses {
         }
     }
 
-    private static class Armor {
-        String title;
+    private static class Armor extends Item {
         int armor;
 
         Armor(String title, int armor) {
+            this.itemType = "armor";
             this.title = title;
             this.armor = armor;
+        }
+    }
+
+    private static class Drink extends Item {
+        String drinkType;
+        int bonus;
+
+        Drink(String drinkType, int bonus) {
+            this.drinkType = drinkType;
+            this.bonus = bonus;
         }
     }
 
@@ -44,8 +58,7 @@ class GameClasses {
         String name;
         Weapon weapon;
         Armor armor;
-        int money, hp, mana, karma, strength, perception, endurance, charisma, intelligence, agility, luck;
-        int x, y;
+        int money, hp, mana, karma, strength, perception, endurance, charisma, intelligence, agility, luck, x, y;
     }
 
     static class Warrior extends Hero {

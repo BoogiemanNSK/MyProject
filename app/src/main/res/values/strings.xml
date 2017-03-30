@@ -28,8 +28,8 @@
     <string name="word_class2">Mage</string>
     <string name="change_name_text">Необходимо сменить имя, чтобы Вас не узнали. Как хотите, чтобы Вас называли?</string>
     <string name="entet_name_string">Введите имя</string>
-    <string name="enter_string">Ввести</string>
     <string name="map_word">Map</string>
+    <string name="inv_word">Inventory</string>
     <string name="up_string">↑\nВперёд</string>
     <string name="left_string">← Влево</string>
     <string name="right_string">Вправо →</string>

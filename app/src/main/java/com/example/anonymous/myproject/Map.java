@@ -11,6 +11,5 @@ public class Map extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(new Mapped(this));
-        //setContentView(R.layout.activity_map);
     }
 }

@@ -22,12 +22,18 @@
             android:label="@string/title_activity_scrolling"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity android:name=".EnterName"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Path"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Map"
-            android:screenOrientation="portrait">></activity>
+        <activity
+            android:name=".EnterName"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Path"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Map"
+            android:screenOrientation="portrait">
+            >
+        </activity>
+        <activity android:name=".Inventory"></activity>
     </application>
 
 </manifest>

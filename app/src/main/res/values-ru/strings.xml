@@ -13,4 +13,15 @@
     <string name="Exit">Выход</string>
     <string name="Contin">Продолжить</string>
     <string name="About_developers">Разработчики</string>
+    <string name="agility_abilities">Ловкость [0]</string>
+    <string name="charisma_abilities">Харизма [0]</string>
+    <string name="endurance_abilities">Выносливость [0]</string>
+    <string name="enter_word">Далее</string>
+    <string name="get_lost_string">%1$s, Вы явно заблудились, попробуйте другой путь.</string>
+    <string name="intelligence_abilities">Интеллект [0]</string>
+    <string name="inv_word">Инвентарь</string>
+    <string name="luck_abilities">Удача [0]</string>
+    <string name="map_word">Карта</string>
+    <string name="perception_abilities">Восприятие [0]</string>
+    <string name="strength_abilities">Сила [0]</string>
 </resources>

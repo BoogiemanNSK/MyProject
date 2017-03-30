@@ -21,10 +21,13 @@ public class ScrollingActivity extends AppCompatActivity implements View.OnClick
                         | View.SYSTEM_UI_FLAG_FULLSCREEN
                         | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
         setContentView(R.layout.activity_scrolling);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
         yes = (Button) findViewById(R.id.Yes);
         no = (Button) findViewById(R.id.No);
+
         yes.setOnClickListener(this);
         no.setOnClickListener(this);
     }

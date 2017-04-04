@@ -3,10 +3,11 @@ package com.example.anonymous.myproject;
 import android.content.Context;
 import android.widget.TextView;
 
+import java.util.List;
+
 class GameClasses {
 
     static class World {
-
         int difficult;
         static short[][] map;
 
@@ -14,27 +15,25 @@ class GameClasses {
             map = new short[32][32];
             fillArr();
         }
-
     }
 
     abstract static class Item {
         String title, itemType;
     }
 
-    private static class Weapon extends Item {
-        int dmg;
-        double critical, critical_multiplier;
+    static class Weapon extends Item {
+        int damage;
+        double critical;
 
-        Weapon(String title, int dmg, double critical, double critical_multiplier) {
+        Weapon(String title, int dmg, double critical) {
             this.itemType = "weapon";
             this.title = title;
-            this.dmg = dmg;
+            this.damage = dmg;
             this.critical = critical;
-            this.critical_multiplier = critical_multiplier;
         }
     }
 
-    private static class Armor extends Item {
+    static class Armor extends Item {
         int armor;
 
         Armor(String title, int armor) {
@@ -44,26 +43,30 @@ class GameClasses {
         }
     }
 
-    private static class Drink extends Item {
+    static class Drink extends Item {
         String drinkType;
         int bonus;
 
-        Drink(String drinkType, int bonus) {
+        Drink(String drinkType, String title, int bonus) {
+            this.itemType = "drink";
             this.drinkType = drinkType;
+            this.title = title;
             this.bonus = bonus;
         }
     }
 
     abstract static class Hero {
+        List<Item> inventory;
         String name;
         Weapon weapon;
         Armor armor;
         int money, hp, mana, karma, strength, perception, endurance, charisma, intelligence, agility, luck, x, y;
+        double critical_multipler;
     }
 
     static class Warrior extends Hero {
         Warrior() {
-            this.weapon = new Weapon("Деревянная палка", 2, 0.05, 1.1);
+            this.weapon = new Weapon("Деревянная палка", 2, 0.05);
             this.armor = new Armor("Рваный балахон", 1);
             this.money = 5;
             this.hp = 150;
@@ -71,12 +74,13 @@ class GameClasses {
             this.karma = 50;
             this.x = (int) (Math.random() * 15 + 5);
             this.y = (int) (Math.random() * 15 + 5);
+            this.critical_multipler = 1.1;
         }
     }
 
     static class Mage extends Hero {
         Mage() {
-            this.weapon = new Weapon("Деревянная палка", 2, 0.05, 1.1);
+            this.weapon = new Weapon("Деревянная палка", 2, 0.05);
             this.armor = new Armor("Рваный балахон", 1);
             this.money = 5;
             this.hp = 100;
@@ -84,50 +88,41 @@ class GameClasses {
             this.karma = 50;
             this.x = (int) (Math.random() * 15 + 5);
             this.y = (int) (Math.random() * 15 + 5);
+            this.critical_multipler = 1.1;
         }
     }
 
     static void event(TextView tv, short[][] world, Hero hero, Context context) {
         switch (world[hero.y][hero.x]) {
-            case 1: {
+            case 1:
                 tv.setText(String.format(context.getString(R.string.mountains_walk_string), hero.name));
                 break;
-            }
-            case 2: {
+            case 2:
                 tv.setText(String.format(context.getString(R.string.desert_walk_string), hero.name));
                 break;
-            }
-            case 3: {
+            case 3:
                 tv.setText(String.format(context.getString(R.string.forest_walk_string), hero.name));
                 break;
-            }
-            case 4: {
+            case 4:
                 tv.setText(String.format(context.getString(R.string.winter_walk_string), hero.name));
                 break;
-            }
-            case 5: {
+            case 5:
                 tv.setText(String.format(context.getString(R.string.magnus_event_string), hero.name));
                 break;
-            }
-            case 6: {
+            case 6:
                 tv.setText(String.format(context.getString(R.string.bandits_event_string), hero.name));
                 break;
-            }
-            case 7: {
+            case 7:
                 tv.setText(String.format(context.getString(R.string.tavern_event_string), hero.name));
                 break;
-            }
-            case 8: {
+            case 8:
                 tv.setText(String.format(context.getString(R.string.cave_event_string), hero.name));
                 break;
-            }
-            case 9: {
+            case 9:
                 tv.setText(String.format(context.getString(R.string.rainbow_event_string), hero.name));
                 break;
-            }
-            default: {
+            default:
                 break;
-            }
         }
     }
 

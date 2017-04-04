@@ -19,7 +19,7 @@
         <Name>Hero</Name>
         <Access>Public</Access>
         <Location left="103" top="426" />
-        <Size width="162" height="349" />
+        <Size width="162" height="383" />
         <Collapsed>False</Collapsed>
         <Member type="Field">String name</Member>
         <Member type="Field">Weapon weapon</Member>
@@ -37,6 +37,8 @@
         <Member type="Field">int luck</Member>
         <Member type="Field">int x</Member>
         <Member type="Field">int y</Member>
+        <Member type="Field">double critical_multiplier</Member>
+        <Member type="Field">List&lt;Item&gt; inventory</Member>
         <Modifier>Abstract</Modifier>
       </Entity>
       <Entity type="Class">
@@ -91,19 +93,18 @@
         <Collapsed>False</Collapsed>
         <Member type="Field">int damage</Member>
         <Member type="Field">double critical</Member>
-        <Member type="Field">double critical_multiplier</Member>
-        <Member type="Constructor">Weapon(String title, int damage, double critical, double critical_multiplier)</Member>
+        <Member type="Constructor">Weapon(String title, int damage, double critical)</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>Drink</Name>
         <Access>Public</Access>
         <Location left="541" top="271" />
-        <Size width="209" height="129" />
+        <Size width="265" height="145" />
         <Collapsed>False</Collapsed>
         <Member type="Field">String drinkType</Member>
         <Member type="Field">int bonus</Member>
-        <Member type="Constructor">Drink(String drinkType, int bonus)</Member>
+        <Member type="Constructor">Drink(String drinkType, String title, int bonus)</Member>
         <Modifier>None</Modifier>
       </Entity>
     </Entities>

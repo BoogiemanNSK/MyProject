@@ -54,4 +54,6 @@
     <string name="intelligence_abilities">Intelligence [0]</string>
     <string name="agility_abilities">Agility [0]</string>
     <string name="luck_abilities">Luck [0]</string>
+    <string name="item_icon_string">Item Icon</string>
+    <string name="equipped_icon_string">Equipped Icon</string>
 </resources>

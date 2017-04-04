@@ -3,19 +3,18 @@ package com.example.anonymous.myproject;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 public class Path extends AppCompatActivity implements View.OnClickListener {
 
     TextView tv;
     Button forward, back, left, right;
     ImageButton map, inventory;
-
-    final String LOG_TAG = "logcat_tag";
 
     static GameClasses.World myWorld = new GameClasses.World();
     static GameClasses.Hero king;
@@ -54,9 +53,9 @@ public class Path extends AppCompatActivity implements View.OnClickListener {
                 king = new GameClasses.Mage();
                 break;
             default:
-                Log.d(LOG_TAG, "--- Error in getting Intent Integer Extra ---");
                 break;
         }
+
         king.name = getIntent().getStringExtra("name");
         king.strength = getIntent().getIntExtra("strength", 0);
         king.perception = getIntent().getIntExtra("perception", 0);
@@ -65,6 +64,14 @@ public class Path extends AppCompatActivity implements View.OnClickListener {
         king.intelligence = getIntent().getIntExtra("intelligence", 0);
         king.agility = getIntent().getIntExtra("agility", 0);
         king.luck = getIntent().getIntExtra("luck", 0);
+        king.inventory = new ArrayList();
+
+        king.inventory.add(new GameClasses.Weapon("Деревянная палка", 2, 0.05));
+        king.inventory.add(new GameClasses.Armor("Рваный балахон", 1));
+        king.inventory.add(new GameClasses.Weapon("Деревянный меч", 4, 0.1));
+        king.inventory.add(new GameClasses.Armor("Костюм-двойка", 3));
+        king.inventory.add(new GameClasses.Drink("hp", "Бутылка воды", 10));
+        king.inventory.add(new GameClasses.Drink("mana", "Лимонад Гаврош", 15));
 
         myWorld.difficult = getIntent().getIntExtra("difficult", 0);
     }
@@ -114,7 +121,7 @@ public class Path extends AppCompatActivity implements View.OnClickListener {
                 startActivity(maps);
                 break;
             }
-            case R.id.inv: { // TODO Доделать инвентарь персонажа
+            case R.id.inv: {
                 Intent invs = new Intent(this, Inventory.class);
                 startActivity(invs);
                 break;

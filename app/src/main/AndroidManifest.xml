@@ -33,7 +33,8 @@
             android:screenOrientation="portrait">
             >
         </activity>
-        <activity android:name=".Inventory"></activity>
+        <activity android:name=".Inventory" />
+        <activity android:name=".AbilitiesChoice"></activity>
     </application>
 
 </manifest>

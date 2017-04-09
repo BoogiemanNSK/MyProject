@@ -47,13 +47,17 @@
     <string name="cave_event_string">%1$s, Вы видите пещеру, но обходите её стороной.</string>
     <string name="rainbow_event_string">%1$s, Вы видите радугу. Мило.</string>
     <string name="enter_word">Enter</string>
-    <string name="strength_abilities">Strength [0]</string>
-    <string name="perception_abilities">Perception [0]</string>
-    <string name="endurance_abilities">Endurance [0]</string>
-    <string name="charisma_abilities">Charisma [0]</string>
-    <string name="intelligence_abilities">Intelligence [0]</string>
-    <string name="agility_abilities">Agility [0]</string>
-    <string name="luck_abilities">Luck [0]</string>
+    <string name="strength_abilities">Strength</string>
+    <string name="perception_abilities">Perception</string>
+    <string name="endurance_abilities">Endurance</string>
+    <string name="charisma_abilities">Charisma</string>
+    <string name="intelligence_abilities">Intelligence</string>
+    <string name="agility_abilities">Agility</string>
+    <string name="luck_abilities">Luck</string>
     <string name="item_icon_string">Item Icon</string>
     <string name="equipped_icon_string">Equipped Icon</string>
+    <string name="abilities_choice">Распределите очки навыков [%1$d]</string>
+    <string name="plus">+</string>
+    <string name="minus">-</string>
+    <string name="zero_amount">[0]</string>
 </resources>

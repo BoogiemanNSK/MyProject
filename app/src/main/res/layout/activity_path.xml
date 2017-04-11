@@ -46,32 +46,39 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="40dp"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginStart="10sp"
+                android:layout_weight="1"
                 android:text="@string/inv_word"
                 android:textAlignment="textStart" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginEnd="15sp"
+                android:layout_weight="1"
                 android:text="@string/map_word"
                 android:textAlignment="textEnd" />
 
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/tv"
+        <ScrollView
+            android:id="@+id/scrollLayout"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:textSize="20sp" />
+            android:layout_height="230dp">
+
+            <TextView
+                android:id="@+id/tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp" />
+
+        </ScrollView>
 
         <Button
             android:id="@+id/forward"

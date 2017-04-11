@@ -55,10 +55,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.dev: {
                 break;
             }
-            case R.id.exit: {
-                finish();
-                break;
-            }
         }
     }
 }

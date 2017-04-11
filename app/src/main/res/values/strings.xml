@@ -43,7 +43,7 @@
     <string name="mountains_walk_string">%1$s, Вы бредёте по горам, ни на что не натыкаясь.</string>
     <string name="magnus_event_string">%1$s, Вы натыкаетесь на великую башню Магнуса. Потрясающее явление и очень редкое.</string>
     <string name="bandits_event_string">%1$s, Вы замечаете бандитов, насилующих девушку, но проходите мимо.</string>
-    <string name="tavern_event_string">%1$s, Вы замечаете таверну, однако не решаетесь зайти.</string>
+    <string name="tavern_event_string">%1$s, Вы замечаете таверну, и заходите промочить горло.</string>
     <string name="cave_event_string">%1$s, Вы видите пещеру, но обходите её стороной.</string>
     <string name="rainbow_event_string">%1$s, Вы видите радугу. Мило.</string>
     <string name="enter_word">Enter</string>

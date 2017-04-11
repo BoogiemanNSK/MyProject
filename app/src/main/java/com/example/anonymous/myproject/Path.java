@@ -6,12 +6,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
 public class Path extends AppCompatActivity implements View.OnClickListener {
 
+    LinearLayout mainLL;
     TextView tv;
     Button forward, back, left, right;
     ImageButton map, inventory;
@@ -30,6 +32,7 @@ public class Path extends AppCompatActivity implements View.OnClickListener {
                         | View.SYSTEM_UI_FLAG_FULLSCREEN
                         | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
 
+        mainLL = (LinearLayout) findViewById(R.id.mainLL);
         tv = (TextView) findViewById(R.id.tv);
         right = (Button) findViewById(R.id.right);
         forward = (Button) findViewById(R.id.forward);
@@ -74,6 +77,9 @@ public class Path extends AppCompatActivity implements View.OnClickListener {
         king.inventory.add(new GameClasses.Drink("mana", "Лимонад Гаврош", 15));
 
         myWorld.difficult = getIntent().getIntExtra("difficult", 0);
+
+        tv.setText("Добро пожаловать в Overthrown! Для того чтобы узнать ваше местоположение, используйте карту, а чтобы менять оружие, броню, пить напитики" +
+                " или узнать свои хар-ки, зайдите в инвентарь.\nДля перемещения по миру нажимайте на соответственные кнопки внизу.");
     }
 
     public void onClick(View v) {
@@ -81,7 +87,7 @@ public class Path extends AppCompatActivity implements View.OnClickListener {
             case R.id.forward: {
                 if (king.x != 1) {
                     king.x--;
-                    GameClasses.event(tv, GameClasses.World.map, king, getApplicationContext());
+                    GameClasses.event(mainLL, tv, GameClasses.World.map, king, getApplicationContext());
                 } else {
                     tv.setText(getString(R.string.get_lost_string, king.name));
                 }
@@ -90,7 +96,7 @@ public class Path extends AppCompatActivity implements View.OnClickListener {
             case R.id.back: {
                 if (king.x != 30) {
                     king.x++;
-                    GameClasses.event(tv, GameClasses.World.map, king, getApplicationContext());
+                    GameClasses.event(mainLL, tv, GameClasses.World.map, king, getApplicationContext());
                 } else {
                     tv.setText(getString(R.string.get_lost_string, king.name));
                 }
@@ -100,7 +106,7 @@ public class Path extends AppCompatActivity implements View.OnClickListener {
             case R.id.left: {
                 if (king.y != 1) {
                     king.y--;
-                    GameClasses.event(tv, GameClasses.World.map, king, getApplicationContext());
+                    GameClasses.event(mainLL, tv, GameClasses.World.map, king, getApplicationContext());
                 } else {
                     tv.setText(getString(R.string.get_lost_string, king.name));
                 }
@@ -110,7 +116,7 @@ public class Path extends AppCompatActivity implements View.OnClickListener {
             case R.id.right: {
                 if (king.y != 30) {
                     king.y++;
-                    GameClasses.event(tv, GameClasses.World.map, king, getApplicationContext());
+                    GameClasses.event(mainLL, tv, GameClasses.World.map, king, getApplicationContext());
                 } else {
                     tv.setText(getString(R.string.get_lost_string, king.name));
                 }

@@ -1,0 +1,152 @@
+<Project>
+  <Name>Overthrown</Name>
+  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
+    <Name>GameClasses</Name>
+    <Language>CSharp</Language>
+    <Entities>
+      <Entity type="Class">
+        <Name>World</Name>
+        <Access>Public</Access>
+        <Location left="103" top="80" />
+        <Size width="162" height="162" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">static short [][] map</Member>
+        <Member type="Field">int difficult</Member>
+        <Member type="Constructor">World()</Member>
+        <Modifier>Static</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Hero</Name>
+        <Access>Public</Access>
+        <Location left="103" top="426" />
+        <Size width="162" height="383" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">String name</Member>
+        <Member type="Field">Weapon weapon</Member>
+        <Member type="Field">Armor armor</Member>
+        <Member type="Field">int money</Member>
+        <Member type="Field">int hp</Member>
+        <Member type="Field">int mana</Member>
+        <Member type="Field">int karma</Member>
+        <Member type="Field">int strength</Member>
+        <Member type="Field">int perception</Member>
+        <Member type="Field">int endurance</Member>
+        <Member type="Field">int charisma</Member>
+        <Member type="Field">int intelligence</Member>
+        <Member type="Field">int agility</Member>
+        <Member type="Field">int luck</Member>
+        <Member type="Field">int x</Member>
+        <Member type="Field">int y</Member>
+        <Member type="Field">double critical_multiplier</Member>
+        <Member type="Field">List&lt;Item&gt; inventory</Member>
+        <Modifier>Abstract</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Warrior</Name>
+        <Access>Public</Access>
+        <Location left="364" top="482" />
+        <Size width="162" height="94" />
+        <Collapsed>False</Collapsed>
+        <Member type="Constructor">Warrior()</Member>
+        <Modifier>Static</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Mage</Name>
+        <Access>Public</Access>
+        <Location left="364" top="607" />
+        <Size width="162" height="94" />
+        <Collapsed>False</Collapsed>
+        <Member type="Constructor">Mage()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Armor</Name>
+        <Access>Default</Access>
+        <Location left="976" top="80" />
+        <Size width="185" height="162" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">int armor</Member>
+        <Member type="Constructor">Armor(String title, int armor)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Comment">
+        <Text>// map заполняется методом fillArr()
+</Text>
+        <Location left="103" top="271" />
+        <Size width="162" height="75" />
+      </Entity>
+      <Entity type="Class">
+        <Name>Item</Name>
+        <Access>Public</Access>
+        <Location left="320" top="80" />
+        <Size width="162" height="111" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">String title</Member>
+        <Member type="Field">String itemType</Member>
+        <Modifier>Abstract</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Weapon</Name>
+        <Access>Public</Access>
+        <Location left="541" top="80" />
+        <Size width="410" height="162" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">int damage</Member>
+        <Member type="Field">double critical</Member>
+        <Member type="Constructor">Weapon(String title, int damage, double critical)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Drink</Name>
+        <Access>Public</Access>
+        <Location left="541" top="271" />
+        <Size width="265" height="145" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">String drinkType</Member>
+        <Member type="Field">int bonus</Member>
+        <Member type="Constructor">Drink(String drinkType, String title, int bonus)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+    </Entities>
+    <Relationships>
+      <Relationship type="Dependency" first="2" second="1">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+      </Relationship>
+      <Relationship type="Dependency" first="3" second="1">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+      </Relationship>
+      <Relationship type="Dependency" first="4" second="6">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="False">
+          <X>401</X>
+          <Y>51</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Dependency" first="7" second="6">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>516</X>
+          <Y>144</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Dependency" first="8" second="6">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>516</X>
+          <Y>336</Y>
+        </BendPoint>
+      </Relationship>
+    </Relationships>
+  </ProjectItem>
+</Project>

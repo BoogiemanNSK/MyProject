@@ -127,6 +127,7 @@ class GameClasses {
                 btn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        btn.setOnClickListener(null);
                         intent.putExtra("action_type", "magnus_tower");
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         context.startActivity(intent);
@@ -153,9 +154,17 @@ class GameClasses {
             case 8:
                 ll.setBackgroundResource(R.mipmap.cave);
                 tv.setText(String.format(context.getString(R.string.cave_event_string), hero.name));
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.putExtra("action_type", "cave");
-                context.startActivity(intent);
+                btn.setText("Зайти внутрь");
+                btn.setVisibility(View.VISIBLE);
+                btn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        intent.putExtra("action_type", "cave");
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        context.startActivity(intent);
+                        btn.setVisibility(View.INVISIBLE);
+                    }
+                });
                 break;
             case 9:
                 btn.setVisibility(View.INVISIBLE);

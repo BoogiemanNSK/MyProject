@@ -12,7 +12,7 @@ import android.widget.TextView;
 public class Inventory extends AppCompatActivity implements AdapterView.OnItemClickListener{
 
     ItemAdapter itemAdapter;
-    TextView hp, mana, strength, perception, endurance, charisma, intelligence, agility, luck, heroName;
+    TextView hp, mana, strength, perception, endurance, charisma, intelligence, agility, luck, heroName, gold;
     ListView itemList;
     static GameClasses.Weapon currentWeapon = Path.king.weapon;
     static GameClasses.Armor currentArmor = Path.king.armor;
@@ -32,6 +32,7 @@ public class Inventory extends AppCompatActivity implements AdapterView.OnItemCl
         itemList = (ListView) findViewById(R.id.itemList);
         hp = (TextView) findViewById(R.id.hp);
         mana = (TextView) findViewById(R.id.mana);
+        gold = (TextView) findViewById(R.id.gold);
         strength = (TextView) findViewById(R.id.strength);
         perception = (TextView) findViewById(R.id.perception);
         endurance = (TextView) findViewById(R.id.endurance);
@@ -43,6 +44,7 @@ public class Inventory extends AppCompatActivity implements AdapterView.OnItemCl
         heroName.setText(Path.king.name);
         hp.setText(String.valueOf(Path.king.hp));
         mana.setText(String.valueOf(Path.king.mana));
+        gold.setText(String.valueOf(Path.king.money));
         strength.setText(String.valueOf(Path.king.strength));
         perception.setText(String.valueOf(Path.king.perception));
         endurance.setText(String.valueOf(Path.king.endurance));
@@ -126,6 +128,11 @@ public class Inventory extends AppCompatActivity implements AdapterView.OnItemCl
             default:
                 break;
         }
+    }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
     }
 }

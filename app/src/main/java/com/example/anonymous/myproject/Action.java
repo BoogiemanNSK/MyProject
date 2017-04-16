@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.util.Objects;
+
 public class Action extends AppCompatActivity {
 
     Context context;
@@ -35,7 +37,7 @@ public class Action extends AppCompatActivity {
                 actionTavern();
                 break;
             case "cave":
-                actionCave();
+                actionCaveEntrance();
                 break;
             default:
                 break;
@@ -60,12 +62,11 @@ public class Action extends AppCompatActivity {
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                btn1.setClickable(false);
-                btn2.setClickable(false);
+                btn1.setOnClickListener(null);
+                btn2.setOnClickListener(null);
                 final TextView tv2 = new TextView(context);
                 scrollView.addView(tv2);
-                if (Path.king.intelligence >= 6)
-                {
+                if (Path.king.intelligence >= 6) {
                     tv2.setText("Обойдя магическую руну на полу, вы подходите к магу.\nМаг: Ну надо же, какой смышлёный. Послушай, мне сейчас не до тебя, хочешь," +
                             " возьми этот дурацкий посох, мне вообще плевать, только не возвращайся сюда.\n[Посох Самосожжения добавлен в инвентарь]");
                     Path.king.inventory.add(new GameClasses.Weapon("Посох самоможжения", 10, 0.3));
@@ -77,7 +78,8 @@ public class Action extends AppCompatActivity {
                     btn3.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            GameClasses.World.map[Path.king.y][Path.king.x] = GameClasses.World.map[Path.king.y - 1][Path.king.x];
+                            btn3.setOnClickListener(null);
+                            clearSpace(Path.king.x, Path.king.y);
                             finish();
                         }
                     });
@@ -92,6 +94,7 @@ public class Action extends AppCompatActivity {
                     btn3.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
+                            btn3.setOnClickListener(null);
                             Path.onDeath(context);
                             finish();
                         }
@@ -103,10 +106,11 @@ public class Action extends AppCompatActivity {
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                btn1.setOnClickListener(null);
+                btn2.setOnClickListener(null);
                 finish();
             }
         });
-
     }
 
     private void actionBanditsAmbush() {
@@ -117,7 +121,196 @@ public class Action extends AppCompatActivity {
 
     }
 
-    private void actionCave() {
+    private void actionCaveEntrance() {
+        actionLL.setBackgroundResource(R.mipmap.dark_cave);
 
+        final TextView tv1 = new TextView(context);
+        tv1.setText("Вы проходите пару метров, минуя острые камни, пока наконец не понимаете, что в пещере стало совсем темно.");
+        scrollView.addView(tv1);
+
+        final Button btn1 = new Button(context);
+        btn1.setText("Со зрением у меня всё в полном порядке, не пропаду [Восприятие " + Path.king.perception + "/8]");
+        scrollView.addView(btn1);
+
+        final Button btn2 = new Button(context);
+        btn2.setText("У меня с собой как раз есть факел [Необходим факел в инвентаре]");
+        scrollView.addView(btn2);
+
+        final Button btn3 = new Button(context);
+        btn3.setText("Вернусь позже [Уйти]");
+        scrollView.addView(btn3);
+
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btn1.setOnClickListener(null);
+                btn2.setOnClickListener(null);
+                btn3.setOnClickListener(null);
+                if (Path.king.perception >= 8) {
+                    actionLL.setBackgroundResource(R.mipmap.inside_cave_dark);
+                    actionCaveInside();
+                } else {
+                    final TextView tv2 = new TextView(context);
+                    scrollView.addView(tv2);
+
+                    tv2.setText("Самоуверенно шагнув в пустоту, вы действительно шагаете в пустоту и пролетаете несколько метров, пока не разбиваетесь об острые сталагмиты.");
+
+                    final Button btn4 = new Button(context);
+                    btn4.setText("Досадно.");
+                    scrollView.addView(btn4);
+
+                    btn4.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            btn4.setOnClickListener(null);
+                            Path.onDeath(context);
+                            finish();
+                        }
+                    });
+                }
+            }
+        });
+
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btn1.setOnClickListener(null);
+                btn2.setOnClickListener(null);
+                btn3.setOnClickListener(null);
+                if (checkTorch()) {
+                    actionLL.setBackgroundResource(R.mipmap.inside_cave_torch);
+                    actionCaveInside();
+                } else {
+                    final TextView tv2 = new TextView(context);
+                    scrollView.addView(tv2);
+
+                    tv2.setText("Самоуверенно шагнув в пустоту, вы действительно шагаете в пустоту и пролетаете несколько метров, пока не разбиваетесь об острые сталагмиты.");
+
+                    final Button btn4 = new Button(context);
+                    btn4.setText("Досадно.");
+                    scrollView.addView(btn4);
+
+                    btn4.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            btn4.setOnClickListener(null);
+                            Path.onDeath(context);
+                            finish();
+                        }
+                    });
+                }
+            }
+        });
+
+        btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btn1.setOnClickListener(null);
+                btn2.setOnClickListener(null);
+                btn3.setOnClickListener(null);
+                finish();
+            }
+        });
+    }
+
+    private void actionCaveInside() {
+        final TextView cave_tv1 = new TextView(context);
+        cave_tv1.setText("Вы бредёте по пещере, гадая, что же вас ожидает впереди...");
+        scrollView.addView(cave_tv1);
+
+        final Button cave_button1 = new Button(context);
+        cave_button1.setText("Пусть мне повезёт [Удача " + Path.king.luck + "]");
+        scrollView.addView(cave_button1);
+
+        final int luck = (int) (Math.random() * 15) * Path.king.luck;
+
+        cave_button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cave_button1.setOnClickListener(null);
+                if (luck < 20) {
+                    actionLL.setBackgroundResource(R.mipmap.big_bear);
+                    final TextView cave_tv2 = new TextView(context);
+                    cave_tv2.setText("По всей пещере сплошь и рядом раскиданы кости и черепа... Вскоре ваши худшие опасения подтверждаются и из тьмы на вас вываливается Огромный " +
+                            "Пещерный Медведь. С громким боевым кличем вы атакуете его!");
+                    scrollView.addView(cave_tv2);
+
+                    final Button cave_button2 = new Button(context);
+                    cave_button2.setText("В бой!");
+                    scrollView.addView(cave_button2);
+
+                    cave_button2.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            cave_button2.setOnClickListener(null);
+                            // TODO Реализовать метод сражения
+                            clearSpace(Path.king.x, Path.king.y);
+                            finish();
+                        }
+                    });
+                } else if (luck < 50) {
+                    actionLL.setBackgroundResource(R.mipmap.gold_bag);
+                    final TextView cave_tv2 = new TextView(context);
+                    cave_tv2.setText("Пещера оказывается пуста, разве что вы находите не большой мешочек с золотыми, видимо чей-то небольшой тайник.\n[+25 золотых]");
+                    scrollView.addView(cave_tv2);
+
+                    Path.king.money += 25;
+
+                    final Button cave_button2 = new Button(context);
+                    cave_button2.setText("Ну что ж, уходим отсюда");
+                    scrollView.addView(cave_button2);
+
+                    cave_button2.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            cave_button2.setOnClickListener(null);
+                            clearSpace(Path.king.x, Path.king.y);
+                            finish();
+                        }
+                    });
+                } else {
+                    actionLL.setBackgroundResource(R.mipmap.many_gold);
+                    final TextView cave_tv2 = new TextView(context);
+                    cave_tv2.setText("Похоже вам крупно повезло, иначе как вы объясните кучу золота и Крепкую Броню Наемника, которые вы нашли, бродя по пещере?\n[+150 золотых]" +
+                            "\n[Крепкая Броня Наемника добавлена в инвентарь]");
+                    scrollView.addView(cave_tv2);
+
+                    Path.king.inventory.add(new GameClasses.Armor("Крепкая Броня Наёмника", 12));
+                    Path.king.money += 150;
+
+                    final Button cave_button2 = new Button(context);
+                    cave_button2.setText("Ну что ж, уходим отсюда");
+                    scrollView.addView(cave_button2);
+
+                    cave_button2.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            cave_button2.setOnClickListener(null);
+                            clearSpace(Path.king.x, Path.king.y);
+                            finish();
+                        }
+                    });
+                }
+            }
+        });
+    }
+
+    private boolean checkTorch() {
+        for (GameClasses.Item i: Path.king.inventory) {
+            if ((Objects.equals(i.title, "Факел")) || (Objects.equals(i.title, "Torch")) )
+                return true;
+        }
+        return false;
+    }
+
+    private void clearSpace(int x, int y){
+        if ((y >= x) && (y >= 30 - x))
+            GameClasses.World.map[y][x] = 1;
+        else if ((y <= x) && (y >= 30 - x))
+            GameClasses.World.map[y][x] = 2;
+        else if ((y <= x) && (y <= 30 - x))
+            GameClasses.World.map[y][x] = 3;
+        else if ((y >= x) && (y <= 30 - x))
+            GameClasses.World.map[y][x] = 4;
     }
 }

@@ -93,11 +93,13 @@ public class Path extends AppCompatActivity implements View.OnClickListener {
 
         Button newGame = new Button(context);
         newGame.setText("Новая игра");
+        scrollView.addView(newGame);
 
         newGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent start = new Intent(context, ScrollingActivity.class);
+                start.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(start);
             }
         });

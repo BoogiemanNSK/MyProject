@@ -8,7 +8,7 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Button start, settings, dev, exit, contin;
+    Button start, settings, dev, contin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,13 +23,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         start = (Button) findViewById(R.id.start);
-        exit = (Button) findViewById(R.id.exit);
         settings = (Button) findViewById(R.id.settings);
         dev = (Button) findViewById(R.id.dev);
         contin = (Button) findViewById(R.id.contin);
 
         start.setOnClickListener(this);
-        exit.setOnClickListener(this);
         settings.setOnClickListener(this);
         dev.setOnClickListener(this);
         contin.setOnClickListener(this);

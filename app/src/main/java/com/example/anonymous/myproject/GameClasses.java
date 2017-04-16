@@ -2,6 +2,8 @@ package com.example.anonymous.myproject;
 
 import android.content.Context;
 import android.content.Intent;
+import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -94,50 +96,69 @@ class GameClasses {
         }
     }
 
-    static void event(LinearLayout ll, TextView tv, short[][] world, Hero hero, Context context) {
-        Intent intent = new Intent(context, Action.class);
+    static void event(LinearLayout ll, TextView tv, final Button btn, short[][] world, Hero hero, final Context context) {
+        final Intent intent = new Intent(context, Action.class);
         switch (world[hero.y][hero.x]) {
             case 1:
+                btn.setVisibility(View.INVISIBLE);
                 ll.setBackgroundResource(R.mipmap.mountains);
                 tv.setText(String.format(context.getString(R.string.mountains_walk_string), hero.name));
                 break;
             case 2:
+                btn.setVisibility(View.INVISIBLE);
                 ll.setBackgroundResource(R.mipmap.desert);
                 tv.setText(String.format(context.getString(R.string.desert_walk_string), hero.name));
                 break;
             case 3:
+                btn.setVisibility(View.INVISIBLE);
                 ll.setBackgroundResource(R.mipmap.forest);
                 tv.setText(String.format(context.getString(R.string.forest_walk_string), hero.name));
                 break;
             case 4:
+                btn.setVisibility(View.INVISIBLE);
                 ll.setBackgroundResource(R.mipmap.winter);
                 tv.setText(String.format(context.getString(R.string.winter_walk_string), hero.name));
                 break;
             case 5:
                 ll.setBackgroundResource(R.mipmap.tower);
                 tv.setText(String.format(context.getString(R.string.magnus_event_string), hero.name));
-                intent.putExtra("action_type", "magnus_tower");
-                context.startActivity(intent);
+                btn.setText("Зайти внутрь");
+                btn.setVisibility(View.VISIBLE);
+                btn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        intent.putExtra("action_type", "magnus_tower");
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        context.startActivity(intent);
+                        btn.setVisibility(View.INVISIBLE);
+                    }
+                });
                 break;
             case 6:
                 ll.setBackgroundResource(R.mipmap.bandits);
+                Path.setMoveButtonsUnclickable();
                 tv.setText(String.format(context.getString(R.string.bandits_event_string), hero.name));
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("action_type", "bandits_ambush");
                 context.startActivity(intent);
+                Path.setMoveButtonsClickable();
                 break;
             case 7:
                 ll.setBackgroundResource(R.mipmap.tavern);
                 tv.setText(String.format(context.getString(R.string.tavern_event_string), hero.name));
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("action_type", "tavern");
                 context.startActivity(intent);
                 break;
             case 8:
                 ll.setBackgroundResource(R.mipmap.cave);
                 tv.setText(String.format(context.getString(R.string.cave_event_string), hero.name));
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("action_type", "cave");
                 context.startActivity(intent);
                 break;
             case 9:
+                btn.setVisibility(View.INVISIBLE);
                 ll.setBackgroundResource(R.mipmap.rainbow);
                 tv.setText(String.format(context.getString(R.string.rainbow_event_string), hero.name));
                 break;

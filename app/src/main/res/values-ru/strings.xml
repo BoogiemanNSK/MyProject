@@ -4,8 +4,8 @@
     <string name="word_normal">Нормально</string>
     <string name="word_hard">Сложно</string>
     <string name="word_easy">Легко</string>
-    <string name="word_class2">Маг</string>
-    <string name="word_class1">Воин</string>
+    <string name="word_class2">Маг [100 HP, 10 Mana]</string>
+    <string name="word_class1">Воин [150 HP, 0 Mana]</string>
     <string name="title_activity_scrolling">Пролог</string>
     <string name="action_settings">Настройки</string>
     <string name="Settings">Настройки</string>
@@ -13,15 +13,15 @@
     <string name="Exit">Выход</string>
     <string name="Contin">Продолжить</string>
     <string name="About_developers">Разработчики</string>
-    <string name="agility_abilities">Ловкость [0]</string>
-    <string name="charisma_abilities">Харизма [0]</string>
-    <string name="endurance_abilities">Выносливость [0]</string>
+    <string name="agility_abilities">Ловкость</string>
+    <string name="charisma_abilities">Харизма</string>
+    <string name="endurance_abilities">Выносливость</string>
     <string name="enter_word">Далее</string>
     <string name="get_lost_string">%1$s, Вы явно заблудились, попробуйте другой путь.</string>
-    <string name="intelligence_abilities">Интеллект [0]</string>
+    <string name="intelligence_abilities">Интеллект</string>
     <string name="inv_word">Инвентарь</string>
-    <string name="luck_abilities">Удача [0]</string>
+    <string name="luck_abilities">Удача</string>
     <string name="map_word">Карта</string>
-    <string name="perception_abilities">Восприятие [0]</string>
-    <string name="strength_abilities">Сила [0]</string>
+    <string name="perception_abilities">Восприятие</string>
+    <string name="strength_abilities">Сила</string>
 </resources>

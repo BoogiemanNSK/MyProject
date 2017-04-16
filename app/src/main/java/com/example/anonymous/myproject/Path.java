@@ -1,5 +1,6 @@
 package com.example.anonymous.myproject;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,9 +14,10 @@ import java.util.ArrayList;
 
 public class Path extends AppCompatActivity implements View.OnClickListener {
 
+    private static LinearLayout scrollView;
     LinearLayout mainLL;
-    TextView tv;
-    Button forward, back, left, right;
+    private static TextView tv;
+    private static Button forward, back, left, right, btn;
     ImageButton map, inventory;
 
     static GameClasses.World myWorld = new GameClasses.World();
@@ -32,6 +34,8 @@ public class Path extends AppCompatActivity implements View.OnClickListener {
                         | View.SYSTEM_UI_FLAG_FULLSCREEN
                         | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
 
+        btn = (Button) findViewById(R.id.btn);
+        scrollView = (LinearLayout) findViewById(R.id.scrollLayout);
         mainLL = (LinearLayout) findViewById(R.id.mainLL);
         tv = (TextView) findViewById(R.id.tv);
         right = (Button) findViewById(R.id.right);
@@ -41,6 +45,7 @@ public class Path extends AppCompatActivity implements View.OnClickListener {
         map = (ImageButton) findViewById(R.id.map);
         inventory = (ImageButton) findViewById(R.id.inv);
 
+        btn.setVisibility(View.INVISIBLE);
         left.setOnClickListener(this);
         right.setOnClickListener(this);
         forward.setOnClickListener(this);
@@ -82,12 +87,42 @@ public class Path extends AppCompatActivity implements View.OnClickListener {
                 " или узнать свои хар-ки, зайдите в инвентарь.\nДля перемещения по миру нажимайте на соответственные кнопки внизу.");
     }
 
+    public static void onDeath(final Context context) {
+        setMoveButtonsUnclickable();
+        tv.setText("Вы явно мертвы, насколько это возможно. Может вы хотите начать сначала?");
+
+        Button newGame = new Button(context);
+        newGame.setText("Новая игра");
+
+        newGame.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent start = new Intent(context, ScrollingActivity.class);
+                context.startActivity(start);
+            }
+        });
+    }
+
+    public static void setMoveButtonsClickable() {
+        forward.setClickable(true);
+        back.setClickable(true);
+        left.setClickable(true);
+        right.setClickable(true);
+    }
+
+    public static void setMoveButtonsUnclickable() {
+        forward.setClickable(false);
+        back.setClickable(false);
+        left.setClickable(false);
+        right.setClickable(false);
+    }
+
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.forward: {
                 if (king.x != 1) {
                     king.x--;
-                    GameClasses.event(mainLL, tv, GameClasses.World.map, king, getApplicationContext());
+                    GameClasses.event(mainLL, tv, btn, GameClasses.World.map, king, getApplicationContext());
                 } else {
                     tv.setText(getString(R.string.get_lost_string, king.name));
                 }
@@ -96,7 +131,7 @@ public class Path extends AppCompatActivity implements View.OnClickListener {
             case R.id.back: {
                 if (king.x != 30) {
                     king.x++;
-                    GameClasses.event(mainLL, tv, GameClasses.World.map, king, getApplicationContext());
+                    GameClasses.event(mainLL, tv, btn, GameClasses.World.map, king, getApplicationContext());
                 } else {
                     tv.setText(getString(R.string.get_lost_string, king.name));
                 }
@@ -106,7 +141,7 @@ public class Path extends AppCompatActivity implements View.OnClickListener {
             case R.id.left: {
                 if (king.y != 1) {
                     king.y--;
-                    GameClasses.event(mainLL, tv, GameClasses.World.map, king, getApplicationContext());
+                    GameClasses.event(mainLL, tv, btn, GameClasses.World.map, king, getApplicationContext());
                 } else {
                     tv.setText(getString(R.string.get_lost_string, king.name));
                 }
@@ -116,7 +151,7 @@ public class Path extends AppCompatActivity implements View.OnClickListener {
             case R.id.right: {
                 if (king.y != 30) {
                     king.y++;
-                    GameClasses.event(mainLL, tv, GameClasses.World.map, king, getApplicationContext());
+                    GameClasses.event(mainLL, tv, btn, GameClasses.World.map, king, getApplicationContext());
                 } else {
                     tv.setText(getString(R.string.get_lost_string, king.name));
                 }

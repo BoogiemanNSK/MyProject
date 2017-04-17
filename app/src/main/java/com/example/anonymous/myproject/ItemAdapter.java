@@ -27,12 +27,11 @@ class ItemAdapter extends ArrayAdapter<GameClasses.Item> {
     public View getView(int position, View convertView, @NonNull ViewGroup parent) {
         ViewHolder viewHolder;
 
-        if(convertView==null){
+        if (convertView == null) {
             convertView = inflater.inflate(this.layout, parent, false);
             viewHolder = new ViewHolder(convertView);
             convertView.setTag(viewHolder);
-        }
-        else{
+        } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
@@ -56,6 +55,7 @@ class ItemAdapter extends ArrayAdapter<GameClasses.Item> {
                 viewHolder.imageView.setImageResource(R.mipmap.armor);
                 viewHolder.nameView.setText(currentArmor.title);
                 viewHolder.bonusView.setText("Защита: " + String.valueOf(currentArmor.armor));
+                viewHolder.criticalView.setText("");
                 if (currentArmor.title.equals(Inventory.currentArmor.title)) {
                     viewHolder.tickView.setVisibility(View.VISIBLE);
                     viewHolder.tickView.setImageResource(R.mipmap.tick);
@@ -67,6 +67,7 @@ class ItemAdapter extends ArrayAdapter<GameClasses.Item> {
                 viewHolder.imageView.setImageResource(R.mipmap.drink);
                 viewHolder.nameView.setText(item.title);
                 viewHolder.tickView.setVisibility(View.GONE);
+                viewHolder.criticalView.setText("");
                 switch (currentDrink.drinkType) {
                     case "hp":
                         viewHolder.bonusView.setText("+" + String.valueOf(currentDrink.bonus) + " HP");
@@ -78,6 +79,13 @@ class ItemAdapter extends ArrayAdapter<GameClasses.Item> {
                         break;
                 }
                 break;
+            case "quest_item":
+                GameClasses.QuestItem currentQuestItem = (GameClasses.QuestItem) item;
+                viewHolder.imageView.setImageResource(R.mipmap.quest_item);
+                viewHolder.nameView.setText(item.title);
+                viewHolder.tickView.setVisibility(View.GONE);
+                viewHolder.bonusView.setText("");
+                viewHolder.criticalView.setText("");
             default:
                 break;
         }
@@ -89,9 +97,9 @@ class ItemAdapter extends ArrayAdapter<GameClasses.Item> {
         final ImageView imageView, tickView;
         final TextView nameView, bonusView, criticalView;
 
-        ViewHolder(View view){
-            imageView = (ImageView)view.findViewById(R.id.item_icon);
-            tickView = (ImageView)view.findViewById(R.id.tick);
+        ViewHolder(View view) {
+            imageView = (ImageView) view.findViewById(R.id.item_icon);
+            tickView = (ImageView) view.findViewById(R.id.tick);
             nameView = (TextView) view.findViewById(R.id.name);
             bonusView = (TextView) view.findViewById(R.id.bonus);
             criticalView = (TextView) view.findViewById(R.id.critical_chance);

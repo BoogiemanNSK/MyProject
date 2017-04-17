@@ -114,7 +114,130 @@ public class Action extends AppCompatActivity {
     }
 
     private void actionBanditsAmbush() {
+        actionLL.setBackgroundResource(R.mipmap.bandit_leader);
 
+        final TextView tv1 = new TextView(context);
+        tv1.setText("Главарь Бандитов: Эй, урод! Не хочешь поближе познакомиться с моей дубиной?");
+        scrollView.addView(tv1);
+
+        final Button btn1 = new Button(context);
+        btn1.setText("Эээ, нет? [Бой]");
+        scrollView.addView(btn1);
+
+        final Button btn2 = new Button(context);
+        btn2.setText("Может лучше я познакомлю тебя со своими денюжками? [Харизма " + Path.king.charisma + "/5, Золото " + Path.king.money + "/50]");
+        scrollView.addView(btn2);
+
+        final Button btn3 = new Button(context);
+        btn3.setText("Полегче, приятель! Я такой же бродяга как и вы, мы, изгои общества, должны помогать друг другу! [Харизма " + Path.king.charisma + "/9]");
+        scrollView.addView(btn3);
+
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btn1.setOnClickListener(null);
+                btn2.setOnClickListener(null);
+                btn3.setOnClickListener(null);
+                // TODO Реализовать метод сражения
+                clearSpace(Path.king.x, Path.king.y);
+                finish();
+            }
+        });
+
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btn1.setOnClickListener(null);
+                btn2.setOnClickListener(null);
+                btn3.setOnClickListener(null);
+                if ((Path.king.charisma >= 5) && (Path.king.money >= 50)) {
+                    final TextView tv4 = new TextView(context);
+                    tv4.setText("Главарь Бандитов: Ха! По мне так идея что надо! Давай сюда золотые и проваливай!\n[-50 золотых]");
+                    scrollView.addView(tv4);
+
+                    Path.king.money -= 50;
+
+                    final Button btn4 = new Button(context);
+                    btn4.setText("Вот, пожалуйста, развлекайтесь.");
+                    scrollView.addView(btn4);
+
+                    btn4.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            btn4.setOnClickListener(null);
+                            clearSpace(Path.king.x, Path.king.y);
+                            finish();
+                        }
+                    });
+                } else {
+                    final TextView tv4 = new TextView(context);
+                    tv4.setText("Главарь Бандитов: Зачем мне твои жалкие монеты, если я могу забрать всё с твоего трупа?");
+                    scrollView.addView(tv4);
+
+                    final Button btn4 = new Button(context);
+                    btn4.setText("Что ж, защищайтесь, глупцы!");
+                    scrollView.addView(btn4);
+
+                    btn4.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            btn4.setOnClickListener(null);
+                            // TODO Реализовать метод сражения
+                            clearSpace(Path.king.x, Path.king.y);
+                            finish();
+                        }
+                    });
+                }
+            }
+        });
+
+        btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btn1.setOnClickListener(null);
+                btn2.setOnClickListener(null);
+                btn3.setOnClickListener(null);
+                if (Path.king.charisma >= 9) {
+                    final TextView tv4 = new TextView(context);
+                    tv4.setText("Главарь Бандитов: Чёрт меня раздери, если этот парень не прав! Ступай своей дорогой, дружище, и вот возьми, тебе это нужнее.\n" +
+                            "[Факел добавлен в инвентарь]");
+                    scrollView.addView(tv4);
+
+                    Path.king.inventory.add(new GameClasses.QuestItem("Факел"));
+
+                    final Button btn4 = new Button(context);
+                    btn4.setText("Спасибо! Удачи вам, ребята.");
+                    scrollView.addView(btn4);
+
+                    btn4.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            btn4.setOnClickListener(null);
+                            clearSpace(Path.king.x, Path.king.y);
+                            finish();
+                        }
+                    });
+                } else {
+                    final TextView tv4 = new TextView(context);
+                    tv4.setText("Главарь Бандитов: Ты лжец! И я отрежу твой чёртов язык!");
+                    scrollView.addView(tv4);
+
+                    final Button btn4 = new Button(context);
+                    btn4.setText("Что ж, защищайтесь, глупцы!");
+                    scrollView.addView(btn4);
+
+                    btn4.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            btn4.setOnClickListener(null);
+                            // TODO Реализовать метод сражения
+                            clearSpace(Path.king.x, Path.king.y);
+                            finish();
+                        }
+                    });
+                }
+            }
+        });
     }
 
     private void actionTavern() {

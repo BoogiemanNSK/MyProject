@@ -59,6 +59,13 @@ class GameClasses {
         }
     }
 
+    static class QuestItem extends Item {
+        QuestItem(String title) {
+            this.itemType = "quest_item";
+            this.title = title;
+        }
+    }
+
     abstract static class Hero {
         List<Item> inventory;
         String name;
@@ -139,9 +146,18 @@ class GameClasses {
                 ll.setBackgroundResource(R.mipmap.bandits);
                 Path.setMoveButtonsUnclickable();
                 tv.setText(String.format(context.getString(R.string.bandits_event_string), hero.name));
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.putExtra("action_type", "bandits_ambush");
-                context.startActivity(intent);
+                btn.setText("Попробуем договориться...");
+                btn.setVisibility(View.VISIBLE);
+                btn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        btn.setOnClickListener(null);
+                        intent.putExtra("action_type", "bandits_ambush");
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        context.startActivity(intent);
+                        btn.setVisibility(View.INVISIBLE);
+                    }
+                });
                 Path.setMoveButtonsClickable();
                 break;
             case 7:

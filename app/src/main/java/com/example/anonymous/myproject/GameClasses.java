@@ -71,7 +71,7 @@ class GameClasses {
         String name;
         Weapon weapon;
         Armor armor;
-        int money, hp, mana, karma, strength, perception, endurance, charisma, intelligence, agility, luck, x, y;
+        int money, hp, mana, karma, strength, perception, endurance, charisma, intelligence, agility, luck, x, y, hp_max, mana_max;
         double critical_multipler;
     }
 
@@ -81,11 +81,13 @@ class GameClasses {
             this.armor = new Armor("Рваный балахон", 1);
             this.money = 5;
             this.hp = 150;
+            this.hp_max = 150;
             this.mana = 0;
+            this.mana_max = 0;
             this.karma = 50;
             this.x = (int) (Math.random() * 15 + 5);
             this.y = (int) (Math.random() * 15 + 5);
-            this.critical_multipler = 1.1;
+            this.critical_multipler = 1.8;
         }
     }
 
@@ -95,11 +97,13 @@ class GameClasses {
             this.armor = new Armor("Рваный балахон", 1);
             this.money = 5;
             this.hp = 100;
+            this.hp_max = 100;
             this.mana = 10;
+            this.mana_max = 10;
             this.karma = 50;
             this.x = (int) (Math.random() * 15 + 5);
             this.y = (int) (Math.random() * 15 + 5);
-            this.critical_multipler = 1.1;
+            this.critical_multipler = 1.4;
         }
     }
 

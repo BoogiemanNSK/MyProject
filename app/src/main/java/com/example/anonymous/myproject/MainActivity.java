@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.anonymous.myproject.prepare.ScrollingActivity;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     Button start, settings, dev, contin;

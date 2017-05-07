@@ -1,4 +1,4 @@
-package com.example.anonymous.myproject;
+package com.example.anonymous.myproject.prepare;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.example.anonymous.myproject.R;
 
 public class EnterName extends AppCompatActivity {
 

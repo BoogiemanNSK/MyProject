@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@mipmap/chivlary"
-    tools:context="com.example.anonymous.myproject.AbilitiesChoice">
+    tools:context="com.example.anonymous.myproject.prepare.AbilitiesChoice">
 
     <TextView
         android:background="#B0000000"

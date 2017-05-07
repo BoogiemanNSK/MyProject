@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     android:background="@mipmap/chivlary"
     android:fitsSystemWindows="true"
-    tools:context="com.example.anonymous.myproject.ScrollingActivity">
+    tools:context="com.example.anonymous.myproject.prepare.ScrollingActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar"

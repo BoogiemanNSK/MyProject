@@ -8,8 +8,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
-public class Inventory extends AppCompatActivity implements AdapterView.OnItemClickListener{
+public class Inventory extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
     ItemAdapter itemAdapter;
     TextView hp, mana, strength, perception, endurance, charisma, intelligence, agility, luck, heroName, gold;
@@ -42,8 +43,8 @@ public class Inventory extends AppCompatActivity implements AdapterView.OnItemCl
         luck = (TextView) findViewById(R.id.luck);
 
         heroName.setText(Path.king.name);
-        hp.setText(String.valueOf(Path.king.hp));
-        mana.setText(String.valueOf(Path.king.mana));
+        hp.setText(String.valueOf(Path.king.hp) + "/" + String.valueOf(Path.king.hp_max));
+        mana.setText(String.valueOf(Path.king.mana) + "/" + String.valueOf(Path.king.mana_max));
         gold.setText(String.valueOf(Path.king.money));
         strength.setText(String.valueOf(Path.king.strength));
         perception.setText(String.valueOf(Path.king.perception));
@@ -73,9 +74,13 @@ public class Inventory extends AppCompatActivity implements AdapterView.OnItemCl
                         .setNegativeButton("Экипировать", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                Path.king.weapon = selectedWeapon;
-                                currentWeapon = selectedWeapon;
-                                itemAdapter.notifyDataSetInvalidated();
+                                if (!Logic.isFightEnded) {
+                                    Toast.makeText(getApplicationContext(), "Нельзя менять оружие/броню, находясь в бою!", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Path.king.weapon = selectedWeapon;
+                                    currentWeapon = selectedWeapon;
+                                    itemAdapter.notifyDataSetInvalidated();
+                                }
                             }
                         });
 
@@ -89,9 +94,13 @@ public class Inventory extends AppCompatActivity implements AdapterView.OnItemCl
                         .setNegativeButton("Экипировать", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                Path.king.armor = selectedArmor;
-                                currentArmor = selectedArmor;
-                                itemAdapter.notifyDataSetInvalidated();
+                                if (!Logic.isFightEnded) {
+                                    Toast.makeText(getApplicationContext(), "Нельзя менять оружие/броню, находясь в бою!", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Path.king.armor = selectedArmor;
+                                    currentArmor = selectedArmor;
+                                    itemAdapter.notifyDataSetInvalidated();
+                                }
                             }
                         });
 
@@ -107,12 +116,18 @@ public class Inventory extends AppCompatActivity implements AdapterView.OnItemCl
                             public void onClick(DialogInterface dialog, int which) {
                                 switch (selectedDrink.drinkType) {
                                     case "hp":
-                                        Path.king.hp += selectedDrink.bonus;
-                                        hp.setText(String.valueOf(Path.king.hp));
+                                        if (Path.king.hp + selectedDrink.bonus > Path.king.hp_max)
+                                            Path.king.hp = Path.king.hp_max;
+                                        else
+                                            Path.king.hp += selectedDrink.bonus;
+                                        hp.setText(String.valueOf(Path.king.hp) + "/" + String.valueOf(Path.king.hp_max));
                                         break;
                                     case "mana":
-                                        Path.king.mana += selectedDrink.bonus;
-                                        mana.setText(String.valueOf(Path.king.mana));
+                                        if (Path.king.mana + selectedDrink.bonus > Path.king.mana_max)
+                                            Path.king.mana = Path.king.mana_max;
+                                        else
+                                            Path.king.mana += selectedDrink.bonus;
+                                        mana.setText(String.valueOf(Path.king.mana) + "/" + String.valueOf(Path.king.mana_max));
                                         break;
                                     default:
                                         break;

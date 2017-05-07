@@ -1,4 +1,4 @@
-package com.example.anonymous.myproject;
+package com.example.anonymous.myproject.prepare;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.anonymous.myproject.Path;
+import com.example.anonymous.myproject.R;
 
 public class AbilitiesChoice extends AppCompatActivity implements View.OnClickListener {
 
@@ -53,6 +56,8 @@ public class AbilitiesChoice extends AppCompatActivity implements View.OnClickLi
             case R.id.strength_plus:
                 if (points == 0)
                     Toast.makeText(getApplicationContext(), "У вас закончились очки", Toast.LENGTH_LONG).show();
+                else if (strength == 10)
+                    Toast.makeText(getApplicationContext(), "Нельзя вложить более 10 очков в навык", Toast.LENGTH_LONG).show();
                 else
                 {
                     points--;
@@ -75,6 +80,8 @@ public class AbilitiesChoice extends AppCompatActivity implements View.OnClickLi
             case R.id.perception_plus:
                 if (points == 0)
                     Toast.makeText(getApplicationContext(), "У вас закончились очки", Toast.LENGTH_LONG).show();
+                else if (perception == 10)
+                    Toast.makeText(getApplicationContext(), "Нельзя вложить более 10 очков в навык", Toast.LENGTH_LONG).show();
                 else
                 {
                     points--;
@@ -97,6 +104,8 @@ public class AbilitiesChoice extends AppCompatActivity implements View.OnClickLi
             case R.id.endurance_plus:
                 if (points == 0)
                     Toast.makeText(getApplicationContext(), "У вас закончились очки", Toast.LENGTH_LONG).show();
+                else if (endurance == 10)
+                    Toast.makeText(getApplicationContext(), "Нельзя вложить более 10 очков в навык", Toast.LENGTH_LONG).show();
                 else
                 {
                     points--;
@@ -119,6 +128,8 @@ public class AbilitiesChoice extends AppCompatActivity implements View.OnClickLi
             case R.id.charisma_plus:
                 if (points == 0)
                     Toast.makeText(getApplicationContext(), "У вас закончились очки", Toast.LENGTH_LONG).show();
+                else if (charisma == 10)
+                    Toast.makeText(getApplicationContext(), "Нельзя вложить более 10 очков в навык", Toast.LENGTH_LONG).show();
                 else
                 {
                     points--;
@@ -141,6 +152,8 @@ public class AbilitiesChoice extends AppCompatActivity implements View.OnClickLi
             case R.id.intelligence_plus:
                 if (points == 0)
                     Toast.makeText(getApplicationContext(), "У вас закончились очки", Toast.LENGTH_LONG).show();
+                else if (intelligence == 10)
+                    Toast.makeText(getApplicationContext(), "Нельзя вложить более 10 очков в навык", Toast.LENGTH_LONG).show();
                 else
                 {
                     points--;
@@ -163,6 +176,8 @@ public class AbilitiesChoice extends AppCompatActivity implements View.OnClickLi
             case R.id.agility_plus:
                 if (points == 0)
                     Toast.makeText(getApplicationContext(), "У вас закончились очки", Toast.LENGTH_LONG).show();
+                else if (agility == 10)
+                    Toast.makeText(getApplicationContext(), "Нельзя вложить более 10 очков в навык", Toast.LENGTH_LONG).show();
                 else
                 {
                     points--;
@@ -185,6 +200,8 @@ public class AbilitiesChoice extends AppCompatActivity implements View.OnClickLi
             case R.id.luck_plus:
                 if (points == 0)
                     Toast.makeText(getApplicationContext(), "У вас закончились очки", Toast.LENGTH_LONG).show();
+                else if (luck == 10)
+                    Toast.makeText(getApplicationContext(), "Нельзя вложить более 10 очков в навык", Toast.LENGTH_LONG).show();
                 else
                 {
                     points--;

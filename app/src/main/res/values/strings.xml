@@ -26,16 +26,16 @@
     <string name="word_hard">Hard</string>
     <string name="word_class1">Warrior [150 HP, 0 Mana]</string>
     <string name="word_class2">Mage [100 HP, 10 Mana]</string>
-    <string name="change_name_text">Необходимо сменить имя, чтобы Вас не узнали. Как хотите, чтобы Вас называли?</string>
-    <string name="entet_name_string">Введите имя</string>
+    <string name="change_name_text">It is necessery that nobody know who you are. How do you want to called?</string>
+    <string name="entet_name_string">Enter Name</string>
     <string name="map_word">Map</string>
     <string name="inv_word">Inventory</string>
-    <string name="up_string">↑\nВперёд</string>
-    <string name="left_string">← Влево</string>
-    <string name="right_string">Вправо →</string>
-    <string name="down_string">Назад\n↓</string>
-    <string name="no_word">Нет</string>
-    <string name="yes_word">Да</string>
+    <string name="up_string">↑\nForward</string>
+    <string name="left_string">← Left</string>
+    <string name="right_string">Right →</string>
+    <string name="down_string">Back\n↓</string>
+    <string name="no_word">No</string>
+    <string name="yes_word">Yes</string>
     <string name="get_lost_string">%1$s, You definitely got lost. Try another way.</string>
     <string name="winter_walk_string">%1$s , Вы бредёте по снежной долине, ни на что не натыкаясь.</string>
     <string name="desert_walk_string">%1$s , Вы бредёте по пустыне, ни на что не натыкаясь.</string>
@@ -56,8 +56,9 @@
     <string name="luck_abilities">Luck</string>
     <string name="item_icon_string">Item Icon</string>
     <string name="equipped_icon_string">Equipped Icon</string>
-    <string name="abilities_choice">Распределите очки навыков [%1$d]</string>
-    <string name="plus">+</string>
-    <string name="minus">-</string>
-    <string name="zero_amount">[0]</string>
+    <string name="abilities_choice">Manage abilities points [%1$d]</string>
+    <string name="plus" translatable="false">+</string>
+    <string name="minus" translatable="false">-</string>
+    <string name="zero_amount" translatable="false">[0]</string>
+    <string name="attack_word">Attack</string>
 </resources>

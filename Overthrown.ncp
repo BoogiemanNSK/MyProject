@@ -18,8 +18,8 @@
       <Entity type="Class">
         <Name>Hero</Name>
         <Access>Public</Access>
-        <Location left="103" top="426" />
-        <Size width="162" height="383" />
+        <Location left="103" top="379" />
+        <Size width="162" height="417" />
         <Collapsed>False</Collapsed>
         <Member type="Field">String name</Member>
         <Member type="Field">Weapon weapon</Member>
@@ -39,6 +39,8 @@
         <Member type="Field">int y</Member>
         <Member type="Field">double critical_multiplier</Member>
         <Member type="Field">List&lt;Item&gt; inventory</Member>
+        <Member type="Field">int hp_max</Member>
+        <Member type="Field">int mana_max</Member>
         <Modifier>Abstract</Modifier>
       </Entity>
       <Entity type="Class">
@@ -107,6 +109,15 @@
         <Member type="Constructor">Drink(String drinkType, String title, int bonus)</Member>
         <Modifier>None</Modifier>
       </Entity>
+      <Entity type="Class">
+        <Name>QuestItem</Name>
+        <Access>Public</Access>
+        <Location left="840" top="271" />
+        <Size width="162" height="145" />
+        <Collapsed>False</Collapsed>
+        <Member type="Constructor">QuestItem(String title)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
     </Entities>
     <Relationships>
       <Relationship type="Dependency" first="2" second="1">
@@ -145,6 +156,22 @@
         <BendPoint relativeToStartShape="True">
           <X>516</X>
           <Y>336</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>432</X>
+          <Y>216</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Dependency" first="9" second="6">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>926</X>
+          <Y>445</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>364</X>
+          <Y>216</Y>
         </BendPoint>
       </Relationship>
     </Relationships>

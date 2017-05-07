@@ -24,4 +24,16 @@
     <string name="map_word">Карта</string>
     <string name="perception_abilities">Восприятие</string>
     <string name="strength_abilities">Сила</string>
+    <string name="abilities_choice">Распределите очки навыков  [%1$d]</string>
+    <string name="attack_word">Атаковать</string>
+    <string name="equipped_icon_string">Экипировано</string>
+    <string name="item_icon_string">Значок предмета</string>
+    <string name="yes_word">Да</string>
+    <string name="no_word">Нет</string>
+    <string name="change_name_text">Необходимо сменить имя, чтобы Вас не узнали. Как хотите, чтобы Вас называли?</string>
+    <string name="entet_name_string">Введите имя</string>
+    <string name="left_string">← Влево</string>
+    <string name="down_string">Назад\n↓</string>
+    <string name="right_string">Вправо →</string>
+    <string name="up_string">↑\nВперёд</string>
 </resources>

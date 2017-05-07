@@ -10,6 +10,8 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.anonymous.myproject.prepare.ScrollingActivity;
+
 import java.util.ArrayList;
 
 public class Path extends AppCompatActivity implements View.OnClickListener {
@@ -82,6 +84,8 @@ public class Path extends AppCompatActivity implements View.OnClickListener {
         king.inventory.add(new GameClasses.Drink("mana", "Лимонад Гаврош", 15));
 
         myWorld.difficult = getIntent().getIntExtra("difficult", 0);
+
+        Logic.isFightEnded = true;
 
         tv.setText("Добро пожаловать в Overthrown! Для того чтобы узнать ваше местоположение, используйте карту, а чтобы менять оружие, броню, пить напитики" +
                 " или узнать свои хар-ки, зайдите в инвентарь.\nДля перемещения по миру нажимайте на соответственные кнопки внизу.");

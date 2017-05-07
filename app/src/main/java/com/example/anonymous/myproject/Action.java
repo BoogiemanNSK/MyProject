@@ -1,6 +1,7 @@
 package com.example.anonymous.myproject;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -138,9 +139,63 @@ public class Action extends AppCompatActivity {
                 btn1.setOnClickListener(null);
                 btn2.setOnClickListener(null);
                 btn3.setOnClickListener(null);
-                // TODO Реализовать метод сражения
-                clearSpace(Path.king.x, Path.king.y);
-                finish();
+
+                Intent fightIntent = new Intent(context, Fight.class);
+                fightIntent.putExtra("enemyNum", 3);
+
+                fightIntent.putExtra("enemyName0", "Худой Бандит");
+                fightIntent.putExtra("enemyHP0", 8);
+                fightIntent.putExtra("enemyDmg0", 4);
+                fightIntent.putExtra("enemyArmor0", 8);
+
+                fightIntent.putExtra("enemyName1", "Толстый Бандит");
+                fightIntent.putExtra("enemyHP1", 16);
+                fightIntent.putExtra("enemyDmg1", 4);
+                fightIntent.putExtra("enemyArmor1", 8);
+
+                fightIntent.putExtra("enemyName2", "Главарь Бандитов");
+                fightIntent.putExtra("enemyHP2", 16);
+                fightIntent.putExtra("enemyDmg2", 8);
+                fightIntent.putExtra("enemyArmor2", 20);
+
+                startActivity(fightIntent);
+
+                final Button btn5 = new Button(context);
+                btn5.setText("[Продолжить]");
+                scrollView.addView(btn5);
+
+                btn5.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        btn5.setOnClickListener(null);
+
+                        if (!Logic.isLastFightWin) {
+                            Path.onDeath(context);
+                            finish();
+                        }
+
+                        final TextView tv5 = new TextView(context);
+                        tv5.setText(" Что ж, бандиты убиты. Из полезного вам приглянулись Факел и Дубина Главаря Бандитов\n [Дубина Главаря Бандитов добавлена в инвентарь]" +
+                                "\n [Факел добавлен в инвентарь]");
+                        scrollView.addView(tv5);
+
+                        Path.king.inventory.add(new GameClasses.Weapon("Дубина Главаря Бандитов", 8, 0.4));
+                        Path.king.inventory.add(new GameClasses.QuestItem("Факел"));
+
+                        final Button btn6 = new Button(context);
+                        btn6.setText("Продолжить путь");
+                        scrollView.addView(btn6);
+
+                        btn6.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                btn6.setOnClickListener(null);
+                                clearSpace(Path.king.x, Path.king.y);
+                                finish();
+                            }
+                        });
+                    }
+                });
             }
         });
 
@@ -182,9 +237,63 @@ public class Action extends AppCompatActivity {
                         @Override
                         public void onClick(View v) {
                             btn4.setOnClickListener(null);
-                            // TODO Реализовать метод сражения
-                            clearSpace(Path.king.x, Path.king.y);
-                            finish();
+
+                            Intent fightIntent = new Intent(context, Fight.class);
+                            fightIntent.putExtra("enemyNum", 3);
+
+                            fightIntent.putExtra("enemyName0", "Худой Бандит");
+                            fightIntent.putExtra("enemyHP0", 8);
+                            fightIntent.putExtra("enemyDmg0", 4);
+                            fightIntent.putExtra("enemyArmor0", 8);
+
+                            fightIntent.putExtra("enemyName1", "Толстый Бандит");
+                            fightIntent.putExtra("enemyHP1", 16);
+                            fightIntent.putExtra("enemyDmg1", 4);
+                            fightIntent.putExtra("enemyArmor1", 8);
+
+                            fightIntent.putExtra("enemyName2", "Главарь Бандитов");
+                            fightIntent.putExtra("enemyHP2", 16);
+                            fightIntent.putExtra("enemyDmg2", 8);
+                            fightIntent.putExtra("enemyArmor2", 20);
+
+                            startActivity(fightIntent);
+
+                            final Button btn5 = new Button(context);
+                            btn5.setText("[Продолжить]");
+                            scrollView.addView(btn5);
+
+                            btn5.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    btn5.setOnClickListener(null);
+
+                                    if (!Logic.isLastFightWin) {
+                                        Path.onDeath(context);
+                                        finish();
+                                    }
+
+                                    final TextView tv5 = new TextView(context);
+                                    tv5.setText(" Что ж, бандиты убиты. Из полезного вам приглянулись Факел и Дубина Главаря Бандитов\n [Дубина Главаря Бандитов добавлена в инвентарь]" +
+                                            "\n [Факел добавлен в инвентарь]");
+                                    scrollView.addView(tv5);
+
+                                    Path.king.inventory.add(new GameClasses.Weapon("Дубина Главаря Бандитов", 8, 0.4));
+                                    Path.king.inventory.add(new GameClasses.QuestItem("Факел"));
+
+                                    final Button btn6 = new Button(context);
+                                    btn6.setText("Продолжить путь");
+                                    scrollView.addView(btn6);
+
+                                    btn6.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            btn6.setOnClickListener(null);
+                                            clearSpace(Path.king.x, Path.king.y);
+                                            finish();
+                                        }
+                                    });
+                                }
+                            });
                         }
                     });
                 }
@@ -230,9 +339,63 @@ public class Action extends AppCompatActivity {
                         @Override
                         public void onClick(View v) {
                             btn4.setOnClickListener(null);
-                            // TODO Реализовать метод сражения
-                            clearSpace(Path.king.x, Path.king.y);
-                            finish();
+
+                            Intent fightIntent = new Intent(context, Fight.class);
+                            fightIntent.putExtra("enemyNum", 3);
+
+                            fightIntent.putExtra("enemyName0", "Худой Бандит");
+                            fightIntent.putExtra("enemyHP0", 8);
+                            fightIntent.putExtra("enemyDmg0", 4);
+                            fightIntent.putExtra("enemyArmor0", 8);
+
+                            fightIntent.putExtra("enemyName1", "Толстый Бандит");
+                            fightIntent.putExtra("enemyHP1", 16);
+                            fightIntent.putExtra("enemyDmg1", 4);
+                            fightIntent.putExtra("enemyArmor1", 8);
+
+                            fightIntent.putExtra("enemyName2", "Главарь Бандитов");
+                            fightIntent.putExtra("enemyHP2", 16);
+                            fightIntent.putExtra("enemyDmg2", 8);
+                            fightIntent.putExtra("enemyArmor2", 20);
+
+                            startActivity(fightIntent);
+
+                            final Button btn5 = new Button(context);
+                            btn5.setText("[Продолжить]");
+                            scrollView.addView(btn5);
+
+                            btn5.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    btn5.setOnClickListener(null);
+
+                                    if (!Logic.isLastFightWin) {
+                                        Path.onDeath(context);
+                                        finish();
+                                    }
+
+                                    final TextView tv5 = new TextView(context);
+                                    tv5.setText(" Что ж, бандиты убиты. Из полезного вам приглянулись Факел и Дубина Главаря Бандитов\n [Дубина Главаря Бандитов добавлена в инвентарь]" +
+                                            "\n [Факел добавлен в инвентарь]");
+                                    scrollView.addView(tv5);
+
+                                    Path.king.inventory.add(new GameClasses.Weapon("Дубина Главаря Бандитов", 8, 0.4));
+                                    Path.king.inventory.add(new GameClasses.QuestItem("Факел"));
+
+                                    final Button btn6 = new Button(context);
+                                    btn6.setText("Продолжить путь");
+                                    scrollView.addView(btn6);
+
+                                    btn6.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            btn6.setOnClickListener(null);
+                                            clearSpace(Path.king.x, Path.king.y);
+                                            finish();
+                                        }
+                                    });
+                                }
+                            });
                         }
                     });
                 }
@@ -366,15 +529,55 @@ public class Action extends AppCompatActivity {
                         @Override
                         public void onClick(View v) {
                             cave_button2.setOnClickListener(null);
-                            // TODO Реализовать метод сражения
-                            clearSpace(Path.king.x, Path.king.y);
-                            finish();
+
+                            Intent fightIntent = new Intent(context, Fight.class);
+                            fightIntent.putExtra("enemyNum", 1);
+                            fightIntent.putExtra("enemyName0", "Огромный Пещерный Медведь");
+                            fightIntent.putExtra("enemyHP0", 40);
+                            fightIntent.putExtra("enemyDmg0", 8);
+                            fightIntent.putExtra("enemyArmor0", 0);
+                            startActivity(fightIntent);
+
+                            final Button cave_button3 = new Button(context);
+                            cave_button3.setText("[Продолжить]");
+                            scrollView.addView(cave_button3);
+
+                            cave_button3.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    cave_button3.setOnClickListener(null);
+
+                                    if (!Logic.isLastFightWin) {
+                                        Path.onDeath(context);
+                                        finish();
+                                    }
+
+                                    final TextView cave_tv3 = new TextView(context);
+                                    cave_tv3.setText(" Медведь пал замервто... А ведь из его шкуры выйдет неплохая броня!\n [Броня из шкуры Пещерного Медведя добавлена в инвентарь]");
+                                    scrollView.addView(cave_tv3);
+
+                                    Path.king.inventory.add(new GameClasses.Armor("Броня из шкуры Пещерного Медведя", 40));
+
+                                    final Button cave_button4 = new Button(context);
+                                    cave_button4.setText("Пора сваливать из этой дыры!");
+                                    scrollView.addView(cave_button4);
+
+                                    cave_button4.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            cave_button4.setOnClickListener(null);
+                                            clearSpace(Path.king.x, Path.king.y);
+                                            finish();
+                                        }
+                                    });
+                                }
+                            });
                         }
                     });
                 } else if (luck < 50) {
                     actionLL.setBackgroundResource(R.mipmap.gold_bag);
                     final TextView cave_tv2 = new TextView(context);
-                    cave_tv2.setText("Пещера оказывается пуста, разве что вы находите не большой мешочек с золотыми, видимо чей-то небольшой тайник.\n[+25 золотых]");
+                    cave_tv2.setText("Пещера оказывается пуста, разве что вы находите небольшой мешочек с золотыми, видимо чей-то небольшой тайник.\n[+25 золотых]");
                     scrollView.addView(cave_tv2);
 
                     Path.king.money += 25;
@@ -398,7 +601,7 @@ public class Action extends AppCompatActivity {
                             "\n[Крепкая Броня Наемника добавлена в инвентарь]");
                     scrollView.addView(cave_tv2);
 
-                    Path.king.inventory.add(new GameClasses.Armor("Крепкая Броня Наёмника", 12));
+                    Path.king.inventory.add(new GameClasses.Armor("Крепкая Броня Наёмника", 20));
                     Path.king.money += 150;
 
                     final Button cave_button2 = new Button(context);
@@ -436,4 +639,5 @@ public class Action extends AppCompatActivity {
         else if ((y >= x) && (y <= 30 - x))
             GameClasses.World.map[y][x] = 4;
     }
+
 }

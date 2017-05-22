@@ -11,9 +11,12 @@ import java.util.List;
 
 class GameClasses {
 
+    static List<Item> traderItems1, traderItems2, traderItems3;
+
     static class World {
         int difficult;
         static short[][] map;
+        List<Quest> questList;
 
         World() {
             map = new short[32][32];
@@ -21,15 +24,33 @@ class GameClasses {
         }
     }
 
+    static class Quest {
+        String questTitle;
+        int [] stepTextID;
+        int [] stepPlaceNum;
+        QuestItem [] stepItem;
+        int stepNum;
+
+        Quest(String questTitle, int [] stepTextID, int [] stepPlaceNum, QuestItem [] stepItem) {
+            this.questTitle = questTitle;
+            this.stepTextID = stepTextID;
+            this.stepPlaceNum = stepPlaceNum;
+            this.stepItem = stepItem;
+            stepNum = 0;
+        }
+    }
+
     abstract static class Item {
         String title, itemType;
+        int price;
     }
 
     static class Weapon extends Item {
         int damage;
         double critical;
 
-        Weapon(String title, int dmg, double critical) {
+        Weapon(int price, String title, int dmg, double critical) {
+            this.price = price;
             this.itemType = "weapon";
             this.title = title;
             this.damage = dmg;
@@ -40,7 +61,8 @@ class GameClasses {
     static class Armor extends Item {
         int armor;
 
-        Armor(String title, int armor) {
+        Armor(int price, String title, int armor) {
+            this.price = price;
             this.itemType = "armor";
             this.title = title;
             this.armor = armor;
@@ -51,7 +73,8 @@ class GameClasses {
         String drinkType;
         int bonus;
 
-        Drink(String drinkType, String title, int bonus) {
+        Drink(int price, String drinkType, String title, int bonus) {
+            this.price = price;
             this.itemType = "drink";
             this.drinkType = drinkType;
             this.title = title;
@@ -69,6 +92,7 @@ class GameClasses {
     abstract static class Hero {
         List<Item> inventory;
         String name;
+        Quest quest;
         Weapon weapon;
         Armor armor;
         int money, hp, mana, karma, strength, perception, endurance, charisma, intelligence, agility, luck, x, y, hp_max, mana_max;
@@ -77,8 +101,9 @@ class GameClasses {
 
     static class Warrior extends Hero {
         Warrior() {
-            this.weapon = new Weapon("Деревянная палка", 2, 0.05);
-            this.armor = new Armor("Рваный балахон", 1);
+            this.quest = new Quest("Месть сладка", new int[]{R.string.main_quest_first_step}, new int[]{7}, new QuestItem[]{null});
+            this.weapon = new Weapon(2, "Деревянная палка", 2, 0.05);
+            this.armor = new Armor(1, "Рваный балахон", 1);
             this.money = 5;
             this.hp = 150;
             this.hp_max = 150;
@@ -93,8 +118,9 @@ class GameClasses {
 
     static class Mage extends Hero {
         Mage() {
-            this.weapon = new Weapon("Деревянная палка", 2, 0.05);
-            this.armor = new Armor("Рваный балахон", 1);
+            this.quest = new Quest("Месть сладка", new int[]{R.string.main_quest_first_step}, new int[]{7}, new QuestItem[]{null});
+            this.weapon = new Weapon(2, "Деревянная палка", 2, 0.05);
+            this.armor = new Armor(1, "Рваный балахон", 1);
             this.money = 5;
             this.hp = 100;
             this.hp_max = 100;
@@ -160,16 +186,23 @@ class GameClasses {
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         context.startActivity(intent);
                         btn.setVisibility(View.INVISIBLE);
+                        Path.setMoveButtonsClickable();
                     }
                 });
-                Path.setMoveButtonsClickable();
                 break;
             case 7:
                 ll.setBackgroundResource(R.mipmap.tavern);
                 tv.setText(String.format(context.getString(R.string.tavern_event_string), hero.name));
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.putExtra("action_type", "tavern");
-                context.startActivity(intent);
+                btn.setText("Зайти внутрь");
+                btn.setVisibility(View.VISIBLE);
+                btn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        intent.putExtra("action_type", "tavern");
+                        context.startActivity(intent);
+                    }
+                });
                 break;
             case 8:
                 ll.setBackgroundResource(R.mipmap.cave);

@@ -31,8 +31,20 @@
                 android:contentDescription="@string/inv_word" />
 
             <TextView
-                android:layout_width="215dp"
+                android:layout_width="70dp"
                 android:layout_height="match_parent" />
+
+            <ImageButton
+                android:id="@+id/journal"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:alpha="0.9"
+                android:background="@mipmap/journal"
+                android:contentDescription="@string/journal_word" />
+
+            <TextView
+            android:layout_width="70dp"
+            android:layout_height="match_parent" />
 
             <ImageButton
                 android:id="@+id/map"
@@ -56,6 +68,13 @@
                 android:layout_weight="1"
                 android:text="@string/inv_word"
                 android:textAlignment="textStart" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/journal_word"
+                android:textAlignment="center" />
 
             <TextView
                 android:layout_width="match_parent"

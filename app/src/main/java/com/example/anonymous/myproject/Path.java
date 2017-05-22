@@ -20,7 +20,7 @@ public class Path extends AppCompatActivity implements View.OnClickListener {
     LinearLayout mainLL;
     private static TextView tv;
     private static Button forward, back, left, right, btn;
-    ImageButton map, inventory;
+    ImageButton map, inventory, journal;
 
     static GameClasses.World myWorld = new GameClasses.World();
     static GameClasses.Hero king;
@@ -46,6 +46,7 @@ public class Path extends AppCompatActivity implements View.OnClickListener {
         left = (Button) findViewById(R.id.left);
         map = (ImageButton) findViewById(R.id.map);
         inventory = (ImageButton) findViewById(R.id.inv);
+        journal = (ImageButton) findViewById(R.id.journal);
 
         btn.setVisibility(View.INVISIBLE);
         left.setOnClickListener(this);
@@ -54,6 +55,35 @@ public class Path extends AppCompatActivity implements View.OnClickListener {
         back.setOnClickListener(this);
         map.setOnClickListener(this);
         inventory.setOnClickListener(this);
+        journal.setOnClickListener(this);
+
+        myWorld.questList = new ArrayList<>();
+        myWorld.questList.add(new GameClasses.Quest("Месть сладка", new int[]{R.string.main_quest_first_step}, new int[]{7}, new GameClasses.QuestItem[]{null}));
+
+        GameClasses.traderItems1 = new ArrayList<>();
+        GameClasses.traderItems2 = new ArrayList<>();
+        GameClasses.traderItems3 = new ArrayList<>();
+
+        GameClasses.traderItems1.add(new GameClasses.Weapon(12, "Заточенный кинжал", 3, 0.7)); // Торговец оружием
+        GameClasses.traderItems1.add(new GameClasses.Weapon(18, "Стальной меч", 8, 0.4));
+        GameClasses.traderItems1.add(new GameClasses.Weapon(48, "Катана Старого Самурая", 14, 0.6));
+        GameClasses.traderItems1.add(new GameClasses.Weapon(72, "Меч Эскалибур", 25, 0.2));
+        GameClasses.traderItems1.add(new GameClasses.Armor(16, "Броня Оруженосца", 8));
+        GameClasses.traderItems1.add(new GameClasses.Drink(16, "hp", "Ром", 30));
+
+        GameClasses.traderItems2.add(new GameClasses.Armor(48, "Черепашьи доспехи", 24)); // Торговец бронёй
+        GameClasses.traderItems2.add(new GameClasses.Armor(36, "Одеяния Мага", 18));
+        GameClasses.traderItems2.add(new GameClasses.Armor(64, "Латы Рыцаря", 32));
+        GameClasses.traderItems2.add(new GameClasses.Armor(100, "Небесные доспехи", 50));
+        GameClasses.traderItems2.add(new GameClasses.Weapon(12, "Подсапожный нож", 4, 0.6));
+        GameClasses.traderItems2.add(new GameClasses.Drink(22, "hp", "Медовуха", 40));
+
+        GameClasses.traderItems3.add(new GameClasses.Drink(30, "hp", "Среднее зелье восстановления", 50)); // Торговец зельями
+        GameClasses.traderItems3.add(new GameClasses.Drink(30, "mana", "Среднее зелье концентрации", 50));
+        GameClasses.traderItems3.add(new GameClasses.Drink(64, "hp", "Большое зелье восстановления", 100));
+        GameClasses.traderItems3.add(new GameClasses.Drink(64, "mana", "Большое зелье концентрации", 100));
+        GameClasses.traderItems3.add(new GameClasses.Weapon(18, "Кинжал Алхимика", 6, 0.6));
+        GameClasses.traderItems3.add(new GameClasses.Armor(16, "Нагрудник Пивовара", 8));
 
         switch (getIntent().getIntExtra("class", 0)) {
             case 1:
@@ -76,12 +106,12 @@ public class Path extends AppCompatActivity implements View.OnClickListener {
         king.luck = getIntent().getIntExtra("luck", 0);
         king.inventory = new ArrayList();
 
-        king.inventory.add(new GameClasses.Weapon("Деревянная палка", 2, 0.05));
-        king.inventory.add(new GameClasses.Armor("Рваный балахон", 1));
-        king.inventory.add(new GameClasses.Weapon("Деревянный меч", 4, 0.1));
-        king.inventory.add(new GameClasses.Armor("Костюм-двойка", 3));
-        king.inventory.add(new GameClasses.Drink("hp", "Бутылка воды", 10));
-        king.inventory.add(new GameClasses.Drink("mana", "Лимонад Гаврош", 15));
+        king.inventory.add(new GameClasses.Weapon(2, "Деревянная палка", 2, 0.05));
+        king.inventory.add(new GameClasses.Armor(1, "Рваный балахон", 1));
+        king.inventory.add(new GameClasses.Weapon(5, "Деревянный меч", 4, 0.1));
+        king.inventory.add(new GameClasses.Armor(3, "Костюм-двойка", 3));
+        king.inventory.add(new GameClasses.Drink(10, "hp", "Бутылка воды", 10));
+        king.inventory.add(new GameClasses.Drink(15, "mana", "Лимонад Гаврош", 15));
 
         myWorld.difficult = getIntent().getIntExtra("difficult", 0);
 
@@ -171,6 +201,11 @@ public class Path extends AppCompatActivity implements View.OnClickListener {
             case R.id.inv: {
                 Intent invs = new Intent(this, Inventory.class);
                 startActivity(invs);
+                break;
+            }
+            case R.id.journal: {
+                Intent jrnls = new Intent(this, Journal.class);
+                startActivity(jrnls);
                 break;
             }
             default:

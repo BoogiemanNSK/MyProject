@@ -236,7 +236,7 @@ public class Fight extends AppCompatActivity implements View.OnClickListener {
                     }
 
                     if (heroTempArmor == 0) {
-                        if (Path.king.hp <= heroDMG) {
+                        if (Path.king.hp <= enemyDMG) {
                             logMsg = " Силы вас покидают, Вы падаете на землю, глаза закрываются, это конец...\n";
                             Path.king.hp = 0;
                             battleLog.setText(battleLog.getText() + logMsg);

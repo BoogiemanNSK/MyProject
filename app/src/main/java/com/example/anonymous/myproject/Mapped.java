@@ -29,22 +29,22 @@ public class Mapped extends View {
                 switch (GameClasses.World.map[i][j]) {
                     case 1: {
                         paint.setColor(Color.GRAY);
-                        canvas.drawRect((i - 1) * getWidth() / 30, (j - 1) * getHeight() / 30, +i * getWidth() / 30, j * getHeight() / 30, paint);
+                        canvas.drawRect((i - 1) * getWidth() / 30, (j - 1) * getHeight() / 30, i * getWidth() / 30, j * getHeight() / 30, paint);
                         break;
                     }
                     case 2: {
                         paint.setColor(Color.YELLOW);
-                        canvas.drawRect((i - 1) * getWidth() / 30, (j - 1) * getHeight() / 30, +i * getWidth() / 30, j * getHeight() / 30, paint);
+                        canvas.drawRect((i - 1) * getWidth() / 30, (j - 1) * getHeight() / 30, i * getWidth() / 30, j * getHeight() / 30, paint);
                         break;
                     }
                     case 3: {
                         paint.setColor(Color.GREEN);
-                        canvas.drawRect((i - 1) * getWidth() / 30, (j - 1) * getHeight() / 30, +i * getWidth() / 30, j * getHeight() / 30, paint);
+                        canvas.drawRect((i - 1) * getWidth() / 30, (j - 1) * getHeight() / 30, i * getWidth() / 30, j * getHeight() / 30, paint);
                         break;
                     }
                     case 4: {
                         paint.setColor(Color.WHITE);
-                        canvas.drawRect((i - 1) * getWidth() / 30, (j - 1) * getHeight() / 30, +i * getWidth() / 30, j * getHeight() / 30, paint);
+                        canvas.drawRect((i - 1) * getWidth() / 30, (j - 1) * getHeight() / 30, i * getWidth() / 30, j * getHeight() / 30, paint);
                         break;
                     }
                 }
@@ -78,6 +78,12 @@ public class Mapped extends View {
                         canvas.drawCircle((float) ((i - 1) * getWidth() / 30 + 0.5 * getWidth() / 30), (float) ((j - 1) * getHeight() / 30 + 0.5 * getHeight() / 30), getHeight() / 45, paint);
                         break;
                     }
+                }
+                if (GameClasses.World.map[i][j] == Path.king.quest.stepPlaceNum[Path.king.quest.stepNum]) {
+                    paint.setColor(Color.BLUE);
+                    paint.setStrokeWidth(3);
+                    canvas.drawLine((i - 1) * getWidth() / 30, (j - 1) * getHeight() / 30, i * getWidth() / 30, j * getHeight() / 30, paint);
+                    canvas.drawLine(i * getWidth() / 30, (j - 1) * getHeight() / 30, (i - 1) * getWidth() / 30, j * getHeight() / 30, paint);
                 }
             }
         }

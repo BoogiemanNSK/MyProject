@@ -4,5 +4,6 @@ class Logic {
 
     static boolean isFightEnded;
     static boolean isLastFightWin;
+    static boolean isTrading;
 
 }

@@ -12,6 +12,7 @@
         <Collapsed>False</Collapsed>
         <Member type="Field">static short [][] map</Member>
         <Member type="Field">int difficult</Member>
+        <Member type="Field">List&lt;Quest&gt; questList</Member>
         <Member type="Constructor">World()</Member>
         <Modifier>Static</Modifier>
       </Entity>
@@ -19,7 +20,7 @@
         <Name>Hero</Name>
         <Access>Public</Access>
         <Location left="103" top="379" />
-        <Size width="162" height="417" />
+        <Size width="162" height="434" />
         <Collapsed>False</Collapsed>
         <Member type="Field">String name</Member>
         <Member type="Field">Weapon weapon</Member>
@@ -41,6 +42,7 @@
         <Member type="Field">List&lt;Item&gt; inventory</Member>
         <Member type="Field">int hp_max</Member>
         <Member type="Field">int mana_max</Member>
+        <Member type="Field">Quest quest</Member>
         <Modifier>Abstract</Modifier>
       </Entity>
       <Entity type="Class">
@@ -65,10 +67,10 @@
         <Name>Armor</Name>
         <Access>Default</Access>
         <Location left="976" top="80" />
-        <Size width="185" height="162" />
+        <Size width="229" height="162" />
         <Collapsed>False</Collapsed>
         <Member type="Field">int armor</Member>
-        <Member type="Constructor">Armor(String title, int armor)</Member>
+        <Member type="Constructor">Armor(int price, String title, int armor)</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Comment">
@@ -81,10 +83,11 @@
         <Name>Item</Name>
         <Access>Public</Access>
         <Location left="320" top="80" />
-        <Size width="162" height="111" />
+        <Size width="162" height="128" />
         <Collapsed>False</Collapsed>
         <Member type="Field">String title</Member>
         <Member type="Field">String itemType</Member>
+        <Member type="Field">int price</Member>
         <Modifier>Abstract</Modifier>
       </Entity>
       <Entity type="Class">
@@ -95,27 +98,41 @@
         <Collapsed>False</Collapsed>
         <Member type="Field">int damage</Member>
         <Member type="Field">double critical</Member>
-        <Member type="Constructor">Weapon(String title, int damage, double critical)</Member>
+        <Member type="Constructor">Weapon(int price, String title, int damage, double critical)</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>Drink</Name>
         <Access>Public</Access>
         <Location left="541" top="271" />
-        <Size width="265" height="145" />
+        <Size width="324" height="145" />
         <Collapsed>False</Collapsed>
         <Member type="Field">String drinkType</Member>
         <Member type="Field">int bonus</Member>
-        <Member type="Constructor">Drink(String drinkType, String title, int bonus)</Member>
+        <Member type="Constructor">Drink(int price, String drinkType, String title, int bonus)</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>QuestItem</Name>
         <Access>Public</Access>
-        <Location left="840" top="271" />
+        <Location left="888" top="271" />
         <Size width="162" height="145" />
         <Collapsed>False</Collapsed>
         <Member type="Constructor">QuestItem(String title)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Quest</Name>
+        <Access>Public</Access>
+        <Location left="585" top="482" />
+        <Size width="494" height="219" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">int [] stepTextID</Member>
+        <Member type="Field">int [] stepPlaceNum</Member>
+        <Member type="Field">QuestItem [] stepItem</Member>
+        <Member type="Field">String questTitle</Member>
+        <Member type="Field">int stepNum</Member>
+        <Member type="Constructor">private Quest(String questTitle, int [] stepTextID, int [] stepX, int [] stepY, QuestItem [] stepItem)</Member>
         <Modifier>None</Modifier>
       </Entity>
     </Entities>
@@ -159,19 +176,19 @@
         </BendPoint>
         <BendPoint relativeToStartShape="False">
           <X>432</X>
-          <Y>216</Y>
+          <Y>233</Y>
         </BendPoint>
       </Relationship>
       <Relationship type="Dependency" first="9" second="6">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
-          <X>926</X>
+          <X>974</X>
           <Y>445</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
           <X>364</X>
-          <Y>216</Y>
+          <Y>233</Y>
         </BendPoint>
       </Relationship>
     </Relationships>

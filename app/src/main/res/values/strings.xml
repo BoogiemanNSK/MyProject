@@ -26,7 +26,7 @@
     <string name="word_hard">Hard</string>
     <string name="word_class1">Warrior [150 HP, 0 Mana]</string>
     <string name="word_class2">Mage [100 HP, 10 Mana]</string>
-    <string name="change_name_text">It is necessery that nobody know who you are. How do you want to called?</string>
+    <string name="change_name_text">It is necessery that nobody know who you are. How do you want to be called?</string>
     <string name="entet_name_string">Enter Name</string>
     <string name="map_word">Map</string>
     <string name="inv_word">Inventory</string>
@@ -43,7 +43,7 @@
     <string name="mountains_walk_string">%1$s, Вы бредёте по горам, ни на что не натыкаясь.</string>
     <string name="magnus_event_string">%1$s, Вы натыкаетесь на великую башню Магнуса. Потрясающее явление и очень редкое.</string>
     <string name="bandits_event_string">%1$s, неожиданно на Вас выскакивает шайка бандитов. Ничего не остаётся, кроме как принять бой.</string>
-    <string name="tavern_event_string">%1$s, Вы замечаете таверну, и заходите промочить горло.</string>
+    <string name="tavern_event_string">%1$s, перед Вами врдуг появляется уютная таверна.</string>
     <string name="cave_event_string">%1$s, Вы выходите прямиком к тёмной пещере.</string>
     <string name="rainbow_event_string">%1$s, Вы видите радугу. Мило.</string>
     <string name="enter_word">Enter</string>
@@ -59,6 +59,11 @@
     <string name="abilities_choice">Manage abilities points [%1$d]</string>
     <string name="plus" translatable="false">+</string>
     <string name="minus" translatable="false">-</string>
-    <string name="zero_amount" translatable="false">[0]</string>
+    <string name="zero_amount" translatable="false">[5]</string>
     <string name="attack_word">Attack</string>
+    <string name="trade_sum_string">SUMMARY</string>
+    <string name="trade_string">Trade</string>
+    <string name="journal_word">Journal</string>
+    <string name="main_quest_first_step">Вам нужна какая-то невероятная сила, чтобы победить брата… Попробуйте поспрашивать барменов в тавернах.</string>
+    <string name="quest_path_string">Quest Path</string>
 </resources>

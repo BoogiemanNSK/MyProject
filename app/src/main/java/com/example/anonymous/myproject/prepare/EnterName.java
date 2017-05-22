@@ -41,6 +41,8 @@ public class EnterName extends AppCompatActivity {
         tv_name = (TextView) findViewById(R.id.tvname);
         tv_empty = (TextView) findViewById(R.id.tv_empty);
 
+        et.setText("Dude");
+
         enter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -139,7 +141,7 @@ public class EnterName extends AppCompatActivity {
                 abilityIntent.putExtra("name", name);
                 abilityIntent.putExtra("class", class_num);
                 abilityIntent.putExtra("difficult", difficult);
-                abilityIntent.putExtra("points", 50 - difficult * 5);
+                abilityIntent.putExtra("points", (4 - difficult) * 5);
                 startActivity(abilityIntent);
                 finish();
             }
@@ -158,7 +160,7 @@ public class EnterName extends AppCompatActivity {
                 abilityIntent.putExtra("name", name);
                 abilityIntent.putExtra("class", class_num);
                 abilityIntent.putExtra("difficult", difficult);
-                abilityIntent.putExtra("points", 50 - difficult * 5);
+                abilityIntent.putExtra("points", (4 - difficult) * 5);
                 startActivity(abilityIntent);
                 finish();
             }

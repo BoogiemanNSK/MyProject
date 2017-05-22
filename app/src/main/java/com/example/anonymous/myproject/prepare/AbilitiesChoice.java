@@ -12,7 +12,7 @@ import com.example.anonymous.myproject.R;
 
 public class AbilitiesChoice extends AppCompatActivity implements View.OnClickListener {
 
-    private int points, strength = 0, perception = 0, endurance = 0, charisma = 0, intelligence = 0, agility = 0, luck = 0;
+    private int points, strength = 5, perception = 5, endurance = 5, charisma = 5, intelligence = 5, agility = 5, luck = 5;
     TextView tv_name, strength_tv, perception_tv, endurance_tv, charisma_tv, intelligence_tv, agility_tv, luck_tv;
 
     @Override

@@ -36,4 +36,6 @@
     <string name="down_string">Назад\n↓</string>
     <string name="right_string">Вправо →</string>
     <string name="up_string">↑\nВперёд</string>
+    <string name="trade_string">Сделка</string>
+    <string name="trade_sum_string">ИТОГ</string>
 </resources>

@@ -70,7 +70,7 @@ public class Action extends AppCompatActivity {
                 if (Path.king.intelligence >= 6) {
                     tv2.setText("Обойдя магическую руну на полу, вы подходите к магу.\nМаг: Ну надо же, какой смышлёный. Послушай, мне сейчас не до тебя, хочешь," +
                             " возьми этот дурацкий посох, мне вообще плевать, только не возвращайся сюда.\n[Посох Самосожжения добавлен в инвентарь]");
-                    Path.king.inventory.add(new GameClasses.Weapon("Посох самоможжения", 10, 0.3));
+                    Path.king.inventory.add(new GameClasses.Weapon(30, "Посох самоможжения", 10, 0.3));
 
                     final Button btn3 = new Button(context);
                     btn3.setText("Спасибо, ну, бывай. [Уйти]");
@@ -179,7 +179,7 @@ public class Action extends AppCompatActivity {
                                 "\n [Факел добавлен в инвентарь]");
                         scrollView.addView(tv5);
 
-                        Path.king.inventory.add(new GameClasses.Weapon("Дубина Главаря Бандитов", 8, 0.4));
+                        Path.king.inventory.add(new GameClasses.Weapon(36, "Дубина Главаря Бандитов", 8, 0.4));
                         Path.king.inventory.add(new GameClasses.QuestItem("Факел"));
 
                         final Button btn6 = new Button(context);
@@ -277,7 +277,7 @@ public class Action extends AppCompatActivity {
                                             "\n [Факел добавлен в инвентарь]");
                                     scrollView.addView(tv5);
 
-                                    Path.king.inventory.add(new GameClasses.Weapon("Дубина Главаря Бандитов", 8, 0.4));
+                                    Path.king.inventory.add(new GameClasses.Weapon(36, "Дубина Главаря Бандитов", 8, 0.4));
                                     Path.king.inventory.add(new GameClasses.QuestItem("Факел"));
 
                                     final Button btn6 = new Button(context);
@@ -379,7 +379,7 @@ public class Action extends AppCompatActivity {
                                             "\n [Факел добавлен в инвентарь]");
                                     scrollView.addView(tv5);
 
-                                    Path.king.inventory.add(new GameClasses.Weapon("Дубина Главаря Бандитов", 8, 0.4));
+                                    Path.king.inventory.add(new GameClasses.Weapon(36, "Дубина Главаря Бандитов", 8, 0.4));
                                     Path.king.inventory.add(new GameClasses.QuestItem("Факел"));
 
                                     final Button btn6 = new Button(context);
@@ -404,7 +404,49 @@ public class Action extends AppCompatActivity {
     }
 
     private void actionTavern() {
+        // TODO Добавить background для таверны
 
+        final TextView tavern_tv1 = new TextView(context);
+        tavern_tv1.setText(" Вам сразу бросается в глаза одинокий бармен, протирающий стаканы, и вы заводите с ним диалог.\n" +
+                " Бармен: Добро пожаловать в мою таверну! Ищешь что-то? Или может желаешь взглянуть на мои товары?");
+        scrollView.addView(tavern_tv1);
+
+        final Button tavern_btn1 = new Button(context);
+        tavern_btn1.setText("Давай посмотрим, что там у тебя [Торговля]");
+        scrollView.addView(tavern_btn1);
+
+        final Button tavern_btn2 = new Button(context);
+        tavern_btn2.setText("Да, что-то я ищу...");
+        scrollView.addView(tavern_btn2);
+
+        final Button tavern_btn3 = new Button(context);
+        tavern_btn3.setText("Нет, в другой раз [Уйти]");
+        scrollView.addView(tavern_btn3);
+
+        tavern_btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent tradeIntent = new Intent(context, Trade.class);
+
+                tradeIntent.putExtra("traderName", "Бармен");
+
+                startActivity(tradeIntent);
+            }
+        });
+
+        tavern_btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        tavern_btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     private void actionCaveEntrance() {
@@ -556,7 +598,7 @@ public class Action extends AppCompatActivity {
                                     cave_tv3.setText(" Медведь пал замервто... А ведь из его шкуры выйдет неплохая броня!\n [Броня из шкуры Пещерного Медведя добавлена в инвентарь]");
                                     scrollView.addView(cave_tv3);
 
-                                    Path.king.inventory.add(new GameClasses.Armor("Броня из шкуры Пещерного Медведя", 40));
+                                    Path.king.inventory.add(new GameClasses.Armor(40, "Броня из шкуры Пещерного Медведя", 40));
 
                                     final Button cave_button4 = new Button(context);
                                     cave_button4.setText("Пора сваливать из этой дыры!");
@@ -601,7 +643,7 @@ public class Action extends AppCompatActivity {
                             "\n[Крепкая Броня Наемника добавлена в инвентарь]");
                     scrollView.addView(cave_tv2);
 
-                    Path.king.inventory.add(new GameClasses.Armor("Крепкая Броня Наёмника", 20));
+                    Path.king.inventory.add(new GameClasses.Armor(20, "Крепкая Броня Наёмника", 20));
                     Path.king.money += 150;
 
                     final Button cave_button2 = new Button(context);

@@ -1,12 +1,14 @@
 package com.example.anonymous.myproject;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.List;
@@ -36,6 +38,17 @@ class ItemAdapter extends ArrayAdapter<GameClasses.Item> {
         }
 
         GameClasses.Item item = items.get(position);
+
+        if (Logic.isTrading) {
+            viewHolder.itemPrice.setText(String.valueOf(item.price));
+            viewHolder.itemLayout.setBackgroundColor(Color.argb(256, 0, 0, 0));
+            for (GameClasses.Item i: Trade.itemsToSell)
+                if (item.title.equals(i.title))
+                    viewHolder.itemLayout.setBackgroundColor(Color.argb(128, 64, 64, 0));
+            for (GameClasses.Item i: Trade.itemsToBuy)
+                if (item.title.equals(i.title))
+                    viewHolder.itemLayout.setBackgroundColor(Color.argb(128, 64, 64, 0));
+        }
 
         switch (item.itemType) {
             case "weapon":
@@ -80,7 +93,6 @@ class ItemAdapter extends ArrayAdapter<GameClasses.Item> {
                 }
                 break;
             case "quest_item":
-                GameClasses.QuestItem currentQuestItem = (GameClasses.QuestItem) item;
                 viewHolder.imageView.setImageResource(R.mipmap.quest_item);
                 viewHolder.nameView.setText(item.title);
                 viewHolder.tickView.setVisibility(View.GONE);
@@ -94,15 +106,18 @@ class ItemAdapter extends ArrayAdapter<GameClasses.Item> {
     }
 
     private class ViewHolder {
+        final LinearLayout itemLayout;
         final ImageView imageView, tickView;
-        final TextView nameView, bonusView, criticalView;
+        final TextView nameView, bonusView, criticalView, itemPrice;
 
         ViewHolder(View view) {
+            itemLayout = (LinearLayout) view.findViewById(R.id.itemLayout);
             imageView = (ImageView) view.findViewById(R.id.item_icon);
             tickView = (ImageView) view.findViewById(R.id.tick);
             nameView = (TextView) view.findViewById(R.id.name);
             bonusView = (TextView) view.findViewById(R.id.bonus);
             criticalView = (TextView) view.findViewById(R.id.critical_chance);
+            itemPrice = (TextView) view.findViewById(R.id.itemPrice);
         }
     }
 }

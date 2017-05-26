@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="weapon_armor_action">
+    <string-array name="weapon_armor_action" translatable="false">
         <item>Экипировать</item>
         <item>Отмена</item>
     </string-array>
-    <string-array name="drink_action">
+    <string-array name="drink_action" translatable="false">
         <item>Выпить</item>
         <item>Отмена</item>
     </string-array>

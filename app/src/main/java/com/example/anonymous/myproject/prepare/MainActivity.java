@@ -1,4 +1,4 @@
-package com.example.anonymous.myproject;
+package com.example.anonymous.myproject.prepare;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -6,11 +6,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.anonymous.myproject.R;
 import com.example.anonymous.myproject.prepare.ScrollingActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Button start, settings, dev, contin;
+    Button start, dev;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,14 +26,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         start = (Button) findViewById(R.id.start);
-        settings = (Button) findViewById(R.id.settings);
         dev = (Button) findViewById(R.id.dev);
-        contin = (Button) findViewById(R.id.contin);
 
         start.setOnClickListener(this);
-        settings.setOnClickListener(this);
         dev.setOnClickListener(this);
-        contin.setOnClickListener(this);
     }
 
     @Override
@@ -44,15 +41,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 super.onStop();
                 break;
             }
-            case R.id.contin: {
-                Intent cont = new Intent(this, Path.class);
-                startActivity(cont);
-                finish();
-            }
-            case R.id.settings: {
-                break;
-            }
             case R.id.dev: {
+                Intent devs = new Intent(this, AboutDevs.class);
+                startActivity(devs);
                 break;
             }
         }

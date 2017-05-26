@@ -52,14 +52,13 @@ public class AbilitiesChoice extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.strength_plus:
                 if (points == 0)
-                    Toast.makeText(getApplicationContext(), "У вас закончились очки", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), getString(R.string.lack_of_points_string), Toast.LENGTH_SHORT).show();
                 else if (strength == 10)
-                    Toast.makeText(getApplicationContext(), "Нельзя вложить более 10 очков в навык", Toast.LENGTH_LONG).show();
-                else
-                {
+                    Toast.makeText(getApplicationContext(), getString(R.string.already_ten_string), Toast.LENGTH_SHORT).show();
+                else {
                     points--;
                     strength++;
                     strength_tv.setText("[" + strength + "]");
@@ -68,9 +67,8 @@ public class AbilitiesChoice extends AppCompatActivity implements View.OnClickLi
                 break;
             case R.id.strength_minus:
                 if (strength == 0)
-                    Toast.makeText(getApplicationContext(), "У вас уже 0 силы", Toast.LENGTH_LONG).show();
-                else
-                {
+                    Toast.makeText(getApplicationContext(), getString(R.string.lack_of_strength_string), Toast.LENGTH_SHORT).show();
+                else {
                     points++;
                     strength--;
                     strength_tv.setText("[" + strength + "]");
@@ -79,11 +77,10 @@ public class AbilitiesChoice extends AppCompatActivity implements View.OnClickLi
                 break;
             case R.id.perception_plus:
                 if (points == 0)
-                    Toast.makeText(getApplicationContext(), "У вас закончились очки", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), getString(R.string.lack_of_points_string), Toast.LENGTH_SHORT).show();
                 else if (perception == 10)
-                    Toast.makeText(getApplicationContext(), "Нельзя вложить более 10 очков в навык", Toast.LENGTH_LONG).show();
-                else
-                {
+                    Toast.makeText(getApplicationContext(), getString(R.string.already_ten_string), Toast.LENGTH_SHORT).show();
+                else {
                     points--;
                     perception++;
                     perception_tv.setText("[" + perception + "]");
@@ -92,9 +89,8 @@ public class AbilitiesChoice extends AppCompatActivity implements View.OnClickLi
                 break;
             case R.id.perception_minus:
                 if (perception == 0)
-                    Toast.makeText(getApplicationContext(), "У вас уже 0 восприятия", Toast.LENGTH_LONG).show();
-                else
-                {
+                    Toast.makeText(getApplicationContext(), getString(R.string.lack_of_perception_string), Toast.LENGTH_SHORT).show();
+                else {
                     points++;
                     perception--;
                     perception_tv.setText("[" + perception + "]");
@@ -103,11 +99,10 @@ public class AbilitiesChoice extends AppCompatActivity implements View.OnClickLi
                 break;
             case R.id.endurance_plus:
                 if (points == 0)
-                    Toast.makeText(getApplicationContext(), "У вас закончились очки", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), getString(R.string.lack_of_points_string), Toast.LENGTH_SHORT).show();
                 else if (endurance == 10)
-                    Toast.makeText(getApplicationContext(), "Нельзя вложить более 10 очков в навык", Toast.LENGTH_LONG).show();
-                else
-                {
+                    Toast.makeText(getApplicationContext(), getString(R.string.already_ten_string), Toast.LENGTH_SHORT).show();
+                else {
                     points--;
                     endurance++;
                     endurance_tv.setText("[" + endurance + "]");
@@ -116,9 +111,8 @@ public class AbilitiesChoice extends AppCompatActivity implements View.OnClickLi
                 break;
             case R.id.endurance_minus:
                 if (endurance == 0)
-                    Toast.makeText(getApplicationContext(), "У вас уже 0 выносливости", Toast.LENGTH_LONG).show();
-                else
-                {
+                    Toast.makeText(getApplicationContext(), getString(R.string.lack_of_endurance_string), Toast.LENGTH_SHORT).show();
+                else {
                     points++;
                     endurance--;
                     endurance_tv.setText("[" + endurance + "]");
@@ -127,11 +121,10 @@ public class AbilitiesChoice extends AppCompatActivity implements View.OnClickLi
                 break;
             case R.id.charisma_plus:
                 if (points == 0)
-                    Toast.makeText(getApplicationContext(), "У вас закончились очки", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), getString(R.string.lack_of_points_string), Toast.LENGTH_SHORT).show();
                 else if (charisma == 10)
-                    Toast.makeText(getApplicationContext(), "Нельзя вложить более 10 очков в навык", Toast.LENGTH_LONG).show();
-                else
-                {
+                    Toast.makeText(getApplicationContext(), getString(R.string.already_ten_string), Toast.LENGTH_SHORT).show();
+                else {
                     points--;
                     charisma++;
                     charisma_tv.setText("[" + charisma + "]");
@@ -140,9 +133,8 @@ public class AbilitiesChoice extends AppCompatActivity implements View.OnClickLi
                 break;
             case R.id.charisma_minus:
                 if (charisma == 0)
-                    Toast.makeText(getApplicationContext(), "У вас уже 0 харизмы", Toast.LENGTH_LONG).show();
-                else
-                {
+                    Toast.makeText(getApplicationContext(), getString(R.string.lack_of_charisma_string), Toast.LENGTH_SHORT).show();
+                else {
                     points++;
                     charisma--;
                     charisma_tv.setText("[" + charisma + "]");
@@ -151,11 +143,10 @@ public class AbilitiesChoice extends AppCompatActivity implements View.OnClickLi
                 break;
             case R.id.intelligence_plus:
                 if (points == 0)
-                    Toast.makeText(getApplicationContext(), "У вас закончились очки", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), getString(R.string.lack_of_points_string), Toast.LENGTH_SHORT).show();
                 else if (intelligence == 10)
-                    Toast.makeText(getApplicationContext(), "Нельзя вложить более 10 очков в навык", Toast.LENGTH_LONG).show();
-                else
-                {
+                    Toast.makeText(getApplicationContext(), getString(R.string.already_ten_string), Toast.LENGTH_SHORT).show();
+                else {
                     points--;
                     intelligence++;
                     intelligence_tv.setText("[" + intelligence + "]");
@@ -164,9 +155,8 @@ public class AbilitiesChoice extends AppCompatActivity implements View.OnClickLi
                 break;
             case R.id.intelligence_minus:
                 if (intelligence == 0)
-                    Toast.makeText(getApplicationContext(), "У вас уже 0 интеллекта", Toast.LENGTH_LONG).show();
-                else
-                {
+                    Toast.makeText(getApplicationContext(), getString(R.string.lack_of_intelligence_string), Toast.LENGTH_SHORT).show();
+                else {
                     points++;
                     intelligence--;
                     intelligence_tv.setText("[" + intelligence + "]");
@@ -175,11 +165,10 @@ public class AbilitiesChoice extends AppCompatActivity implements View.OnClickLi
                 break;
             case R.id.agility_plus:
                 if (points == 0)
-                    Toast.makeText(getApplicationContext(), "У вас закончились очки", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), getString(R.string.lack_of_points_string), Toast.LENGTH_SHORT).show();
                 else if (agility == 10)
-                    Toast.makeText(getApplicationContext(), "Нельзя вложить более 10 очков в навык", Toast.LENGTH_LONG).show();
-                else
-                {
+                    Toast.makeText(getApplicationContext(), getString(R.string.already_ten_string), Toast.LENGTH_SHORT).show();
+                else {
                     points--;
                     agility++;
                     agility_tv.setText("[" + agility + "]");
@@ -188,9 +177,8 @@ public class AbilitiesChoice extends AppCompatActivity implements View.OnClickLi
                 break;
             case R.id.agility_minus:
                 if (agility == 0)
-                    Toast.makeText(getApplicationContext(), "У вас 0 ловкости", Toast.LENGTH_LONG).show();
-                else
-                {
+                    Toast.makeText(getApplicationContext(), getString(R.string.lack_of_agility_string), Toast.LENGTH_SHORT).show();
+                else {
                     points++;
                     agility--;
                     agility_tv.setText("[" + agility + "]");
@@ -199,11 +187,10 @@ public class AbilitiesChoice extends AppCompatActivity implements View.OnClickLi
                 break;
             case R.id.luck_plus:
                 if (points == 0)
-                    Toast.makeText(getApplicationContext(), "У вас закончились очки", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), getString(R.string.lack_of_points_string), Toast.LENGTH_SHORT).show();
                 else if (luck == 10)
-                    Toast.makeText(getApplicationContext(), "Нельзя вложить более 10 очков в навык", Toast.LENGTH_LONG).show();
-                else
-                {
+                    Toast.makeText(getApplicationContext(), getString(R.string.already_ten_string), Toast.LENGTH_SHORT).show();
+                else {
                     points--;
                     luck++;
                     luck_tv.setText("[" + luck + "]");
@@ -212,9 +199,8 @@ public class AbilitiesChoice extends AppCompatActivity implements View.OnClickLi
                 break;
             case R.id.luck_minus:
                 if (luck == 0)
-                    Toast.makeText(getApplicationContext(), "У вас уже 0 удачи", Toast.LENGTH_LONG).show();
-                else
-                {
+                    Toast.makeText(getApplicationContext(), getString(R.string.lack_of_luck_string), Toast.LENGTH_SHORT).show();
+                else {
                     points++;
                     luck--;
                     luck_tv.setText("[" + luck + "]");
@@ -238,9 +224,8 @@ public class AbilitiesChoice extends AppCompatActivity implements View.OnClickLi
 
                     startActivity(pathIntent);
                     finish();
-                }
-                else
-                    Toast.makeText(getApplicationContext(), "У вас остались нераспределённые очки.", Toast.LENGTH_LONG).show();
+                } else
+                    Toast.makeText(getApplicationContext(), getString(R.string.points_left_string), Toast.LENGTH_SHORT).show();
         }
     }
 }

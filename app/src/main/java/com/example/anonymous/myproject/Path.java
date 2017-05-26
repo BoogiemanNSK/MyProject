@@ -58,7 +58,7 @@ public class Path extends AppCompatActivity implements View.OnClickListener {
         journal.setOnClickListener(this);
 
         myWorld.questList = new ArrayList<>();
-        myWorld.questList.add(new GameClasses.Quest("Месть сладка", new int[]{R.string.main_quest_first_step}, new int[]{7}, new GameClasses.QuestItem[]{null}));
+        myWorld.questList.add(new GameClasses.Quest("Месть сладка", new int[]{R.string.main_quest_first_step, R.string.main_quest_second_step}, new int[]{7, 5}, new GameClasses.QuestItem[]{null, null}));
 
         GameClasses.traderItems1 = new ArrayList<>();
         GameClasses.traderItems2 = new ArrayList<>();
@@ -108,14 +108,18 @@ public class Path extends AppCompatActivity implements View.OnClickListener {
 
         king.inventory.add(new GameClasses.Weapon(2, "Деревянная палка", 2, 0.05));
         king.inventory.add(new GameClasses.Armor(1, "Рваный балахон", 1));
-        king.inventory.add(new GameClasses.Weapon(5, "Деревянный меч", 4, 0.1));
-        king.inventory.add(new GameClasses.Armor(3, "Костюм-двойка", 3));
         king.inventory.add(new GameClasses.Drink(10, "hp", "Бутылка воды", 10));
         king.inventory.add(new GameClasses.Drink(15, "mana", "Лимонад Гаврош", 15));
 
         myWorld.difficult = getIntent().getIntExtra("difficult", 0);
+        king.quest = myWorld.questList.get(0);
 
         Logic.isFightEnded = true;
+        Logic.isBarmanVisited = false;
+        Logic.isBanditLeaderDefeated = false;
+        Logic.isCaveArmorFound = false;
+        Logic.isCaveBearDefeated = false;
+        Logic.isMagnusStaffFound = false;
 
         tv.setText("Добро пожаловать в Overthrown! Для того чтобы узнать ваше местоположение, используйте карту, а чтобы менять оружие, броню, пить напитики" +
                 " или узнать свои хар-ки, зайдите в инвентарь.\nДля перемещения по миру нажимайте на соответственные кнопки внизу.");

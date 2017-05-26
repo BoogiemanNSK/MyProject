@@ -47,7 +47,7 @@ public class EnterName extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (et.getText().toString().equals("")) {
-                    tv2.setText("Введите имя");
+                    tv2.setText(getString(R.string.enter_name_string));
                 } else {
                     name = et.getText().toString();
 
@@ -61,7 +61,7 @@ public class EnterName extends AppCompatActivity {
     }
 
     public void difficultChoose() {
-        tv_name.setText("Выберите уровень сложности");
+        tv_name.setText(getString(R.string.choose_difficult_string));
         tv2.setText("");
 
         final Button easy = new Button(this);
@@ -117,7 +117,7 @@ public class EnterName extends AppCompatActivity {
     }
 
     public void classChoose() {
-        tv_name.setText("Выберите класс");
+        tv_name.setText(getString(R.string.choose_class_string));
 
         final Button class1 = new Button(EnterName.this);
         class1.setText(getString(R.string.word_class1));

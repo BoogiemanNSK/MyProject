@@ -7,9 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.anonymous.myproject.MainActivity;
 import com.example.anonymous.myproject.R;
-import com.example.anonymous.myproject.prepare.EnterName;
 
 public class ScrollingActivity extends AppCompatActivity implements View.OnClickListener {
     Button yes, no;

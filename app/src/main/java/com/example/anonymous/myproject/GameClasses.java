@@ -101,7 +101,6 @@ class GameClasses {
 
     static class Warrior extends Hero {
         Warrior() {
-            this.quest = new Quest("Месть сладка", new int[]{R.string.main_quest_first_step}, new int[]{7}, new QuestItem[]{null});
             this.weapon = new Weapon(2, "Деревянная палка", 2, 0.05);
             this.armor = new Armor(1, "Рваный балахон", 1);
             this.money = 5;
@@ -118,14 +117,13 @@ class GameClasses {
 
     static class Mage extends Hero {
         Mage() {
-            this.quest = new Quest("Месть сладка", new int[]{R.string.main_quest_first_step}, new int[]{7}, new QuestItem[]{null});
             this.weapon = new Weapon(2, "Деревянная палка", 2, 0.05);
             this.armor = new Armor(1, "Рваный балахон", 1);
             this.money = 5;
             this.hp = 100;
             this.hp_max = 100;
-            this.mana = 10;
-            this.mana_max = 10;
+            this.mana = 100;
+            this.mana_max = 100;
             this.karma = 50;
             this.x = (int) (Math.random() * 15 + 5);
             this.y = (int) (Math.random() * 15 + 5);

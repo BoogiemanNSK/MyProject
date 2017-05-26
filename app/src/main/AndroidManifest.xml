@@ -9,7 +9,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity
-            android:name=".MainActivity"
+            android:name=".prepare.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -38,7 +38,8 @@
         <activity android:name=".Action" />
         <activity android:name=".Fight" />
         <activity android:name=".Trade" />
-        <activity android:name=".Journal"></activity>
+        <activity android:name=".Journal" />
+        <activity android:name=".prepare.AboutDevs"></activity>
     </application>
 
 </manifest>

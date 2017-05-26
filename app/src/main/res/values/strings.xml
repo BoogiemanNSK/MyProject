@@ -1,12 +1,12 @@
 <resources>
     <string name="app_name">Overthrown</string>
-    <string name="New_game">New Game</string>
+    <string name="New_game">Start</string>
     <string name="Contin">Continue</string>
     <string name="Settings">Settings</string>
     <string name="About_developers">Developers</string>
     <string name="Exit">Exit</string>
     <string name="title_activity_scrolling">Prologue</string>
-    <string name="story">
+    <string name="story" translatable="false">
         \tВы законный наследник престола королевства Четырёх земель.\n
         \tНарод обожал Вас за мудрые решения, справедливость и человеческие качества.\n
         \tНо в один день всё изменилось: Вас оклеветали, предоставив фальсифицированные, но убедительные доказательства преступлений, которых вы, разумеется, не совершали.\n
@@ -27,25 +27,23 @@
     <string name="word_class1">Warrior [150 HP, 0 Mana]</string>
     <string name="word_class2">Mage [100 HP, 10 Mana]</string>
     <string name="change_name_text">It is necessery that nobody know who you are. How do you want to be called?</string>
-    <string name="entet_name_string">Enter Name</string>
+    <string name="enter_name_string">Enter Name</string>
+    <string name="choose_difficult_string">Choose difficult</string>
+    <string name="choose_class_string">Choose class</string>
     <string name="map_word">Map</string>
     <string name="inv_word">Inventory</string>
-    <string name="up_string">↑\nForward</string>
-    <string name="left_string">← Left</string>
-    <string name="right_string">Right →</string>
-    <string name="down_string">Back\n↓</string>
     <string name="no_word">No</string>
     <string name="yes_word">Yes</string>
     <string name="get_lost_string">%1$s, You definitely got lost. Try another way.</string>
-    <string name="winter_walk_string">%1$s , Вы бредёте по снежной долине, ни на что не натыкаясь.</string>
-    <string name="desert_walk_string">%1$s , Вы бредёте по пустыне, ни на что не натыкаясь.</string>
-    <string name="forest_walk_string">%1$s , Вы бредёте по лесу, ни на что не натыкаясь.</string>
-    <string name="mountains_walk_string">%1$s, Вы бредёте по горам, ни на что не натыкаясь.</string>
-    <string name="magnus_event_string">%1$s, Вы натыкаетесь на великую башню Магнуса. Потрясающее явление и очень редкое.</string>
-    <string name="bandits_event_string">%1$s, неожиданно на Вас выскакивает шайка бандитов. Ничего не остаётся, кроме как принять бой.</string>
-    <string name="tavern_event_string">%1$s, перед Вами врдуг появляется уютная таверна.</string>
-    <string name="cave_event_string">%1$s, Вы выходите прямиком к тёмной пещере.</string>
-    <string name="rainbow_event_string">%1$s, Вы видите радугу. Мило.</string>
+    <string name="winter_walk_string" translatable="false">%1$s , Вы бредёте по снежной долине, ни на что не натыкаясь.</string>
+    <string name="desert_walk_string" translatable="false">%1$s , Вы бредёте по пустыне, ни на что не натыкаясь.</string>
+    <string name="forest_walk_string" translatable="false">%1$s , Вы бредёте по лесу, ни на что не натыкаясь.</string>
+    <string name="mountains_walk_string" translatable="false">%1$s, Вы бредёте по горам, ни на что не натыкаясь.</string>
+    <string name="magnus_event_string" translatable="false">%1$s, Вы натыкаетесь на великую башню Магнуса. Потрясающее явление и очень редкое.</string>
+    <string name="bandits_event_string" translatable="false">%1$s, неожиданно на Вас выскакивает шайка бандитов. Ничего не остаётся, кроме как принять бой.</string>
+    <string name="tavern_event_string" translatable="false">%1$s, перед Вами врдуг появляется уютная таверна.</string>
+    <string name="cave_event_string" translatable="false">%1$s, Вы выходите прямиком к тёмной пещере.</string>
+    <string name="rainbow_event_string" translatable="false">%1$s, Вы видите радугу. Мило.</string>
     <string name="enter_word">Enter</string>
     <string name="strength_abilities">Strength</string>
     <string name="perception_abilities">Perception</string>
@@ -64,6 +62,18 @@
     <string name="trade_sum_string">SUMMARY</string>
     <string name="trade_string">Trade</string>
     <string name="journal_word">Journal</string>
-    <string name="main_quest_first_step">Вам нужна какая-то невероятная сила, чтобы победить брата… Попробуйте поспрашивать барменов в тавернах.</string>
+    <string name="main_quest_first_step" translatable="false">Вам нужна какая-то невероятная сила, чтобы победить брата… Попробуйте поспрашивать барменов в тавернах.</string>
+    <string name="main_quest_second_step" translatable="false">Бармен рассказал о какой-то силе, известной магу Магнусу… Вам непременно нужно его навестить.</string>
     <string name="quest_path_string">Quest Path</string>
+    <string name="already_ten_string" translatable="false">Нельзя вложить более 10 очков в навык</string>
+    <string name="lack_of_points_string" translatable="false">У вас закончились очки</string>
+    <string name="lack_of_strength_string" translatable="false">У вас уже 0 силы</string>
+    <string name="lack_of_perception_string" translatable="false">У вас уже 0 восприятия</string>
+    <string name="lack_of_endurance_string" translatable="false">У вас уже 0 выносливости</string>
+    <string name="lack_of_charisma_string" translatable="false">У вас уже 0 харизмы</string>
+    <string name="lack_of_intelligence_string" translatable="false">У вас уже 0 интеллекта</string>
+    <string name="lack_of_agility_string" translatable="false">У вас уже 0 лоакости</string>
+    <string name="lack_of_luck_string" translatable="false">У вас уже 0 удачи</string>
+    <string name="points_left_string" translatable="false">У вас остались нераспределённые очки</string>
+    <string name="devs_names_string" translatable="false">Захаркин Пётр Павлович\nОвчин Михаил Александрович</string>
 </resources>

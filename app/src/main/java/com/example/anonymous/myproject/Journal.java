@@ -48,4 +48,11 @@ public class Journal extends AppCompatActivity implements AdapterView.OnItemClic
         super.onBackPressed();
         finish();
     }
+
+    public static void questUpdate(){
+        for (GameClasses.Quest quest: Path.myWorld.questList) {
+            if (quest.questTitle.equals(Path.king.quest.questTitle))
+                Path.king.quest.stepNum = quest.stepNum;
+        }
+    }
 }

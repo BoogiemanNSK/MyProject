@@ -9,7 +9,7 @@
     <string name="title_activity_scrolling">Пролог</string>
     <string name="action_settings">Настройки</string>
     <string name="Settings">Настройки</string>
-    <string name="New_game">Новая Игра</string>
+    <string name="New_game">Начать</string>
     <string name="Exit">Выход</string>
     <string name="Contin">Продолжить</string>
     <string name="About_developers">Разработчики</string>
@@ -31,11 +31,11 @@
     <string name="yes_word">Да</string>
     <string name="no_word">Нет</string>
     <string name="change_name_text">Необходимо сменить имя, чтобы Вас не узнали. Как хотите, чтобы Вас называли?</string>
-    <string name="entet_name_string">Введите имя</string>
-    <string name="left_string">← Влево</string>
-    <string name="down_string">Назад\n↓</string>
-    <string name="right_string">Вправо →</string>
-    <string name="up_string">↑\nВперёд</string>
     <string name="trade_string">Сделка</string>
     <string name="trade_sum_string">ИТОГ</string>
+    <string name="enter_name_string">Введите имя</string>
+    <string name="choose_difficult_string">Выберите сложность</string>
+    <string name="choose_class_string">Выберите класс</string>
+    <string name="journal_word">Журнал</string>
+    <string name="quest_path_string">Путь в квесте</string>
 </resources>

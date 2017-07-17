@@ -1,12 +1,8 @@
 package com.example.anonymous.myproject;
 
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.ClipDrawable;
-import android.graphics.drawable.LayerDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.AttributeSet;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -16,19 +12,19 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-class Enemy {
-    String name;
-    int dmg, hp, armor;
-
-    Enemy(String name, int dmg, int hp, int armor) {
-        this.name = name;
-        this.dmg = dmg;
-        this.hp = hp;
-        this.armor = armor;
-    }
-}
-
 public class Fight extends AppCompatActivity implements View.OnClickListener {
+
+    class Enemy {
+        String name;
+        int dmg, hp, armor;
+
+        Enemy(String name, int dmg, int hp, int armor) {
+            this.name = name;
+            this.dmg = dmg;
+            this.hp = hp;
+            this.armor = armor;
+        }
+    }
 
     ProgressTextView heroHP, heroArmor, heroMana, enemyHP, enemyArmor;
     TextView battleLog, heroName, enemyName;
@@ -38,6 +34,9 @@ public class Fight extends AppCompatActivity implements View.OnClickListener {
     List<Enemy> enemyList;
     Enemy enemy;
     int heroTempArmor = Path.king.armor.armor, enemyNum;
+
+    @Override
+    public void onBackPressed() {}
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

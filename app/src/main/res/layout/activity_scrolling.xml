@@ -13,7 +13,7 @@
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/app_bar_height"
+        android:layout_height="20dp"
         android:background="#B0000000"
         android:fitsSystemWindows="true"
         android:theme="@style/AppBarOverlay">
@@ -38,26 +38,5 @@
     </android.support.design.widget.AppBarLayout>
 
     <include layout="@layout/content_scrolling" />
-
-    <Button
-        android:id="@+id/No"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="90dp"
-        android:background="#A0000000"
-        android:text="@string/no_word"
-        app:layout_anchor="@id/app_bar"
-        app:layout_anchorGravity="end" />
-
-    <Button
-        android:id="@+id/Yes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="90dp"
-        android:layout_marginTop="90dp"
-        android:background="#A0000000"
-        android:text="@string/yes_word"
-        app:layout_anchor="@id/app_bar"
-        app:layout_anchorGravity="end" />
 
 </android.support.design.widget.CoordinatorLayout>

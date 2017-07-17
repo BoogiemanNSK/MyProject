@@ -18,6 +18,12 @@ public class Inventory extends AppCompatActivity implements AdapterView.OnItemCl
     static GameClasses.Weapon currentWeapon = Path.king.weapon;
     static GameClasses.Armor currentArmor = Path.king.armor;
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().getDecorView().setSystemUiVisibility(
@@ -53,6 +59,9 @@ public class Inventory extends AppCompatActivity implements AdapterView.OnItemCl
         intelligence.setText(String.valueOf(Path.king.intelligence));
         agility.setText(String.valueOf(Path.king.agility));
         luck.setText(String.valueOf(Path.king.luck));
+
+        currentWeapon = Path.king.weapon;
+        currentArmor = Path.king.armor;
 
         itemAdapter = new ItemAdapter(getApplicationContext(), R.layout.inventory_item, Path.king.inventory);
         itemList.setAdapter(itemAdapter);
@@ -143,11 +152,5 @@ public class Inventory extends AppCompatActivity implements AdapterView.OnItemCl
             default:
                 break;
         }
-    }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        finish();
     }
 }

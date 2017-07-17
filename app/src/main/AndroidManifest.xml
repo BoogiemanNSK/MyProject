@@ -13,7 +13,6 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -30,16 +29,30 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".Map"
-            android:screenOrientation="portrait">
-            >
-        </activity>
-        <activity android:name=".Inventory" />
-        <activity android:name=".prepare.AbilitiesChoice" />
-        <activity android:name=".Action" />
-        <activity android:name=".Fight" />
-        <activity android:name=".Trade" />
-        <activity android:name=".Journal" />
-        <activity android:name=".prepare.AboutDevs"></activity>
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Inventory"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".prepare.AbilitiesChoice"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Action"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Fight"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Trade"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Journal"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".FullscreenActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_fullscreen"
+            android:theme="@style/FullscreenTheme" />
     </application>
 
 </manifest>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Overthrown</string>
     <string name="word_normal">Нормально</string>
     <string name="word_hard">Сложно</string>
     <string name="word_easy">Легко</string>
@@ -28,8 +27,7 @@
     <string name="attack_word">Атаковать</string>
     <string name="equipped_icon_string">Экипировано</string>
     <string name="item_icon_string">Значок предмета</string>
-    <string name="yes_word">Да</string>
-    <string name="no_word">Нет</string>
+    <string name="yes_word">Начнём же приключение!</string>
     <string name="change_name_text">Необходимо сменить имя, чтобы Вас не узнали. Как хотите, чтобы Вас называли?</string>
     <string name="trade_string">Сделка</string>
     <string name="trade_sum_string">ИТОГ</string>
@@ -38,4 +36,15 @@
     <string name="choose_class_string">Выберите класс</string>
     <string name="journal_word">Журнал</string>
     <string name="quest_path_string">Путь в квесте</string>
+    <string name="agility_inv_string">Ловкость:</string>
+    <string name="charisma_inv_string">Харизма:</string>
+    <string name="endurance_inv_string">Выносливость:</string>
+    <string name="gold_inv_string">Золото:</string>
+    <string name="intelligence_inv_string">Интеллект:</string>
+    <string name="luck_inv_string">Удача:</string>
+    <string name="mana_inv_string">Мана:</string>
+    <string name="perception_inv_string">Восприятие:</string>
+    <string name="strength_inv_string">Сила:</string>
+    <string name="click_to_begin_string">Нажмите для продолжения</string>
+    <string name="prologue_string">Пролог</string>
 </resources>

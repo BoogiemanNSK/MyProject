@@ -11,5 +11,7 @@
     <color name="violet">#EE82EE</color>
     <color name="aquamarine">#7FFFD4</color>
 
+    <color name="black_overlay">#66000000</color>
+
 
 </resources>

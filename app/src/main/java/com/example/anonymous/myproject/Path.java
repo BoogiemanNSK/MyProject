@@ -17,13 +17,16 @@ import java.util.ArrayList;
 public class Path extends AppCompatActivity implements View.OnClickListener {
 
     private static LinearLayout scrollView;
-    LinearLayout mainLL;
     private static TextView tv;
     private static Button forward, back, left, right, btn;
+    LinearLayout mainLL;
     ImageButton map, inventory, journal;
 
-    static GameClasses.World myWorld = new GameClasses.World();
+    static GameClasses.World myWorld;
     static GameClasses.Hero king;
+
+    @Override
+    public void onBackPressed() {}
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +60,7 @@ public class Path extends AppCompatActivity implements View.OnClickListener {
         inventory.setOnClickListener(this);
         journal.setOnClickListener(this);
 
+        myWorld = new GameClasses.World(getIntent().getIntExtra("difficult", 0));
         myWorld.questList = new ArrayList<>();
         myWorld.questList.add(new GameClasses.Quest("Месть сладка", new int[]{R.string.main_quest_first_step, R.string.main_quest_second_step}, new int[]{7, 5}, new GameClasses.QuestItem[]{null, null}));
 
@@ -85,12 +89,31 @@ public class Path extends AppCompatActivity implements View.OnClickListener {
         GameClasses.traderItems3.add(new GameClasses.Weapon(18, "Кинжал Алхимика", 6, 0.6));
         GameClasses.traderItems3.add(new GameClasses.Armor(16, "Нагрудник Пивовара", 8));
 
+        king = new GameClasses.Hero();
         switch (getIntent().getIntExtra("class", 0)) {
             case 1:
-                king = new GameClasses.Warrior();
+                king.setWeapon(new GameClasses.Weapon(2, "Деревянная палка", 2, 0.05));
+                king.setArmor(new GameClasses.Armor(1, "Рваный балахон", 1));
+                king.setMoney(16);
+                king.setHp(150);
+                king.setHp_max(150);
+                king.setMana(0);
+                king.setMana_max(0);
+                king.setX((int) (Math.random() * 15 + 5));
+                king.setY((int) (Math.random() * 15 + 5));
+                king.setCritical_multipler(1.8);
                 break;
             case 2:
-                king = new GameClasses.Mage();
+                king.setWeapon(new GameClasses.Weapon(2, "Деревянная палка", 2, 0.05));
+                king.setArmor(new GameClasses.Armor(1, "Рваный балахон", 1));
+                king.setMoney(16);
+                king.setHp(100);
+                king.setHp_max(100);
+                king.setMana(100);
+                king.setMana_max(100);
+                king.setX((int) (Math.random() * 15 + 5));
+                king.setY((int) (Math.random() * 15 + 5));
+                king.setCritical_multipler(1.4);
                 break;
             default:
                 break;
@@ -111,7 +134,6 @@ public class Path extends AppCompatActivity implements View.OnClickListener {
         king.inventory.add(new GameClasses.Drink(10, "hp", "Бутылка воды", 10));
         king.inventory.add(new GameClasses.Drink(15, "mana", "Лимонад Гаврош", 15));
 
-        myWorld.difficult = getIntent().getIntExtra("difficult", 0);
         king.quest = myWorld.questList.get(0);
 
         Logic.isFightEnded = true;

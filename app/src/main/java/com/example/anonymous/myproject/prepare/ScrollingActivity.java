@@ -5,12 +5,13 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.Button;
 
 import com.example.anonymous.myproject.R;
 
-public class ScrollingActivity extends AppCompatActivity implements View.OnClickListener {
-    Button yes, no;
+public class ScrollingActivity extends AppCompatActivity{
+
+    @Override
+    public void onBackPressed() {}
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,29 +27,11 @@ public class ScrollingActivity extends AppCompatActivity implements View.OnClick
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        yes = (Button) findViewById(R.id.Yes);
-        no = (Button) findViewById(R.id.No);
-
-        yes.setOnClickListener(this);
-        no.setOnClickListener(this);
     }
 
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.Yes: {
-                Intent yes = new Intent(this, EnterName.class);
-                startActivity(yes);
-                finish();
-                break;
-            }
-            case R.id.No: {
-                Intent no = new Intent(this, MainActivity.class);
-                startActivity(no);
-                finish();
-                break;
-            }
-        }
+    public void beginClick(View view) {
+        Intent begin = new Intent(this, EnterName.class);
+        startActivity(begin);
+        finish();
     }
 }

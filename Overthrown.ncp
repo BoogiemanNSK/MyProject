@@ -43,25 +43,7 @@
         <Member type="Field">int hp_max</Member>
         <Member type="Field">int mana_max</Member>
         <Member type="Field">Quest quest</Member>
-        <Modifier>Abstract</Modifier>
-      </Entity>
-      <Entity type="Class">
-        <Name>Warrior</Name>
-        <Access>Public</Access>
-        <Location left="364" top="482" />
-        <Size width="162" height="94" />
-        <Collapsed>False</Collapsed>
-        <Member type="Constructor">Warrior()</Member>
         <Modifier>Static</Modifier>
-      </Entity>
-      <Entity type="Class">
-        <Name>Mage</Name>
-        <Access>Public</Access>
-        <Location left="364" top="607" />
-        <Size width="162" height="94" />
-        <Collapsed>False</Collapsed>
-        <Member type="Constructor">Mage()</Member>
-        <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>Armor</Name>
@@ -137,17 +119,7 @@
       </Entity>
     </Entities>
     <Relationships>
-      <Relationship type="Dependency" first="2" second="1">
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
-      </Relationship>
-      <Relationship type="Dependency" first="3" second="1">
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
-      </Relationship>
-      <Relationship type="Dependency" first="4" second="6">
-        <Label>
-        </Label>
+      <Relationship type="Dependency" first="2" second="4">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="False">
@@ -155,9 +127,7 @@
           <Y>51</Y>
         </BendPoint>
       </Relationship>
-      <Relationship type="Dependency" first="7" second="6">
-        <Label>
-        </Label>
+      <Relationship type="Dependency" first="5" second="4">
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -165,9 +135,7 @@
           <Y>144</Y>
         </BendPoint>
       </Relationship>
-      <Relationship type="Dependency" first="8" second="6">
-        <Label>
-        </Label>
+      <Relationship type="Dependency" first="6" second="4">
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -179,7 +147,9 @@
           <Y>233</Y>
         </BendPoint>
       </Relationship>
-      <Relationship type="Dependency" first="9" second="6">
+      <Relationship type="Dependency" first="7" second="4">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">

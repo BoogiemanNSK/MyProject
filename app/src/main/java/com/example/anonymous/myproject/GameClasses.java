@@ -11,16 +11,21 @@ import java.util.List;
 
 class GameClasses {
 
-    static List<Item> traderItems1, traderItems2, traderItems3;
+    static List<Item> traderItems1, traderItems2, traderItems3; // Инвентари торговцев
 
     static class World {
-        int difficult;
+        private int difficult;
         static short[][] map;
         List<Quest> questList;
 
-        World() {
+        World(int difficult) {
+            this.difficult = difficult;
             map = new short[32][32];
             fillArr();
+        }
+
+        public int getDifficult() {
+            return difficult;
         }
     }
 
@@ -89,45 +94,53 @@ class GameClasses {
         }
     }
 
-    abstract static class Hero {
+    static class Hero {
         List<Item> inventory;
         String name;
         Quest quest;
         Weapon weapon;
         Armor armor;
-        int money, hp, mana, karma, strength, perception, endurance, charisma, intelligence, agility, luck, x, y, hp_max, mana_max;
+        int money, hp, mana, strength, perception, endurance, charisma, intelligence, agility, luck, x, y, hp_max, mana_max;
         double critical_multipler;
-    }
 
-    static class Warrior extends Hero {
-        Warrior() {
-            this.weapon = new Weapon(2, "Деревянная палка", 2, 0.05);
-            this.armor = new Armor(1, "Рваный балахон", 1);
-            this.money = 5;
-            this.hp = 150;
-            this.hp_max = 150;
-            this.mana = 0;
-            this.mana_max = 0;
-            this.karma = 50;
-            this.x = (int) (Math.random() * 15 + 5);
-            this.y = (int) (Math.random() * 15 + 5);
-            this.critical_multipler = 1.8;
+        public void setWeapon(Weapon weapon) {
+            this.weapon = weapon;
         }
-    }
 
-    static class Mage extends Hero {
-        Mage() {
-            this.weapon = new Weapon(2, "Деревянная палка", 2, 0.05);
-            this.armor = new Armor(1, "Рваный балахон", 1);
-            this.money = 5;
-            this.hp = 100;
-            this.hp_max = 100;
-            this.mana = 100;
-            this.mana_max = 100;
-            this.karma = 50;
-            this.x = (int) (Math.random() * 15 + 5);
-            this.y = (int) (Math.random() * 15 + 5);
-            this.critical_multipler = 1.4;
+        public void setArmor(Armor armor) {
+            this.armor = armor;
+        }
+
+        public void setMoney(int money) {
+            this.money = money;
+        }
+
+        public void setHp(int hp) {
+            this.hp = hp;
+        }
+
+        public void setMana(int mana) {
+            this.mana = mana;
+        }
+
+        public void setX(int x) {
+            this.x = x;
+        }
+
+        public void setY(int y) {
+            this.y = y;
+        }
+
+        public void setHp_max(int hp_max) {
+            this.hp_max = hp_max;
+        }
+
+        public void setMana_max(int mana_max) {
+            this.mana_max = mana_max;
+        }
+
+        public void setCritical_multipler(double critical_multipler) {
+            this.critical_multipler = critical_multipler;
         }
     }
 
@@ -227,7 +240,7 @@ class GameClasses {
         }
     }
 
-    private static void fillArr() {
+    private static void fillArr() { // Заполнение карты событиями в начале игры
         int count = 0, count1 = 1;
         short p = 0, k = 0;
         int[] events = new int[5];

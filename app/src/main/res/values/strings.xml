@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Overthrown</string>
+    <string name="app_name" translatable="false">OverThrown</string>
     <string name="New_game">Start</string>
     <string name="Contin">Continue</string>
     <string name="Settings">Settings</string>
@@ -7,6 +7,8 @@
     <string name="Exit">Exit</string>
     <string name="title_activity_scrolling">Prologue</string>
     <string name="story" translatable="false">
+        \t[Прежде чем вы вступите в мир OverThrown: Многие вещи не столь очевидны, как кажутся. Чтобы подробнее разузнать о чём-либо, будь то кнопка, надпись или оружие, коснитесь и удерживайте этот элемент, и тогда появится окно с пояснением или описанием.]\n\n\n
+        \t\t\tПролог\n\n
         \tВы законный наследник престола королевства Четырёх земель.\n
         \tНарод обожал Вас за мудрые решения, справедливость и человеческие качества.\n
         \tНо в один день всё изменилось: Вас оклеветали, предоставив фальсифицированные, но убедительные доказательства преступлений, которых вы, разумеется, не совершали.\n
@@ -16,7 +18,7 @@
         \tНа казни выяснилось, что виновник волнений и бессмысленной гибели многих людей - Ваш брат.\n
         \tВас вешали в числе последних и наёмники, работавшие на Вашего брата и организовавшие революцию, не удосужились проверить пульс, решили, что вы мертвы и погрузили Ваше тело в телегу с трупами.\n
         \tВы приходите в себя, лёжа на горе гниющих тел. На вас рваный балахон, а из оружия только лежавшая в нескольких метрах палка. Вам предстоит пройти долгий и нелёгкий путь, чтобы вернуть себе престол. Вы готовы?\n
-        \n\n\n
+        \n\n\t[Нажмите для продолжения...]\n\n\n
     </string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_main_game" translatable="false">MainGame</string>
@@ -32,8 +34,7 @@
     <string name="choose_class_string">Choose class</string>
     <string name="map_word">Map</string>
     <string name="inv_word">Inventory</string>
-    <string name="no_word">No</string>
-    <string name="yes_word">Yes</string>
+    <string name="yes_word">Let the Adventure Begin!</string>
     <string name="get_lost_string">%1$s, You definitely got lost. Try another way.</string>
     <string name="winter_walk_string" translatable="false">%1$s , Вы бредёте по снежной долине, ни на что не натыкаясь.</string>
     <string name="desert_walk_string" translatable="false">%1$s , Вы бредёте по пустыне, ни на что не натыкаясь.</string>
@@ -75,5 +76,19 @@
     <string name="lack_of_agility_string" translatable="false">У вас уже 0 лоакости</string>
     <string name="lack_of_luck_string" translatable="false">У вас уже 0 удачи</string>
     <string name="points_left_string" translatable="false">У вас остались нераспределённые очки</string>
-    <string name="devs_names_string" translatable="false">Захаркин Пётр Павлович\nОвчин Михаил Александрович</string>
+    <string name="title_activity_fullscreen" translatable="false">FullscreenActivity</string>
+    <string name="dummy_button" translatable="false">Dummy Button</string>
+    <string name="dummy_content" translatable="false">DUMMY\nCONTENT</string>
+    <string name="luck_inv_string">Luck:</string>
+    <string name="agility_inv_string">Agility:</string>
+    <string name="intelligence_inv_string">Intelligence:</string>
+    <string name="charisma_inv_string">Charisma:</string>
+    <string name="endurance_inv_string">Endurance:</string>
+    <string name="perception_inv_string">Perception:</string>
+    <string name="strength_inv_string">Strength:</string>
+    <string name="gold_inv_string">Gold:</string>
+    <string name="mana_inv_string">Mana:</string>
+    <string name="hp_inv_string" translatable="false">HP:</string>
+    <string name="click_to_begin_string">Click to begin</string>
+    <string name="prologue_string">Prologue</string>
 </resources>

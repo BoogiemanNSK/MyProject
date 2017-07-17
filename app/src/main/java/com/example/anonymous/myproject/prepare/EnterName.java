@@ -22,6 +22,9 @@ public class EnterName extends AppCompatActivity {
     Button enter;
 
     @Override
+    public void onBackPressed() {}
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().getDecorView().setSystemUiVisibility(

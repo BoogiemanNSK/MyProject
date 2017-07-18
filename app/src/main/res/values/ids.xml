@@ -14,4 +14,11 @@
     <item name="agility_minus" type="id" />
     <item name="luck_plus" type="id" />
     <item name="luck_minus" type="id" />
+    <item name="strength_tv_dsc" type="id" />
+    <item name="perception__tv_dsc" type="id" />
+    <item name="endurance_tv_dsc" type="id" />
+    <item name="charisma_tv_dsc" type="id" />
+    <item name="intelligence_tv_dsc" type="id" />
+    <item name="agility_tv_dsc" type="id" />
+    <item name="luck_tv_dsc" type="id" />
 </resources>

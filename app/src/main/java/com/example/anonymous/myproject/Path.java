@@ -1,7 +1,9 @@
 package com.example.anonymous.myproject;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -16,8 +18,11 @@ import java.util.ArrayList;
 
 public class Path extends AppCompatActivity implements View.OnClickListener {
 
+    private final int INVENTORY = 1, JOURNAL = 2, MAP = 3;
+
+    View view;
     private static LinearLayout scrollView;
-    private static TextView tv;
+    private static TextView tv, tv_dsc;
     private static Button forward, back, left, right, btn;
     LinearLayout mainLL;
     ImageButton map, inventory, journal;
@@ -143,8 +148,69 @@ public class Path extends AppCompatActivity implements View.OnClickListener {
         Logic.isCaveBearDefeated = false;
         Logic.isMagnusStaffFound = false;
 
-        tv.setText("Добро пожаловать в Overthrown! Для того чтобы узнать ваше местоположение, используйте карту, а чтобы менять оружие, броню, пить напитики" +
-                " или узнать свои хар-ки, зайдите в инвентарь.\nДля перемещения по миру нажимайте на соответственные кнопки внизу.");
+        tv.setText(getString(R.string.dsc_path));
+
+        inventory.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                showDialog(INVENTORY);
+                return false;
+            }
+        });
+
+        journal.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                showDialog(JOURNAL);
+                return false;
+            }
+        });
+
+        map.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                showDialog(MAP);
+                return false;
+            }
+        });
+    }
+
+    protected Dialog onCreateDialog(int id) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(Path.this);
+        switch (id) {
+            case INVENTORY:
+                builder.setTitle(getString(R.string.inv_word));
+                break;
+            case JOURNAL:
+                builder.setTitle(getString(R.string.journal_word));
+                break;
+            case MAP:
+                builder.setTitle(getString(R.string.map_word));
+                break;
+            default:
+                break;
+        }
+        view = getLayoutInflater().inflate(R.layout.dialog, null);
+        builder.setView(view);
+        tv_dsc = (TextView) view.findViewById(R.id.description);
+        return builder.create();
+    }
+
+    protected void onPrepareDialog(int id, Dialog dialog) {
+        super.onPrepareDialog(id, dialog);
+        switch (id) {
+            case INVENTORY:
+                tv_dsc.setText(getString(R.string.dsc_inventory));
+                break;
+            case JOURNAL:
+                tv_dsc.setText(getString(R.string.dsc_journal));
+                break;
+            case MAP:
+                tv_dsc.setText(getString(R.string.dsc_map));
+                break;
+            default:
+                break;
+        }
     }
 
     public static void onDeath(final Context context) {

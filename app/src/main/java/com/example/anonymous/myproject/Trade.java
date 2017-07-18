@@ -1,5 +1,7 @@
 package com.example.anonymous.myproject;
 
+import android.app.Dialog;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,13 +16,15 @@ import java.util.List;
 
 public class Trade extends AppCompatActivity {
 
+    View view;
     ItemAdapter sellAdapter, buyAdapter;
-    TextView heroNameTV, traderNameTV, summaryTV;
+    TextView heroNameTV, traderNameTV, summaryTV, tv_dsc;
     ListView buyList, sellList;
     Button tradeButton, exitButton;
     List<GameClasses.Item> traderItems;
     static List<GameClasses.Item> itemsToBuy, itemsToSell;
     int sum = 0;
+    final private int TRADE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -128,6 +132,40 @@ public class Trade extends AppCompatActivity {
                 }
             }
         });
+
+        tradeButton.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                showDialog(TRADE);
+                return false;
+            }
+        });
+    }
+
+    protected Dialog onCreateDialog(int id) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(Trade.this);
+        switch (id) {
+            case TRADE:
+                builder.setTitle(getString(R.string.trade_string));
+                break;
+            default:
+                break;
+        }
+        view = getLayoutInflater().inflate(R.layout.dialog, null);
+        builder.setView(view);
+        tv_dsc = (TextView) view.findViewById(R.id.description);
+        return builder.create();
+    }
+
+    protected void onPrepareDialog(int id, Dialog dialog) {
+        super.onPrepareDialog(id, dialog);
+        switch (id) {
+            case TRADE:
+                tv_dsc.setText(getString(R.string.dsc_trade));
+                break;
+            default:
+                break;
+        }
     }
 
     private boolean searchList(List<GameClasses.Item> list, String name) {

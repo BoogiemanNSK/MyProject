@@ -1,6 +1,8 @@
 package com.example.anonymous.myproject;
 
+import android.app.Dialog;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -26,14 +28,16 @@ public class Fight extends AppCompatActivity implements View.OnClickListener {
         }
     }
 
+    View view;
     ProgressTextView heroHP, heroArmor, heroMana, enemyHP, enemyArmor;
-    TextView battleLog, heroName, enemyName;
+    TextView battleLog, heroName, enemyName, tv_dsc;
     ImageButton attack, inventory;
     ScrollView fightScrollView;
     Button exit;
     List<Enemy> enemyList;
     Enemy enemy;
     int heroTempArmor = Path.king.armor.armor, enemyNum;
+    final private int ATTACK = 1, INVENTORY = 2;
 
     @Override
     public void onBackPressed() {}
@@ -83,6 +87,54 @@ public class Fight extends AppCompatActivity implements View.OnClickListener {
         inventory.setOnClickListener(this);
 
         fightScrollView.setSmoothScrollingEnabled(true);
+
+        attack.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                showDialog(ATTACK);
+                return false;
+            }
+        });
+
+        inventory.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                showDialog(INVENTORY);
+                return false;
+            }
+        });
+    }
+
+    protected Dialog onCreateDialog(int id) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(Fight.this);
+        switch (id) {
+            case ATTACK:
+                builder.setTitle(getString(R.string.attack_word));
+                break;
+            case INVENTORY:
+                builder.setTitle(getString(R.string.inv_word));
+                break;
+            default:
+                break;
+        }
+        view = getLayoutInflater().inflate(R.layout.dialog, null);
+        builder.setView(view);
+        tv_dsc = (TextView) view.findViewById(R.id.description);
+        return builder.create();
+    }
+
+    protected void onPrepareDialog(int id, Dialog dialog) {
+        super.onPrepareDialog(id, dialog);
+        switch (id) {
+            case ATTACK:
+                tv_dsc.setText(getString(R.string.dsc_attack));
+                break;
+            case INVENTORY:
+                tv_dsc.setText(getString(R.string.dsc_inventory));
+                break;
+            default:
+                break;
+        }
     }
 
     void setNewEnemy(int i) {

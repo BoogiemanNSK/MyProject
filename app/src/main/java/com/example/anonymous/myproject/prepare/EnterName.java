@@ -1,6 +1,8 @@
 package com.example.anonymous.myproject.prepare;
 
+import android.app.Dialog;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -14,10 +16,13 @@ import com.example.anonymous.myproject.R;
 
 public class EnterName extends AppCompatActivity {
 
+    final int EASY = 1, NORMAL = 2, HARD = 3;
+
     private int difficult, class_num;
     private String name;
 
-    TextView tv2, tv_name, tv_empty;
+    View view;
+    TextView tv2, tv_name, tv_empty, tv_dsc;
     EditText et;
     Button enter;
 
@@ -63,6 +68,44 @@ public class EnterName extends AppCompatActivity {
         });
     }
 
+    protected Dialog onCreateDialog(int id) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(EnterName.this);
+        switch (id) {
+            case EASY:
+                builder.setTitle(getString(R.string.word_easy));
+                break;
+            case NORMAL:
+                builder.setTitle(getString(R.string.word_normal));
+                break;
+            case HARD:
+                builder.setTitle(getString(R.string.word_hard));
+                break;
+            default:
+                break;
+        }
+        view = getLayoutInflater().inflate(R.layout.dialog, null);
+        builder.setView(view);
+        tv_dsc = (TextView) view.findViewById(R.id.description);
+        return builder.create();
+    }
+
+    protected void onPrepareDialog(int id, Dialog dialog) {
+        super.onPrepareDialog(id, dialog);
+        switch (id) {
+            case EASY:
+                tv_dsc.setText(getString(R.string.dsc_easy));
+                break;
+            case NORMAL:
+                tv_dsc.setText(getString(R.string.dsc_normal));
+                break;
+            case HARD:
+                tv_dsc.setText(getString(R.string.dsc_hard));
+                break;
+            default:
+                break;
+        }
+    }
+
     public void difficultChoose() {
         tv_name.setText(getString(R.string.choose_difficult_string));
         tv2.setText("");
@@ -82,7 +125,7 @@ public class EnterName extends AppCompatActivity {
         easy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                difficult = 1;
+                difficult = EASY;
 
                 easy.setVisibility(View.GONE);
                 hard.setVisibility(View.GONE);
@@ -95,7 +138,7 @@ public class EnterName extends AppCompatActivity {
         normal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                difficult = 2;
+                difficult = NORMAL;
 
                 easy.setVisibility(View.GONE);
                 hard.setVisibility(View.GONE);
@@ -108,13 +151,37 @@ public class EnterName extends AppCompatActivity {
         hard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                difficult = 3;
+                difficult = HARD;
 
                 easy.setVisibility(View.GONE);
                 hard.setVisibility(View.GONE);
                 normal.setVisibility(View.GONE);
 
                 classChoose();
+            }
+        });
+
+        easy.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                showDialog(EASY);
+                return false;
+            }
+        });
+
+        normal.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                showDialog(NORMAL);
+                return false;
+            }
+        });
+
+        hard.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                showDialog(HARD);
+                return false;
             }
         });
     }

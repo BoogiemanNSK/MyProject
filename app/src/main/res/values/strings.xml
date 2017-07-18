@@ -6,20 +6,6 @@
     <string name="About_developers">Developers</string>
     <string name="Exit">Exit</string>
     <string name="title_activity_scrolling">Prologue</string>
-    <string name="story" translatable="false">
-        \t[Прежде чем вы вступите в мир OverThrown: Многие вещи не столь очевидны, как кажутся. Чтобы подробнее разузнать о чём-либо, будь то кнопка, надпись или оружие, коснитесь и удерживайте этот элемент, и тогда появится окно с пояснением или описанием.]\n\n\n
-        \t\t\tПролог\n\n
-        \tВы законный наследник престола королевства Четырёх земель.\n
-        \tНарод обожал Вас за мудрые решения, справедливость и человеческие качества.\n
-        \tНо в один день всё изменилось: Вас оклеветали, предоставив фальсифицированные, но убедительные доказательства преступлений, которых вы, разумеется, не совершали.\n
-        \tНарод обвинил Вас и некоторых других высокопоставленных господ во множественных судебных ошибках: ошибочные казни, неверные сроки заключения и каторги, получение взяток за смягчение приговора.\n
-        \tВсё это было очень убедительной, но всё-таки ложью.\n
-        \tРазгорелись волнения, начались мятежи в ходе которых произошёл государственный переворот, вы оказались в тюрьме, ожидая смертной казни. В один день свершилась казнь всех обвинённых в этом деле.\n
-        \tНа казни выяснилось, что виновник волнений и бессмысленной гибели многих людей - Ваш брат.\n
-        \tВас вешали в числе последних и наёмники, работавшие на Вашего брата и организовавшие революцию, не удосужились проверить пульс, решили, что вы мертвы и погрузили Ваше тело в телегу с трупами.\n
-        \tВы приходите в себя, лёжа на горе гниющих тел. На вас рваный балахон, а из оружия только лежавшая в нескольких метрах палка. Вам предстоит пройти долгий и нелёгкий путь, чтобы вернуть себе престол. Вы готовы?\n
-        \n\n\t[Нажмите для продолжения...]\n\n\n
-    </string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_main_game" translatable="false">MainGame</string>
     <string name="title_activity_enter_name" translatable="false">EnterName</string>
@@ -36,15 +22,6 @@
     <string name="inv_word">Inventory</string>
     <string name="yes_word">Let the Adventure Begin!</string>
     <string name="get_lost_string">%1$s, You definitely got lost. Try another way.</string>
-    <string name="winter_walk_string" translatable="false">%1$s , Вы бредёте по снежной долине, ни на что не натыкаясь.</string>
-    <string name="desert_walk_string" translatable="false">%1$s , Вы бредёте по пустыне, ни на что не натыкаясь.</string>
-    <string name="forest_walk_string" translatable="false">%1$s , Вы бредёте по лесу, ни на что не натыкаясь.</string>
-    <string name="mountains_walk_string" translatable="false">%1$s, Вы бредёте по горам, ни на что не натыкаясь.</string>
-    <string name="magnus_event_string" translatable="false">%1$s, Вы натыкаетесь на великую башню Магнуса. Потрясающее явление и очень редкое.</string>
-    <string name="bandits_event_string" translatable="false">%1$s, неожиданно на Вас выскакивает шайка бандитов. Ничего не остаётся, кроме как принять бой.</string>
-    <string name="tavern_event_string" translatable="false">%1$s, перед Вами врдуг появляется уютная таверна.</string>
-    <string name="cave_event_string" translatable="false">%1$s, Вы выходите прямиком к тёмной пещере.</string>
-    <string name="rainbow_event_string" translatable="false">%1$s, Вы видите радугу. Мило.</string>
     <string name="enter_word">Enter</string>
     <string name="strength_abilities">Strength</string>
     <string name="perception_abilities">Perception</string>
@@ -63,8 +40,6 @@
     <string name="trade_sum_string">SUMMARY</string>
     <string name="trade_string">Trade</string>
     <string name="journal_word">Journal</string>
-    <string name="main_quest_first_step" translatable="false">Вам нужна какая-то невероятная сила, чтобы победить брата… Попробуйте поспрашивать барменов в тавернах.</string>
-    <string name="main_quest_second_step" translatable="false">Бармен рассказал о какой-то силе, известной магу Магнусу… Вам непременно нужно его навестить.</string>
     <string name="quest_path_string">Quest Path</string>
     <string name="already_ten_string" translatable="false">Нельзя вложить более 10 очков в навык</string>
     <string name="lack_of_points_string" translatable="false">У вас закончились очки</string>
